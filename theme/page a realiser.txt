@@ -1,0 +1,21 @@
+page d'accueil planning 
+
+Admin
+	* Choix client
+		- formulaire resevation des salles
+			~ Date debut - fin
+			~ n°, nom de la salle
+			~ gestion des reservations 
+			~ commentaires
+		- Modif / annule reservation
+		- Visualisation des factures 
+			~ Encours 
+			~ Echus
+
+SuperAdmin
+	* Gestion des droits
+	* Gestion des clients
+	* Gestion des salles
+	* Gestion des categorie de salle
+	* Gestion des reservations
+	* Gestion des facturation (remises)
