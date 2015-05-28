@@ -1,0 +1,9 @@
+methode modele :
+	getAll() : Objet;
+	add() : Bool;
+	getById(Int) : Objet;
+	delete(int) : Bool;
+	update()
+methode reservation :
+	getBy(colonne, valeur) : Objet;
+		

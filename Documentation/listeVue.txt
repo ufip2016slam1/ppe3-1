@@ -1,0 +1,10 @@
+liste vue
+	connexion
+	inscription
+	gabarit
+	accueil (affiche calandrier de reservation)
+	ajouter/modifier/supprimer
+		Categorie
+		Client
+		Salle
+		Reservation
