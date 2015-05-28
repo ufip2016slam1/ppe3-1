@@ -1,5 +1,10 @@
 <?php
-// Note : Smarty a un 'S' majuscule
-require_once('libs/Smarty.class.php');
-$smarty = new Smarty();
-?>
+
+// Contrôleur frontal : instancie un routeur pour traiter la requête entrante
+
+require 'Framework/Routeur.php';
+
+$routeur = new Routeur();
+$routeur->routerRequete();
+
+
