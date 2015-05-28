@@ -17,6 +17,8 @@
 		Routeur.php
 		Vue.php
 	Modele/
+		Modele.php
+		Reservation.php
 	Vue/
 	.htaccess
 	index.php
