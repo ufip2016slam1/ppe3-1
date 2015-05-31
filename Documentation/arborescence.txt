@@ -18,8 +18,13 @@
 		Routeur.php
 		Vue.php
 	Modele/
+		Categorie.php
+		Client.php
+		Facture.php
 		Modele.php
 		Reservation.php
+		Salle.php
+		User.php
 	Vue/
 	.htaccess
 	index.php

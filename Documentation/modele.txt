@@ -1,9 +1,11 @@
 methode modele :
 	getAll() : Objet;
-	add() : Bool;
-	getById(Int) : Objet;
-	delete(int) : Bool;
-	update()
+	add(Array formulaire) : Bool;
+	getById(Int id) : Objet;
+	delete(Int id) : Bool;
+	update(String colonne, String valeur, Int id) : Bool;
 methode reservation :
-	getBy(colonne, valeur) : Objet;
+	constructeur(?) : Void;
+	add() : Bool;
+	getBy(String colonne, String valeur) : Objet;
 		
