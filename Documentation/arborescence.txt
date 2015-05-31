@@ -5,6 +5,7 @@
 	Contenu/
 	Controleur/
 		ControleurUser.php
+		ControleurReservation.php
 	Documentation/
 		arborescence.txt
 		listeVue.txt
