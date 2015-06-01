@@ -2,10 +2,10 @@ methode modele :
 	getAll() : Objet;
 	add(Array formulaire) : Bool;
 	getById(Int id) : Objet;
+	getBy(String colonne, String valeur) : Objet;
 	delete(Int id) : Bool;
 	update(String colonne, String valeur, Int id) : Bool;
 methode reservation :
 	constructeur(?) : Void;
 	add() : Bool;
-	getBy(String colonne, String valeur) : Objet;
-		
+	getByPeriode(Datetime dbt, Datetime fin) : Objet;

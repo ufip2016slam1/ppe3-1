@@ -2,21 +2,17 @@
 
 /**
 *
-* Le constructeur (Date, Date, Date, Date, Int, Int, Int, Int)
-*						OU (A voir)
-* Le constructeur (Array)
-*						OU
 * Le constructeur ()
 *
 * Liste des fonctions disponible dans cet classe
 *       add() : Bool;
-*       getBy(String, String) : Objet;
+*       getByPeriode(Datetime, Datetime) : Objet;
 *       tout les guetteurs et setteurs
 *
 **/
 
 // includes
-require_once('Modele.php');
+require_once('Framework/Modele.php');
 
 class Reservation extends Modele {
 	// Variables
@@ -43,77 +39,62 @@ class Reservation extends Modele {
 	 */
 	private $id_facture;
 
+    /*
+    * Nom de la table de la BDD utilisé dans cet classe
+    */
 	protected $_table = 'reservation';
 
 	// Fonctions
 
 	/**
 	*
-	* Constructeur initialise toute les variables sauf id_facture
+	* Constructeur Ne fait rien de particulier =/
 	*
 	**/
 	
-	public function __construct(/*$dd, $df, $dr, $ir, $is, $iu, $ic*/) {
-		/*$this->seDate_dbt($dd);
-		$this->setDate_fin($df);
-		$this->setDate_reserv($dr);
-		//$this->setDate_annule($da);
-		$this->setId_repeat($ir);
-		$this->setId_salle($is);
-		$this->setId_user($iu);
-		$this->setId_client($ic);*/
-		//$this->setId_facture($if);
+	public function __construct() {
 	}
-	/*
-							OU
-
-	public function __construct($table) {
-		foreach($table as $key => $value)
-			$this->$key = $value;
-	}
-	*/
 
 	/**
 	*
 	* Fonction add de la classe Reservation
 	* Range toute les variables dans un tableau et l'ajoute a la BDD
 	* 
+    * @param array tableau Tableau des données du formulaire
 	* @return Bool Réussite de la requete
 	**/
 	
-	public function add() {
+	public function add($tableau = Null) {
 		$tab = array(
-			'date_dbt' => $date_dbt,
-			'date_fin' => $date_fin,
-			'date_reserv' => $date_reserv,
-			'date_annule' => NULL,
-			'id_repeat' => $id_repeat,
-			'id_salle' => $id_salle,
-			'id_user' => $id_user,
-			'id_client' => $id_client,
-			'id_facture' => NULL,
+			'date_dbt' => $this->date_dbt,
+			'date_fin' => $this->date_fin,
+			'date_reserv' => $this->date_reserv,
+			'date_annule' => $this->date_annule,
+            'id_user' => $this->id_user,
+            'id_salle' => $this->id_salle,
+            'id_client' => $this->id_client,
 		);
 		$retour = parent::add($tab);
 		return $retour;
 	}
 
-	/**
+    /**
     *
-    * Fonction getBy retoune un element en fonction d'une valeur
-    *
-    * @param string colonne Nom de la colonne ou effectuer les changements
-    * @param string valeur Valeur des elements a sélectionner
-    * @return Objet Resultat de la requete
+    * Fonction getAllPeriode Retourne les reservation qui on débuter entre une periode
+    * 
+    * @param datetime dbt Debut de la periode
+    * @param datetime fin Fin de la periode
+    * @return Objet Resultat de la requête
     **/
-    
-    public function getBy($colonne, $valeur) {
-        $sql = 'SELECT * FROM '.$this->_table.' WHERE '.$colonne.' = :valeur';
-        $retour = $this->executerRequete($sql, array('valeur' => $valeur,));
-        $sortie = $retour->fetchObject($this->_table);
+
+    public function getByPeriode($dbt, $fin) {
+        $sql = 'SELECT * FROM '.$this->_table.' WHERE date_dbt BETWEEN :dbt AND :fin';
+        $retour = $this->executerRequete($sql, array(
+            'dbt' => $dbt, 'fin' => $fin,
+        ));
+        while ($sortie [] = $retour->fetchObject($this->_table));
         return $sortie;
     }
-
-
 
 	// Guetteur and Setteur
 
