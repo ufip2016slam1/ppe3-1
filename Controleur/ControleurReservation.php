@@ -85,7 +85,8 @@ class ControleurReservation extends Controleur
 
 	/**
 	*
-	* 
+	* si l'id_reservation est preciser 
+	* MAJ du champs annulation de la table reservation a la date de l'action d'annulation
 	*
 	**/	
 	public function annulerResevation() {
