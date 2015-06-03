@@ -75,7 +75,7 @@ abstract class Modele {
     *
     **/
 
-    public function getAll ()
+    public static function getAll ()
     {
         $sql = 'SELECT * FROM '.$this->_table;
         $retour = $this->executerRequete($sql);
@@ -104,8 +104,11 @@ abstract class Modele {
         $sql = 'INSERT INTO '.$this->_table.'('.implode(', ', array_keys($tableau))
             .') values(\''.implode('\', \'', $tableau).'\')'; // la requête SQL
         $result = $this->executerRequete($sql);
-        //$retour = $result->fetch(PDO::FETCH_BOUND); // return TRUE si réussi sinon FALSE
-        return $retour;
+        $retour = $result->rowCount(); // nombre de ligne retourné
+        if($retour == 0)
+            return false;
+        else 
+            return true; // return TRUE si réussi sinon FALSE
     }
 
     /**
@@ -116,13 +119,13 @@ abstract class Modele {
     * @return Objet Resultat de la requete
     **/
     
-    public function getById($pId) {
+    public static function getById($pId) {
         $sql = 'SELECT * FROM '.$this->_table.' WHERE id_'.$this->_table.' = :id';
         $retour = $this->executerRequete($sql, array(
             'id' => $pId,
         ));
-        $sortie = $retour->fetchObject($this->_table);
-        return $sortie;
+        $result = $retour->fetchObject($this->_table);
+        return $result;
     }
 
     /**
@@ -134,7 +137,7 @@ abstract class Modele {
     * @return Objet Resultat de la requete
     **/
     
-    public function getBy($colonne, $valeur) {
+    public static function getBy($colonne, $valeur) {
         $sql = 'SELECT * FROM '.$this->_table.' WHERE '.$colonne.' = :valeur';
         $retour = $this->executerRequete($sql, array('valeur' => $valeur,));
         while ($sortie [] = $retour->fetchObject($this->_table));
@@ -143,23 +146,26 @@ abstract class Modele {
 
     /**
     *
-    * Fonction delete supprime un element de la BDD
+    * Fonction delete Supprime un element de la BDD
     *
     * @param entier pId ID de l'element
     * @return Bool Reussite de la requete
     **/
     
-    public function delete($pId) {
+    public static function delete($pId) {
         // DELETE FROM table WHERE condition
         $sql = 'DELETE from '.$this->_table.' WHERE id_'.$this->_table.' = :id';
         $result = $this->executerRequete($sql, array('id' => $pId,)); 
-        //$retour = $result->fetch(PDO::FETCH_BOUND); // return TRUE si réussi sinon FALSE
-        return $result;
+        $retour = $result->rowCount(); // nombre de ligne retourné
+        if($retour == 0)
+            return false;
+        else 
+            return true; // return TRUE si réussi sinon FALSE
     }
 
     /**
     *
-    * Fonction update modifie la valeur d'un element
+    * Fonction update Modifie la valeur d'un element
     *
     * @param string colonne Nom de la colonne ou effectuer les changements
     * @param string valeur La valeur qui remplaceras la précédente
@@ -167,12 +173,15 @@ abstract class Modele {
     * @return Bool Reussite de la requete
     **/
     
-    public function update($colonne, $valeur, $pId) {
+    public static function update($colonne, $valeur, $pId) {
         // UPDATE table SET nom_colonne_1 = 'nouvelle valeur' WHERE condition
         $sql = 'UPDATE '.$this->_table.' SET '.$colonne.'= \''.$valeur.
         '\' WHERE id_'.$this->_table.' = :id';
         $result = $this->executerRequete($sql, array('id' => $pId)); 
-        $retour = $result->fetch(PDO::FETCH_BOUND); // return TRUE si réussi sinon FALSE
-        return $retour;    
+        $retour = $result->rowCount(); // nombre de ligne retourné
+        if($retour == 0)
+            return false;
+        else 
+            return true; // return TRUE si réussi sinon FALSE
     }
 }

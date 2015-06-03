@@ -6,7 +6,7 @@
 *
 * Liste des fonctions disponible dans cet classe
 *       add() : Bool;
-*       getByPeriode(Datetime, Datetime) : Objet;
+*       getAllPeriode(Datetime debut, Datetime fin) : Objet;
 *       tout les guetteurs et setteurs
 *
 **/
@@ -75,6 +75,7 @@ class Reservation extends Modele {
             'id_client' => $this->id_client,
 		);
 		$retour = parent::add($tab);
+        
 		return $retour;
 	}
 
@@ -87,7 +88,7 @@ class Reservation extends Modele {
     * @return Objet Resultat de la requête
     **/
 
-    public function getByPeriode($dbt, $fin) {
+    public static function getAllPeriode($dbt, $fin) {
         $sql = 'SELECT * FROM '.$this->_table.' WHERE date_dbt BETWEEN :dbt AND :fin';
         $retour = $this->executerRequete($sql, array(
             'dbt' => $dbt, 'fin' => $fin,
