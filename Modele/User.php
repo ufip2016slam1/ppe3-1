@@ -1,6 +1,6 @@
 <?php
-require_once('client.php');
-require_once('reservation.php');
+require_once('Modele/Client.php');
+require_once('Modele/Reservation.php');
 require_once('Framework/Modele.php');
 
 /**

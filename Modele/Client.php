@@ -1,6 +1,6 @@
 <?php
-require_once('user.php');
-require_once('facture.php');
+require_once('Modele/User.php');
+require_once('Modele/Facture.php');
 require_once('Framework/Modele.php');
 
 /**

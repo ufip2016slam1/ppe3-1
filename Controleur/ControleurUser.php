@@ -15,7 +15,7 @@ require_once 'Modele/User.php';
 class ControleurUser extends Controleur
 {
 	public function index() {
-		echo ('appel de la foncion index du ControleurUser');
+		$this->genererVue();
 	}
 
 	/**
