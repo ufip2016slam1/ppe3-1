@@ -20,6 +20,10 @@ class salle extends Modele {
 	 * @AssociationMultiplicity *
 	 */
 	private $numReserv = array();
+	/*
+    * Nom de la table de la BDD utilisé dans cet classe
+    */
+	protected static $_table = 'salle';
 
 	/**
 	*

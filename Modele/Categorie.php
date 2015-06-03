@@ -23,6 +23,10 @@ class categorie extends Modele {
 	 * @AssociationKind Aggregation
 	 */
 	private $salles = array();
+	/*
+    * Nom de la table de la BDD utilisé dans cet classe
+    */
+	protected static $_table = 'categorie';
 
 	// Fonctions
 

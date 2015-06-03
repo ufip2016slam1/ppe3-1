@@ -42,7 +42,7 @@ class Reservation extends Modele {
     /*
     * Nom de la table de la BDD utilisé dans cet classe
     */
-	protected $_table = 'reservation';
+	protected static $_table = 'reservation';
 
 	// Fonctions
 

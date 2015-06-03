@@ -29,7 +29,7 @@ abstract class Modele {
      /**
     * l'attribut _table doit être redefini dans les classes filles 
     **/
-    protected $_table;
+    protected static $_table;
 
     /**
      * Exécute une requête SQL

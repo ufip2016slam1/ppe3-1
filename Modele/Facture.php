@@ -14,6 +14,10 @@ class facture {
 	 * @AssociationMultiplicity 1
 	 */
 	private $client;
+	/*
+    * Nom de la table de la BDD utilisé dans cet classe
+    */
+	protected static $_table = 'facture';
 
 	// Fonctions
 

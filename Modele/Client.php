@@ -27,6 +27,10 @@ class client extends Modele {
 	 * @AssociationMultiplicity *
 	 */
 	private $numFact = array();
+	/*
+    * Nom de la table de la BDD utilisé dans cet classe
+    */
+	protected static $_table = 'client';
 
 	// Fonctions
 
