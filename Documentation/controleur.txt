@@ -1,0 +1,8 @@
+action controleur :
+	add
+	delete 
+	modifier
+
+user :
+	modifier droit
+	genere mdp

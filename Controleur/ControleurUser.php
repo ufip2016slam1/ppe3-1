@@ -4,7 +4,8 @@
 * controleur de l'ojet user
 * 	effectuer toutes les actions suivantes :
 *  		+ add : ajoute un user
-*    		- parametre $_POST -> identifiant, password, mail
+*    		- parametre @identifiant, @password, @mail
+*      	+ supprimerUser : supprimer un user
 *
 **/
 require_once 'Framework/Controleur.php';
@@ -36,5 +37,41 @@ class ControleurUser extends Controleur
 		else {
 			throw new Exception("Paramètres utilisateur incomplets");
 		}
+	}
+
+	/**
+	*
+	* si le parametre id est present on supprime le user
+	*
+	**/	
+	public function supprimerUser() {
+		if ($this->requete->existeParametre('id')) {
+			$user = new User ();
+			$user->delete($this->requete->getParametre('id'));
+		}
+	}
+
+	/**
+	*
+	* regenere un mdp aleatoire
+	*
+	**/	
+	public function nouveauMdp() {
+		if ($this->requete->existeParametre('id')) {
+			$user = new User ();
+			$user->getById($this->requete->getParametre('id'));
+			$user->setPassword(sha1($this->genererMdp()));
+		}
+	}
+
+	/**
+	*
+	* fonction priver qui genere un mot de passe de 10 caracteres
+	*
+	**/	
+	private function genererMdp () {
+		$caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&é"\'(-è_çà),;:!?./§ù%*µ$£<>';
+		$mdp = str_shuffle($caracteres);
+		return substr($mdp, 0, 10);
 	}
 }
