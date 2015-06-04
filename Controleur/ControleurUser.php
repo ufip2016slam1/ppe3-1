@@ -46,8 +46,7 @@ class ControleurUser extends Controleur
 	**/	
 	public function supprimerUser() {
 		if ($this->requete->existeParametre('id')) {
-			$user = new User ();
-			$user->delete($this->requete->getParametre('id'));
+			User::delete($this->requete->getParametre('id'));
 		}
 	}
 
@@ -58,8 +57,7 @@ class ControleurUser extends Controleur
 	**/	
 	public function nouveauMdp() {
 		if ($this->requete->existeParametre('id')) {
-			$user = new User ();
-			$user->getById($this->requete->getParametre('id'));
+			$user = User::getById($this->requete->getParametre('id'));
 			$user->setPassword(sha1($this->genererMdp()));
 		}
 	}

@@ -56,5 +56,9 @@ class Requete {
         }
     }
 
+    public function getAllParametre() {
+        return $this->parametres;
+    }
+
 }
 

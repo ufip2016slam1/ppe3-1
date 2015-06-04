@@ -19,7 +19,7 @@ require_once 'Modele/Reservation.php';
 class ControleurReservation extends Controleur
 {
 	public function index() {
-		echo ('appel de la fonction index du ControleurUser');
+		echo ('appel de la fonction index du ControleurReservation');
 	}
 
 	/**
@@ -36,7 +36,7 @@ class ControleurReservation extends Controleur
 			return $reserv->add();
 		}
 		else {
-			throw new Exception("Paramètres utilisateur incomplets");
+			throw new Exception("Paramètres reservation incomplets");
 		}
 	}
 
@@ -47,14 +47,13 @@ class ControleurReservation extends Controleur
 	*
 	**/
 	public function getReserv() {
-		$reverv = new Reservation();
-		if ($this->requete->existeParametre(array('debut', 'fin'))) {
-			$debut = $this->requete->getParametre('debut');
-			$fin = $this->requete->getParametre('fin');
-			return $reserv->getAllPeriode($debut, $fin);
+		if (!$this->requete->existeParametre(array('debut', 'fin'))) {
+			return Reservation::getAll();
 		}
 		else {
-			return $reserv->getAll();
+			$debut = $this->requete->getParametre('debut');
+			$fin = $this->requete->getParametre('fin');
+			return Reservation::getByPeriode($dbt, $fin);
 		}
 	}
 
@@ -62,23 +61,21 @@ class ControleurReservation extends Controleur
 	*
 	* il doit etre specifie id_reservation et (date_dbt ou date_fin ou id_salle)
 	* si pas d'erreur sur ces parametres les modifications sont effectuer sur l'objet reservation
-	* a l'aide de la boucle foreach pour s'adapter au nombre de parmetre
+	* a l'aide de la boucle foreach pour s'adapter au nombre de parametre
 	*
 	**/
-	
 	public function modifierReservation() {
 		if (!$this->requete->existeParametre('id_reservation'))
 			throw new Exception("Aucune reservation precisée");
 		if (!$this->requete->existeParametre('date_dbt') || !$this->requete->existeParametre('date_fin') || !$this->requete->existeParametre('id_salle'))
 			throw new Exception("Acun parametre a modifier");
 
-		$id = $this->requete->getParametre('id_reservation');
-		$reservation = new Reservation();
-		$revervation->getById($id);	
+		$id = (int)$this->requete->getParametre('id_reservation');
+		$champsModifiable = array('date_dbt', 'date_fin', 'id_salle');
 
-		foreach ($this->requete->parametre as $key => $value) {
-			if ($key == 'date_dbt' || $key == 'date_fin' || $key == 'id_salle') {
-				$reservation->update($key, $value, $id);
+		foreach ($champsModifiable as $value) {
+			if ($this->requete->existeParametre($value)) {
+				Reservation::update($value, $this->requete->getParametre($value), $id);
 			}
 		}	
 	}
@@ -94,8 +91,7 @@ class ControleurReservation extends Controleur
 			throw new Exception("Aucune reservation precisée");
 		$id = (int)$this->requete->getParametre('id_reservation');
 
-		$reservation = new Reservation();
-		$reservation->update('date_annule', date("Y-m-d H:i:s"), $id);
+		Reservation::update('date_annule', date("Y-m-d H:i:s"), $id);
 	}
 
 	/**
@@ -104,8 +100,7 @@ class ControleurReservation extends Controleur
 	*
 	**/	
 	private function getIdSalleByNom ($nom) {
-		$salle = new Salle ();
-		$salle->getBy('nom_salle',$nom);
+		Salle::getBy('nom_salle',$nom);
 		return $salle->getId_salle();
 	}
 }

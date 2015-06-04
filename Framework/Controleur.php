@@ -67,4 +67,19 @@ abstract class Controleur {
         $vue->generer($donneesVue);
     }
 
+
+    /**
+    *
+    * supprimme un element en fonction de son ID
+    * s'adapte a chaque classe grace a la fonction get_class
+    *
+    **/
+    
+    protected function supprimmer() {
+        $instance = get_class();
+        if ($this->requete->existeParametre('id_'.strtolower($instance))) {
+            $id = (int)$this->requete->getParametre('id_'.strtolower($instance));
+            $instance::delete($id);
+        }
+    }
 }
