@@ -1,4 +1,16 @@
 <?php
+
+/**
+*
+* Le constructeur ()
+*
+* Liste des fonctions disponible dans cet classe
+*       add() : Bool;
+*       tout les guetteurs et setteurs
+*
+**/
+
+// includes
 require_once('Modele/User.php');
 require_once('Modele/Facture.php');
 require_once('Framework/Modele.php');
@@ -7,7 +19,7 @@ require_once('Framework/Modele.php');
  * @access public
  * @author vincent
  */
-class client extends Modele {
+class Client extends Modele {
 	private $id_client;
 	private $nom;
 	private $prenom;
@@ -27,10 +39,6 @@ class client extends Modele {
 	 * @AssociationMultiplicity *
 	 */
 	private $numFact = array();
-	/*
-    * Nom de la table de la BDD utilisé dans cet classe
-    */
-	protected static $_table = 'client';
 
 	// Fonctions
 

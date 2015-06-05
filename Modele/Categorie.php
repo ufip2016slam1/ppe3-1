@@ -1,11 +1,24 @@
 <?php
+
+/**
+*
+* Le constructeur ()
+*
+* Liste des fonctions disponible dans cet classe
+*       add() : Bool;
+*       tout les guetteurs et setteurs
+*
+**/
+
+// includes
+require_once('Framework/Modele.php');
 require_once('salle.php');
 
 /**
  * @access public
  * @author vincent
  */
-class categorie extends Modele {
+class Categorie extends Modele {
 	/**
 	 * @AttributeType string
 	 */
@@ -23,10 +36,6 @@ class categorie extends Modele {
 	 * @AssociationKind Aggregation
 	 */
 	private $salles = array();
-	/*
-    * Nom de la table de la BDD utilisé dans cet classe
-    */
-	protected static $_table = 'categorie';
 
 	// Fonctions
 

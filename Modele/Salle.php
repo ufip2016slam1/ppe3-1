@@ -1,9 +1,22 @@
 <?php
-require_once('categorie.php');
-require_once('reservation.php');
+
+/**
+*
+* Le constructeur ()
+*
+* Liste des fonctions disponible dans cet classe
+*       add() : Bool;
+*       tout les guetteurs et setteurs
+*
+**/
+
+// includes
+require_once('Framework/Modele.php');
+require_once('Modele/Categorie.php');
+require_once('Modele/Reservation.php');
 
 
-class salle extends Modele {
+class Salle extends Modele {
     private $id_salle;
 	private $nom_salle;
 	/**
@@ -20,10 +33,6 @@ class salle extends Modele {
 	 * @AssociationMultiplicity *
 	 */
 	private $numReserv = array();
-	/*
-    * Nom de la table de la BDD utilisé dans cet classe
-    */
-	protected static $_table = 'salle';
 
 	/**
 	*

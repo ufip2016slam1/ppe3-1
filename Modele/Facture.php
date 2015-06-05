@@ -1,8 +1,21 @@
 <?php
+
+/**
+*
+* Le constructeur ()
+*
+* Liste des fonctions disponible dans cet classe
+*       add() : Bool;
+*       tout les guetteurs et setteurs
+*
+**/
+
+// includes
+require_once('Framework/Modele.php');
 require_once('Modele/Reservation.php');
 require_once('Modele/Client.php');
 
-class facture {
+class Facture extends Modele {
 	private $date_fact;
 	/**
 	 * @AssociationType reservation
@@ -14,10 +27,6 @@ class facture {
 	 * @AssociationMultiplicity 1
 	 */
 	private $client;
-	/*
-    * Nom de la table de la BDD utilisé dans cet classe
-    */
-	protected static $_table = 'facture';
 
 	// Fonctions
 

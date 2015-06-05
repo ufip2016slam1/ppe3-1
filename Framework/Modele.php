@@ -26,12 +26,6 @@ abstract class Modele {
         Statique donc partagé par toutes les instances des classes dérivées */
     private static $bdd;
 
-     /**
-    * l'attribut _table doit être redefini dans les classes filles 
-    **/
-    protected static $_table;
-    protected static $Modele;
-
     /**
      * Exécute une requête SQL
      * 
@@ -78,10 +72,10 @@ abstract class Modele {
 
     public static function getAll ()
     {
-        $sql = 'SELECT * FROM '.$this->_table;
+        $sql = 'SELECT * FROM '.strtolower(get_called_class($this));
         $retour = $this->executerRequete($sql);
 
-        while ($sortie [] = $retour->fetchObject($this->_table));
+        while ($sortie [] = $retour->fetchObject(strtolower(get_called_class($this))));
 
         return $sortie;
     }
@@ -102,7 +96,7 @@ abstract class Modele {
         *
         * INSERT INTO table(champs) VALUES(valeurs)
         */
-        $sql = 'INSERT INTO '.$this->_table.'('.implode(', ', array_keys($tableau))
+        $sql = 'INSERT INTO '.strtolower(get_called_class($this)).'('.implode(', ', array_keys($tableau))
             .') values(\''.implode('\', \'', $tableau).'\')'; // la requête SQL
         $result = $this->executerRequete($sql);
         $retour = $result->rowCount(); // nombre de ligne retourné
@@ -121,11 +115,11 @@ abstract class Modele {
     **/
     
     public static function getById($pId) {
-        $sql = 'SELECT * FROM '.$this->_table.' WHERE id_'.$this->_table.' = :id';
+        $sql = 'SELECT * FROM '.strtolower(get_called_class($this)).' WHERE id_'.strtolower(get_called_class($this)).' = :id';
         $retour = $this->executerRequete($sql, array(
             'id' => $pId,
         ));
-        $result = $retour->fetchObject($this->_table);
+        $result = $retour->fetchObject(strtolower(get_called_class($this)));
         return $result;
     }
 
@@ -139,10 +133,10 @@ abstract class Modele {
     **/
     
     public static function getBy($colonne, $valeur) {
-        $sql = 'SELECT * FROM '.self::get_class($this).' WHERE '.$colonne.' = :valeur';
+        $sql = 'SELECT * FROM '.strtolower(get_called_class($this)).' WHERE '.$colonne.' = :valeur';
         var_dump($sql);
-        $retour = self::executerRequete($sql, array('valeur' => $valeur,));
-        while ($sortie [] = $retour->fetchObject(User::$_table));
+        $retour = $this->executerRequete($sql, array('valeur' => $valeur,));
+        while ($sortie [] = $retour->fetchObject(strtolower(get_called_class($this))));
         if (sizeof($sortie) == 2)
             return $sortie[0];
         return $sortie;
@@ -158,7 +152,7 @@ abstract class Modele {
     
     public static function delete($pId) {
         // DELETE FROM table WHERE condition
-        $sql = 'DELETE from '.$this->_table.' WHERE id_'.$this->_table.' = :id';
+        $sql = 'DELETE from '.strtolower(get_called_class($this)).' WHERE id_'.strtolower(get_called_class($this)).' = :id';
         $result = $this->executerRequete($sql, array('id' => $pId,)); 
         $retour = $result->rowCount(); // nombre de ligne retourné
         if($retour == 0)
@@ -179,8 +173,8 @@ abstract class Modele {
     
     public static function update($colonne, $valeur, $pId) {
         // UPDATE table SET nom_colonne_1 = 'nouvelle valeur' WHERE condition
-        $sql = 'UPDATE '.$this->_table.' SET '.$colonne.'= \''.$valeur.
-        '\' WHERE id_'.$this->_table.' = :id';
+        $sql = 'UPDATE '.strtolower(get_called_class($this)).' SET '.$colonne.'= \''.$valeur.
+        '\' WHERE id_'.strtolower(get_called_class($this)).' = :id';
         $result = $this->executerRequete($sql, array('id' => $pId)); 
         $retour = $result->rowCount(); // nombre de ligne retourné
         if($retour == 0)

@@ -39,11 +39,6 @@ class Reservation extends Modele {
 	 */
 	private $id_facture;
 
-    /*
-    * Nom de la table de la BDD utilisé dans cet classe
-    */
-	protected static $_table = 'reservation';
-
 	// Fonctions
 
 	/**
@@ -89,11 +84,11 @@ class Reservation extends Modele {
     **/
 
     public static function getAllPeriode($dbt, $fin) {
-        $sql = 'SELECT * FROM '.$this->_table.' WHERE date_dbt BETWEEN :dbt AND :fin';
+        $sql = 'SELECT * FROM '.strtolower(get_called_class($this)).' WHERE date_dbt BETWEEN :dbt AND :fin';
         $retour = $this->executerRequete($sql, array(
             'dbt' => $dbt, 'fin' => $fin,
         ));
-        while ($sortie [] = $retour->fetchObject($this->_table));
+        while ($sortie [] = $retour->fetchObject(strtolower(get_called_class($this))));
         return $sortie;
     }
 

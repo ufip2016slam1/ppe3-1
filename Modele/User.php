@@ -1,4 +1,19 @@
 <?php
+
+/**
+*
+* Le constructeur ()
+*
+* Liste des fonctions disponible dans cet classe
+*       add() : Bool;
+*		addClient(string $PClient, int $PDroit) : void;
+*		getClient() : void;
+*		deleteClient(string $PClient) : void;
+*       tout les guetteurs et setteurs
+*
+**/
+
+// includes
 require_once('Modele/Client.php');
 require_once('Modele/Reservation.php');
 require_once('Framework/Modele.php');
@@ -14,7 +29,7 @@ require_once('Framework/Modele.php');
 *
 **/
 
-class user extends Modele {
+class User extends Modele {
 	private $id_user;
 	private $identifiant;
 	private $password;
@@ -29,10 +44,6 @@ class user extends Modele {
 	 * @AssociationMultiplicity *
 	 */
 	private $numReserv = array();
-	/*
-    * Nom de la table de la BDD utilisé dans cet classe
-    */
-	protected static $User ;
 
 	// Fonctions
 
@@ -100,7 +111,7 @@ class user extends Modele {
 	**/
 	
 	public function deleteClient($PClient) {
-
+		unset($this->client[$PClient]);
 	}
 
 	// Guetteurs et Setteurs
