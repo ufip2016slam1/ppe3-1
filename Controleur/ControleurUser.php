@@ -62,6 +62,20 @@ class ControleurUser extends Controleur
 		}
 	}
 
+    public function connexion() {
+        if ($this->requete->existeParametre(array('email','password'))) {
+            $user = User::getBy('mail', $this->requete->getParametre('email'));
+            var_dump($user);
+            if ($user->getPassword() === sha1($this->requete->getParametre('password'))) {
+                var_dump('OK');
+            }
+            else {
+                var_dump();
+                var_dump('erreur mdp');
+            }
+        }
+    }
+
 	/**
 	*
 	* fonction priver qui genere un mot de passe de 10 caracteres

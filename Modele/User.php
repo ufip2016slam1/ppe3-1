@@ -32,7 +32,7 @@ class user extends Modele {
 	/*
     * Nom de la table de la BDD utilisé dans cet classe
     */
-	protected static $_table = 'user';
+	protected static $User ;
 
 	// Fonctions
 

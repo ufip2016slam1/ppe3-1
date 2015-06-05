@@ -30,6 +30,7 @@ abstract class Modele {
     * l'attribut _table doit être redefini dans les classes filles 
     **/
     protected static $_table;
+    protected static $Modele;
 
     /**
      * Exécute une requête SQL
@@ -138,9 +139,12 @@ abstract class Modele {
     **/
     
     public static function getBy($colonne, $valeur) {
-        $sql = 'SELECT * FROM '.$this->_table.' WHERE '.$colonne.' = :valeur';
-        $retour = $this->executerRequete($sql, array('valeur' => $valeur,));
-        while ($sortie [] = $retour->fetchObject($this->_table));
+        $sql = 'SELECT * FROM '.self::get_class($this).' WHERE '.$colonne.' = :valeur';
+        var_dump($sql);
+        $retour = self::executerRequete($sql, array('valeur' => $valeur,));
+        while ($sortie [] = $retour->fetchObject(User::$_table));
+        if (sizeof($sortie) == 2)
+            return $sortie[0];
         return $sortie;
     }
 

@@ -27,13 +27,13 @@
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">pour demarer ta session</p>
-        <form action="../../index2.html" method="post"><!--GAUTIER-->
+        <form action="?controleur=user&action=connexion" method="post"><!--GAUTIER-->
           <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Email"/>
+            <input type="email" class="form-control" placeholder="Email" name="email"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Mot de passe"/>
+            <input type="password" class="form-control" placeholder="Mot de passe" name="password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="row">
