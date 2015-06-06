@@ -18,6 +18,9 @@ require_once 'Modele/Reservation.php';
 
 class ControleurReservation extends Controleur
 {
+
+    public static $champsModifiable = array('date_dbt', 'date_fin', 'id_salle');
+
 	public function index() {
 		echo ('appel de la fonction index du ControleurReservation');
 	}
@@ -32,7 +35,7 @@ class ControleurReservation extends Controleur
 			$reserv->setDate_dbt($requete->getParametre('date_dbt'));
 			$reserv->setDate_fin($requete->getParametre('date_fin'));
 			$reserv->setId_salle($this->getIdSalleByNom($requete->getParametre('nom_salle')));
-			$reserv->setId_user($_SESSION['user']);
+			$reserv->setId_user($_SESSION['user']->getIdUser());
 			return $reserv->add();
 		}
 		else {
@@ -53,32 +56,20 @@ class ControleurReservation extends Controleur
 		else {
 			$debut = $this->requete->getParametre('debut');
 			$fin = $this->requete->getParametre('fin');
-			return Reservation::getByPeriode($dbt, $fin);
+			return Reservation::getByPeriode($debut, $fin);
 		}
 	}
 
-	/**
-	*
-	* il doit etre specifie id_reservation et (date_dbt ou date_fin ou id_salle)
-	* si pas d'erreur sur ces parametres les modifications sont effectuer sur l'objet reservation
-	* a l'aide de la boucle foreach pour s'adapter au nombre de parametre
-	*
-	**/
-	public function modifierReservation() {
-		if (!$this->requete->existeParametre('id_reservation'))
-			throw new Exception("Aucune reservation precisée");
-		if (!$this->requete->existeParametre('date_dbt') || !$this->requete->existeParametre('date_fin') || !$this->requete->existeParametre('id_salle'))
-			throw new Exception("Acun parametre a modifier");
+    public function ajaxGetReserv() {
+        /*var_dump(Reservation::getAll());
+        $res = Reservation::getAll();
+        echo (json_encode ($res,JSON_FORCE_OBJECT));
+        return Reservation::getAll();*/
+        $c = array(array(1,2,3));
 
-		$id = (int)$this->requete->getParametre('id_reservation');
-		$champsModifiable = array('date_dbt', 'date_fin', 'id_salle');
-
-		foreach ($champsModifiable as $value) {
-			if ($this->requete->existeParametre($value)) {
-				Reservation::update($value, $this->requete->getParametre($value), $id);
-			}
-		}	
-	}
+        echo "Tableau non-associatif sous forme de tableau : ", json_encode($c), "\n";
+        echo "Tableau non-associatif sous forme d'objet : ", json_encode($c, JSON_FORCE_OBJECT), "\n\n";
+    }
 
 	/**
 	*

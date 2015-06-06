@@ -22,13 +22,13 @@ require_once 'Configuration.php';
  */
 abstract class Modele {
 
-    /** Objet PDO d'accès à la BD 
+    /** Objet PDO d'accès à la BD
         Statique donc partagé par toutes les instances des classes dérivées */
     private static $bdd;
 
     /**
      * Exécute une requête SQL
-     * 
+     *
      * @param string $sql Requête SQL
      * @param array $params Paramètres de la requête
      * @return PDOStatement Résultats de la requête
@@ -46,7 +46,7 @@ abstract class Modele {
 
     /**
      * Renvoie un objet de connexion à la BDD en initialisant la connexion au besoin
-     * 
+     *
      * @return PDO Objet PDO de connexion à la BDD
      */
     private static function getBdd() {
@@ -56,7 +56,7 @@ abstract class Modele {
             $login = Configuration::get("login");
             $mdp = Configuration::get("mdp");
             // Création de la connexion
-            self::$bdd = new PDO($dsn, $login, $mdp, 
+            self::$bdd = new PDO($dsn, $login, $mdp,
                     array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         }
         return self::$bdd;
@@ -65,17 +65,17 @@ abstract class Modele {
     /**
     *
     * La fonction getAll renvoie tout les elements d'une table de la BDD
-    * 
+    *
     * @return Objet Resultat de la requête
     *
     **/
 
     public static function getAll ()
     {
-        $sql = 'SELECT * FROM '.strtolower(get_called_class($this));
-        $retour = $this->executerRequete($sql);
+        $sql = 'SELECT * FROM '.strtolower(get_called_class());
+        $retour = self::executerRequete($sql);
 
-        while ($sortie [] = $retour->fetchObject(strtolower(get_called_class($this))));
+        while ($sortie [] = $retour->fetchObject(strtolower(get_called_class())));
 
         return $sortie;
     }
@@ -87,22 +87,22 @@ abstract class Modele {
     * @param array tableau Tableau des données du formulaire
     * @return Bool Réussite de la requête
     **/
-    
-    // 
+
+    //
     protected function add($tableau = Null) {
-        /* 
-        * implode(', ', $table) -> transforme le tableau $table en chaine de 
+        /*
+        * implode(', ', $table) -> transforme le tableau $table en chaine de
         * caractére dont chaque valeur est séparé par la chaine ', '
         *
         * INSERT INTO table(champs) VALUES(valeurs)
         */
-        $sql = 'INSERT INTO '.strtolower(get_called_class($this)).'('.implode(', ', array_keys($tableau))
+        $sql = 'INSERT INTO '.strtolower(get_called_class()).'('.implode(', ', array_keys($tableau))
             .') values(\''.implode('\', \'', $tableau).'\')'; // la requête SQL
-        $result = $this->executerRequete($sql);
+        $result = self::executerRequete($sql);
         $retour = $result->rowCount(); // nombre de ligne retourné
         if($retour == 0)
             return false;
-        else 
+        else
             return true; // return TRUE si réussi sinon FALSE
     }
 
@@ -113,13 +113,13 @@ abstract class Modele {
     * @param entier pId ID de l'element
     * @return Objet Resultat de la requete
     **/
-    
+
     public static function getById($pId) {
-        $sql = 'SELECT * FROM '.strtolower(get_called_class($this)).' WHERE id_'.strtolower(get_called_class($this)).' = :id';
-        $retour = $this->executerRequete($sql, array(
+        $sql = 'SELECT * FROM '.strtolower(get_called_class()).' WHERE id_'.strtolower(get_called_class()).' = :id';
+        $retour = self::executerRequete($sql, array(
             'id' => $pId,
         ));
-        $result = $retour->fetchObject(strtolower(get_called_class($this)));
+        $result = $retour->fetchObject(strtolower(get_called_class()));
         return $result;
     }
 
@@ -131,11 +131,11 @@ abstract class Modele {
     * @param string valeur Valeur des elements a sélectionner
     * @return Objet Resultat de la requete
     **/
-    
+
     public static function getBy($colonne, $valeur) {
-        $sql = 'SELECT * FROM '.strtolower(get_called_class($this)).' WHERE '.$colonne.' = :valeur';
+        $sql = 'SELECT * FROM '.strtolower(get_called_class()).' WHERE '.$colonne.' = :valeur';
         var_dump($sql);
-        $retour = $this->executerRequete($sql, array('valeur' => $valeur,));
+        $retour = self::executerRequete($sql, array('valeur' => $valeur,));
         while ($sortie [] = $retour->fetchObject(strtolower(get_called_class($this))));
         if (sizeof($sortie) == 2)
             return $sortie[0];
@@ -149,15 +149,15 @@ abstract class Modele {
     * @param entier pId ID de l'element
     * @return Bool Reussite de la requete
     **/
-    
+
     public static function delete($pId) {
         // DELETE FROM table WHERE condition
-        $sql = 'DELETE from '.strtolower(get_called_class($this)).' WHERE id_'.strtolower(get_called_class($this)).' = :id';
-        $result = $this->executerRequete($sql, array('id' => $pId,)); 
+        $sql = 'DELETE from '.strtolower(get_called_class()).' WHERE id_'.strtolower(get_called_class()).' = :id';
+        $result = self::executerRequete($sql, array('id' => $pId,));
         $retour = $result->rowCount(); // nombre de ligne retourné
         if($retour == 0)
             return false;
-        else 
+        else
             return true; // return TRUE si réussi sinon FALSE
     }
 
@@ -170,16 +170,16 @@ abstract class Modele {
     * @param entier pId ID de l'element
     * @return Bool Reussite de la requete
     **/
-    
+
     public static function update($colonne, $valeur, $pId) {
         // UPDATE table SET nom_colonne_1 = 'nouvelle valeur' WHERE condition
-        $sql = 'UPDATE '.strtolower(get_called_class($this)).' SET '.$colonne.'= \''.$valeur.
-        '\' WHERE id_'.strtolower(get_called_class($this)).' = :id';
-        $result = $this->executerRequete($sql, array('id' => $pId)); 
+        $sql = 'UPDATE '.strtolower(get_called_class()).' SET '.$colonne.'= \''.$valeur.
+        '\' WHERE id_'.strtolower(get_called_class()).' = :id';
+        $result = self::executerRequete($sql, array('id' => $pId));
         $retour = $result->rowCount(); // nombre de ligne retourné
         if($retour == 0)
             return false;
-        else 
+        else
             return true; // return TRUE si réussi sinon FALSE
     }
 }

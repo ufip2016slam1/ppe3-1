@@ -5,10 +5,6 @@
 * 	effectuer toutes les actions suivantes :
 *  		+ add : ajoute un client
 *    		- parametre @adresse, @code_postal, @ville, @telephone et (@nom, @prenom ou @raison_sociale)
-*      	+ supprimerClient : supprimer un user
-*       	- parametre @id_client
-*       + modifierClient : modifie un client
-*       	- parametre @id_client
 *
 **/
 require_once 'Framework/Controleur.php';
@@ -16,6 +12,9 @@ require_once 'Modele/Client.php';
 
 class ControleurClient extends Controleur
 {
+
+    public static $champsModifiable = array('nom', 'prenom', 'raison_sociale', 'adresse', 'code_postal', 'ville', 'telephone');
+
 	public function index() {
 		echo ('appel de la foncion index du ControleurClient');
 	}
@@ -49,32 +48,4 @@ class ControleurClient extends Controleur
 		}
 	}
 
-
-	/**
-	*
-	* suppression d'un client en fonction de son ID
-	*
-	**/	
-	public function supprimerClient() {
-		if ($this->requete->existeParametre('id_client')) {
-			$id = (int)$this->requete->getParametre('id_client');
-			Client::delete($id);
-		}
-	}
-
-	/**
-	*
-	* modification d'un client en fonction de son ID
-	*
-	**/
-	public function modifierClient() {
-		if ($this->requete->existeParametre('id_client')) {
-			$id = (int)$this->requete->getParametre('id_client');
-			$champsModifiable = array('nom', 'prenom', 'raison_sociale', 'adresse', 'code_postal', 'ville', 'telephone');
-			foreach ($champsModifiable as $value) {
-				if ($this->requete->existeParametre($value))
-					Client::update($value, $this->requete->getParametre($value), $id)
-			}
-		}
-	}
 }

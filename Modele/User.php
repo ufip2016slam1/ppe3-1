@@ -169,5 +169,12 @@ class User extends Modele {
 	public function setIdentifiant($PLogin) {
 		$this->identifiant = $PLogin;
 	}
+    /**
+     * @return mixed
+     */
+    public function getIdUser()
+    {
+        return $this->id_user;
+    }
 }
 ?>

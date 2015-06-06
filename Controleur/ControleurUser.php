@@ -14,6 +14,8 @@ require_once 'Modele/User.php';
 
 class ControleurUser extends Controleur
 {
+    public static $champsModifiable = array();
+
 	public function index() {
 		$this->genererVue();
 	}
@@ -39,16 +41,6 @@ class ControleurUser extends Controleur
 		}
 	}
 
-	/**
-	*
-	* si le parametre id est present on supprime le user
-	*
-	**/	
-	public function supprimerUser() {
-		if ($this->requete->existeParametre('id')) {
-			User::delete($this->requete->getParametre('id'));
-		}
-	}
 
 	/**
 	*
@@ -67,18 +59,24 @@ class ControleurUser extends Controleur
             $user = User::getBy('mail', $this->requete->getParametre('email'));
             var_dump($user);
             if ($user->getPassword() === sha1($this->requete->getParametre('password'))) {
-                var_dump('OK');
+                session_start();
+                $_SESSION[$user] = $user;
+                /**
+                 * appel de la vue principale affichage du calandrier
+                 */
             }
             else {
-                var_dump();
-                var_dump('erreur mdp');
+                /**
+                 * appel vue erreur mdp
+                 */
+                throw new Exception ('erreur mdp');
             }
         }
     }
 
 	/**
 	*
-	* fonction priver qui genere un mot de passe de 10 caracteres
+	* fonction privee qui genere un mot de passe de 10 caracteres
 	*
 	**/	
 	private function genererMdp () {
