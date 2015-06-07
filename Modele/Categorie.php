@@ -66,7 +66,19 @@ class Categorie extends Modele {
 		$retour = parent::add($tab);
 		return $retour;
 	}
-
+	
+	// Guetteurs et Setteurs
+	
+	/**
+     * Gets the value of id_categorie.
+     *
+     * @return mixed
+     */
+    public function getId_categorie()
+    {
+        return $this->id_categorie;
+    }
+	
 	/**
 	 * @access public
 	 * @return string

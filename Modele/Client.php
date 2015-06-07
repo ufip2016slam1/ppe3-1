@@ -78,6 +78,16 @@ class Client extends Modele {
 	// Guetteurs et Setteurs
 
 	/**
+     * Gets the value of id_client.
+     *
+     * @return mixed
+     */
+    public function getId_client()
+    {
+        return $this->id_client;
+    }
+	
+	/**
 	 * @access public
 	 */
 	public function getNom() {

@@ -35,7 +35,7 @@ class ControleurReservation extends Controleur
 			$reserv->setDate_dbt($requete->getParametre('date_dbt'));
 			$reserv->setDate_fin($requete->getParametre('date_fin'));
 			$reserv->setId_salle($this->getIdSalleByNom($requete->getParametre('nom_salle')));
-			$reserv->setId_user($_SESSION['user']->getIdUser());
+			$reserv->setId_user($_SESSION['user']->getId_user());
 			return $reserv->add();
 		}
 		else {

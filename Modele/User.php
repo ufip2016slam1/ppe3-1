@@ -18,17 +18,6 @@ require_once('Modele/Client.php');
 require_once('Modele/Reservation.php');
 require_once('Framework/Modele.php');
 
-/**
-*
-* Le constructeur ()
-*
-* Liste des fonctions disponible dans cet classe
-*       add() : Bool;
-*       addClient(string Client, int Droit) : Objet;
-*       tout les guetteurs et setteurs
-*
-**/
-
 class User extends Modele {
 	private $id_user;
 	private $identifiant;
@@ -84,9 +73,13 @@ class User extends Modele {
 	* @param int PDroit Numéro du niveau de droit
 	**/
 	
-	public function addClient($PClient, $PDroit) {
-		$this->client[$PClient] = $PDroit;
-	}
+	/* public function addClient($PClient, $PDroit) {
+		$droit = new Appartient();
+		$droit->setDroit($PDroit);
+		$droit->setId_client($PClient);
+		$droit->setId_user($this->id_user);
+		$droit->add();
+	} */
 
 	/**
 	*
@@ -95,13 +88,13 @@ class User extends Modele {
 	* @return Array Nom des client affilé avec l'utilisateur
 	**/
 	
-	public function getClient() {
+	/* public function getClient() {
 		$tabClient = array();
 		foreach ($this->client as $key => $value) {
 			$tabClient[] = $key;
 		}
 		return $tabClient;
-	}
+	} */
 
 	/**
 	*
@@ -110,9 +103,9 @@ class User extends Modele {
 	* @param string PClient Nom du client
 	**/
 	
-	public function deleteClient($PClient) {
+	/* public function deleteClient($PClient) {
 		unset($this->client[$PClient]);
-	}
+	} */
 
 	// Guetteurs et Setteurs
 
@@ -169,10 +162,11 @@ class User extends Modele {
 	public function setIdentifiant($PLogin) {
 		$this->identifiant = $PLogin;
 	}
+	
     /**
      * @return mixed
      */
-    public function getIdUser()
+    public function getId_user()
     {
         return $this->id_user;
     }

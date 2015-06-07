@@ -16,6 +16,7 @@ require_once('Modele/Reservation.php');
 require_once('Modele/Client.php');
 
 class Facture extends Modele {
+	private $id_facture;
 	private $date_fact;
 	/**
 	 * @AssociationType reservation
@@ -57,6 +58,16 @@ class Facture extends Modele {
 		return $retour;
 	}
 
+	/**
+     * Gets the value of id_facture.
+     *
+     * @return mixed
+     */
+    public function getId_facture()
+    {
+        return $this->id_facture;
+    }
+	
 	/**
      * Gets the value of numReserv.
      *

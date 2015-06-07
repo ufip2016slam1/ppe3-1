@@ -65,10 +65,21 @@ class Salle extends Modele {
 		return $retour;
 	}
 
-    /**
-     * Gets the value of nom_salle.
+	/**
+     * Gets the value of id_salle.
      *
      * @return mixed
+     */
+    public function getId_salle()
+    {
+        return $this->id_salle;
+    }
+	
+    /**
+     * Sets the value of tarif.
+     *
+     * @param array $PTarif Tableau avec les tarifs
+     *
      */
     public function getNom_salle()
     {
