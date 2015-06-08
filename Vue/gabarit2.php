@@ -5,16 +5,16 @@
     <title>AdminLTE 2 | Dashboard</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.4 -->
-    <link href="file:///C|/wamp/www/Nouveau dossier/Contenu/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="Contenu/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome Icons -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
     <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
-    <link href="file:///C|/wamp/www/Nouveau dossier/Contenu/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <link href="Contenu/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <!-- AdminLTE Skins. Choose a skin from the css/skins 
          folder instead of downloading all of them to reduce the load. -->
-    <link href="file:///C|/wamp/www/Nouveau dossier/Contenu/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link href="Contenu/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -210,14 +210,14 @@
             
            <!--NAVICALENDAR-->
             <li>
-              <a href="file:///C|/wamp/www/Nouveau dossier/calendar.html">
+              <a href="calendar.html">
                 <i class="fa fa-calendar"></i> <span>Calendrier</span>
                 <small class="label pull-right bg-red">3</small>
               </a>
             </li>
             <!--NAVImail-->
             <li>
-              <a href="file:///C|/wamp/www/Nouveau dossier/mailbox/mailbox.html">
+              <a href="mailbox/mailbox.html">
                 <i class="fa fa-envelope"></i> <span>E-Mail</span>
                 <small class="label pull-right bg-yellow">12</small>
               </a>
@@ -225,7 +225,7 @@
             
             <!--NAVIClient-->
              <li>
-              <a href="file:///C|/wamp/www/Nouveau dossier/mailbox/mailbox.html">
+              <a href="mailbox/mailbox.html">
                 <i class="fa fa-envelope"></i> <span>Client</span>
                 <small class="label pull-right bg-yellow">12</small>
               </a>
@@ -233,7 +233,7 @@
             
             <!--NAVISalle-->
              <li>
-              <a href="file:///C|/wamp/www/Nouveau dossier/mailbox/mailbox.html">
+              <a href="mailbox/mailbox.html">
                 <i class="fa fa-envelope"></i> <span>Salle</span>
                 <small class="label pull-right bg-yellow">12</small>
               </a>
@@ -241,7 +241,7 @@
             
             <!--NAVIReservation-->
              <li>
-              <a href="file:///C|/wamp/www/Nouveau dossier/mailbox/mailbox.html">
+              <a href="mailbox/mailbox.html">
                 <i class="fa fa-envelope"></i> <span>Reservation</span>
                 <small class="label pull-right bg-yellow">12</small>
               </a>
@@ -454,17 +454,17 @@
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.4 -->
-    <script src="file:///C|/wamp/www/Nouveau dossier/Contenu/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="Contenu/plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.2 JS -->
-    <script src="file:///C|/wamp/www/Nouveau dossier/Contenu/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="Contenu/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- SlimScroll -->
-    <script src="file:///C|/wamp/www/Nouveau dossier/Contenu/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="Contenu/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- FastClick -->
-    <script src='file:///C|/wamp/www/Nouveau dossier/Contenu/plugins/fastclick/fastclick.min.js'></script>
+    <script src='Contenu/plugins/fastclick/fastclick.min.js'></script>
     <!-- AdminLTE App -->
-    <script src="file:///C|/wamp/www/Nouveau dossier/Contenu/dist/js/app.min.js" type="text/javascript"></script>
+    <script src="Contenu/dist/js/app.min.js" type="text/javascript"></script>
     
     <!-- Demo -->
-    <script src="file:///C|/wamp/www/Nouveau dossier/Contenu/dist/js/demo.js" type="text/javascript"></script>
+    <script src="Contenu/dist/js/demo.js" type="text/javascript"></script>
   </body>
 </html>
