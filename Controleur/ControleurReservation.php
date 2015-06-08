@@ -61,14 +61,20 @@ class ControleurReservation extends Controleur
 	}
 
     public function ajaxGetReserv() {
-        /*var_dump(Reservation::getAll());
-        $res = Reservation::getAll();
-        echo (json_encode ($res,JSON_FORCE_OBJECT));
-        return Reservation::getAll();*/
-        $c = array(array(1,2,3));
+        $tabReserv = Reservation::getAll();
+        $tabReserv = array_splice($tabReserv,0,-1);
+        $json = array();
 
-        echo "Tableau non-associatif sous forme de tableau : ", json_encode($c), "\n";
-        echo "Tableau non-associatif sous forme d'objet : ", json_encode($c, JSON_FORCE_OBJECT), "\n\n";
+        foreach ($tabReserv as $reservation) {
+            $json[] = array(
+                "id" => $reservation->getId_reservation(),
+                "titre" => $reservation->getSalle()->getNom_salle(),
+                "start" => $reservation->getDate_dbt(),
+                "end" => $reservation->getDate_fin(),
+                "allDay" => false
+            );
+        }
+        return json_encode($json);
     }
 
 	/**
