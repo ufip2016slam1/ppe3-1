@@ -27,7 +27,7 @@ class Facture extends Modele {
 	 * @AssociationType client
 	 * @AssociationMultiplicity 1
 	 */
-	private $client;
+	private $id_client;
 
 	// Fonctions
 
@@ -90,25 +90,36 @@ class Facture extends Modele {
 	}
 
 	/**
-     * Gets the value of numReserv.
+     * Gets the value of id_client.
      *
-     * @return string
+     * @return int
      *
      */
-	public function getClient() {
-		return $this->client;
+	public function getId_client() {
+		return $this->id_client;
 	}
 
 	/**
 	 * @access public
-	 * @param PClient
+	 * @param PId_client
 	 * @return void
 	 * 
 	 * @ReturnType void
 	 */
-	public function setClient($PClient) {
-		$this->client = $PClient;
+	public function setId_client($PId_client) {
+		$this->id_client = $PId_client->getId_client();
 	}
+
+	/**
+     * Gets the objet of id_client.
+     *
+     * @return object class Client
+     *
+     */
+
+    public function getClient() {
+        return Client::getById($this->getId_client());
+    }
 
 	/**
      * Gets the value of numReserv.
@@ -124,13 +135,24 @@ class Facture extends Modele {
     /**
      * Sets the value of numReserv.
      *
-     * @param array $numReserv Tableau des numéros de reservation
+     * @param array $numReserv Tableau d'objet Reservation
      */
     public function setNumReserv($PNumReserv)
     {
-        foreach ($PNumReserv as $key => $value) {
-        	$numReserv[$key] = $value;
+        foreach ($PNumReserv as $key) {
+        	$numReserv[$key] = $value->getId_reservation();
         }
+    }
+
+    /**
+     * Gets the objet of numReserv.
+     *
+     * @return object class Reservation
+     *
+     */
+
+    public function getReserv() {
+        return Reservation::getBy('id_facture', $this->getId_facture());
     }
 }
 ?>

@@ -33,7 +33,7 @@ abstract class Modele {
      * @param array $params Paramètres de la requête
      * @return PDOStatement Résultats de la requête
      */
-    protected function executerRequete($sql, $params = null) {
+    protected static function executerRequete($sql, $params = null) {
         if ($params == null) {
             $resultat = self::getBdd()->query($sql);   // exécution directe
         }

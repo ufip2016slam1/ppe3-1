@@ -6,6 +6,7 @@
 *
 * Liste des fonctions disponible dans cet classe
 *       add() : Bool;
+*		getDroitBy(string PUser, string PClient) : Array;
 *       tout les guetteurs et setteurs
 *
 **/
@@ -55,6 +56,24 @@ class Appartient extends Modele {
 		$retour = parent::add($tab);
 
 		return $retour;
+	}
+
+	/**
+	*
+	* Fonction getDroitBy Retourne les droits en fonction du client et du user
+	* 
+    * @param int PUser Id du user
+    * @param int PUser Id du client
+	* @return Array Résutat de la requête sous forme de tableau
+	**/
+
+	public static function getDroitBy($PUser, PClient) {
+		$sql = 'SELECT droit FROM '.strtolower(get_called_class()).' WHERE id_user = :user AND id_client = :client';
+        $retour = self::executerRequete($sql, array(
+            'user' => $PUser, 'client' => $PClient,
+        ));
+        $result = $retour->fetch(PDO::FETCH_ASSOC);
+        return $result;
 	}
 	
 	// Guetteurs et Setteurs

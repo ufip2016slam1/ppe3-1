@@ -27,7 +27,7 @@ class User extends Modele {
 	 * @AssociationType client
 	 * @AssociationMultiplicity 1..*
 	 */
-	private $client = array();
+	private $id_client = array();
 	/**
 	 * @AssociationType reservation
 	 * @AssociationMultiplicity *
@@ -64,48 +64,6 @@ class User extends Modele {
 
 		return $retour;
 	}
-
-	/**
-	*
-	* Fonction addClient Ajoute un client a l'utilisateur
-	*
-	* @param string PClient Nom du client
-	* @param int PDroit Numéro du niveau de droit
-	**/
-	
-	/* public function addClient($PClient, $PDroit) {
-		$droit = new Appartient();
-		$droit->setDroit($PDroit);
-		$droit->setId_client($PClient);
-		$droit->setId_user($this->id_user);
-		$droit->add();
-	} */
-
-	/**
-	*
-	* Fonction getClient Retourne le nom de client avec qui l'utilisateur est affilé
-	*
-	* @return Array Nom des client affilé avec l'utilisateur
-	**/
-	
-	/* public function getClient() {
-		$tabClient = array();
-		foreach ($this->client as $key => $value) {
-			$tabClient[] = $key;
-		}
-		return $tabClient;
-	} */
-
-	/**
-	*
-	* Fonction deleteClient Supprime un client affilé avec l'utilisateur
-	*
-	* @param string PClient Nom du client
-	**/
-	
-	/* public function deleteClient($PClient) {
-		unset($this->client[$PClient]);
-	} */
 
 	// Guetteurs et Setteurs
 
@@ -169,6 +127,74 @@ class User extends Modele {
     public function getId_user()
     {
         return $this->id_user;
+    }
+
+    /**
+     * Gets the value of id_client.
+     *
+     * @return array int
+     *
+     */
+    public function getId_client()
+    {
+        return $this->id_client;
+    }
+
+    /**
+     * Sets the value of numReserv.
+     *
+     * @param array $numReserv Tableau d'objet Client
+     */
+    public function setId_client($PId_client)
+    {
+        foreach ($PId_client as $value) {
+        	$client[] = $value->getId_client();
+        }
+    }
+
+    /**
+     * Gets the objet of id_client.
+     *
+     * @return object class Client
+     *
+     */
+
+    public function getClient() {
+        return Client::getBy('id_user', $this->getId_user());
+    }
+
+    /**
+     * Gets the value of numReserv.
+     *
+     * @return array int
+     *
+     */
+    public function getNumReserv()
+    {
+        return $this->numReserv;
+    }
+
+    /**
+     * Sets the value of numReserv.
+     *
+     * @param array $numReserv Tableau d'objet Reservation
+     */
+    public function setNumReserv($PNumReserv)
+    {
+        foreach ($PNumReserv as $value) {
+        	$numReserv[] = $value->getId_reservation();
+        }
+    }
+
+    /**
+     * Gets the objet of numReserv.
+     *
+     * @return object class Reservation
+     *
+     */
+
+    public function getReserv() {
+        return Reservation::getBy('id_user', $this->getId_user());
     }
 }
 ?>

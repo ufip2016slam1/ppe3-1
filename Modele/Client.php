@@ -33,7 +33,7 @@ class Client extends Modele {
 	 * @AssociationMultiplicity *
 	 * @AssociationKind Aggregation
 	 */
-	private $user = array();
+	private $id_user = array();
 	/**
 	 * @AssociationType facture
 	 * @AssociationMultiplicity *
@@ -158,5 +158,73 @@ class Client extends Modele {
 	public function setAdresse($PAdresse) {
 		$this->adresse = $PAdresse;
 	}
+
+	/**
+     * Gets the value of id_user.
+     *
+     * @return array int
+     *
+     */
+    public function getId_user()
+    {
+        return $this->id_user;
+    }
+
+    /**
+     * Sets the value of id_user.
+     *
+     * @param array $PId_user Tableau d'objet User
+     */
+    public function setId_user($PId_user)
+    {
+        foreach ($PId_user as $value) {
+        	$numReserv[] = $value->getId_user();
+        }
+    }
+
+    /**
+     * Gets the objet of id_user.
+     *
+     * @return object class User
+     *
+     */
+
+    public function getUser() {
+        return User::getBy('id_client', $this->getId_client());
+    }
+
+	/**
+     * Gets the value of numFact.
+     *
+     * @return array int
+     *
+     */
+    public function getNumFact()
+    {
+        return $this->numFact;
+    }
+
+    /**
+     * Sets the value of numFact.
+     *
+     * @param array $numFact Tableau d'objet Facture
+     */
+    public function setNumFact($PNumFact)
+    {
+        foreach ($PNumFact as $value) {
+        	$numFact[] = $value->getId_facture();
+        }
+    }
+
+    /**
+     * Gets the objet of numFact.
+     *
+     * @return object class Facture
+     *
+     */
+
+    public function getFact() {
+        return Facture::getBy('id_Client', $this->getId_client());
+    }
 }
 ?>

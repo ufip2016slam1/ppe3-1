@@ -6,6 +6,7 @@
 *
 * Liste des fonctions disponible dans cet classe
 *       add() : Bool;
+*		getNbreBy(int PClient, int PCategorie) : Array;
 *       tout les guetteurs et setteurs
 *
 **/
@@ -55,6 +56,24 @@ class Salle_offert extends Modele {
 		$retour = parent::add($tab);
 
 		return $retour;
+	}
+
+	/**
+	*
+	* Fonction getDroitBy Retourne les droits en fonction du client et du user
+	* 
+    * @param int PUser Id du client
+    * @param int PUser Id de la categorie
+	* @return Array Résutat de la requête sous forme de tableau
+	**/
+
+	public static function getNbreBy(PClient, PCategorie) {
+		$sql = 'SELECT nbre FROM '.strtolower(get_called_class()).' WHERE id_client = :client AND id_categorie = :categorie';
+        $retour = self::executerRequete($sql, array(
+            'client' => $PClient, 'categorie' => $PCategorie,
+        ));
+        $result = $retour->fetch(PDO::FETCH_ASSOC);
+        return $result;
 	}
 	
 	// Guetteurs et Setteurs

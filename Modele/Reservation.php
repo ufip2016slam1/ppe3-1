@@ -13,6 +13,11 @@
 
 // includes
 require_once('Framework/Modele.php');
+require_once('Modele/Repetition.php');
+require_once('Modele/User.php');
+require_once('Modele/Salle.php');
+require_once('Modele/Client.php');
+require_once('Modele/Facture.php');
 
 class Reservation extends Modele {
 	// Variables
@@ -21,7 +26,7 @@ class Reservation extends Modele {
 	private $date_fin;
 	private $date_reserv;
 	private $date_annule;
-	private $id_repeat;
+	private $id_repetition;
 	/**
 	 * @AssociationType user
 	 * @AssociationMultiplicity 1
@@ -32,6 +37,10 @@ class Reservation extends Modele {
 	 * @AssociationMultiplicity 1
 	 */
 	private $id_salle;
+    /**
+     * @AssociationType salle
+     * @AssociationMultiplicity 1
+     */
 	private $id_client;
 	/**
 	 * @AssociationType facture
@@ -85,7 +94,7 @@ class Reservation extends Modele {
 
     public static function getAllPeriode($dbt, $fin) {
         $sql = 'SELECT * FROM '.strtolower(get_called_class($this)).' WHERE date_dbt BETWEEN :dbt AND :fin';
-        $retour = $this->executerRequete($sql, array(
+        $retour = self::executerRequete($sql, array(
             'dbt' => $dbt, 'fin' => $fin,
         ));
         while ($sortie [] = $retour->fetchObject(strtolower(get_called_class($this))));
@@ -102,20 +111,6 @@ class Reservation extends Modele {
     public function getId_reservation()
     {
         return $this->id_reservation;
-    }
-
-    /**
-     * Sets the value of id_reservation.
-     *
-     * @param mixed $id_reservation the id_reservation
-     *
-     * @return self
-     */
-    public function setId_reservation($id_reservation)
-    {
-        $this->id_reservation = $id_reservation;
-
-        return $this;
     }
 
     /**
@@ -227,15 +222,25 @@ class Reservation extends Modele {
     /**
      * Sets the value of id_repeat.
      *
-     * @param mixed $id_repeat the id_repeat
+     * @param object $PId_repeat Object class Repetition
      *
      * @return self
      */
-    public function setId_repeat($id_repeat)
+    public function setId_repetition($PId_repetition)
     {
-        $this->id_repeat = $id_repeat;
+        $this->id_repetition = $PId_repetition->getId_repetition();
 
         return $this;
+    }
+
+    /**
+     * Gets the object of id_repeat.
+     *
+     * @return objet repeat
+     */
+
+    public function getRepetition() {
+        return Repetition::getById($this->getId_repetition());
     }
 
     /**
@@ -251,15 +256,25 @@ class Reservation extends Modele {
     /**
      * Sets the value of id_user.
      *
-     * @param mixed $id_user the id_user
+     * @param object $PId_user Object class User
      *
      * @return self
      */
-    public function setId_user($id_user)
+    public function setId_user($PId_user)
     {
-        $this->id_user = $id_user;
+        $this->id_user = $PId_user->getId_user();
 
         return $this;
+    }
+
+    /**
+     * Gets the object of id_user.
+     *
+     * @return objet user
+     */
+
+    public function getUser() {
+        return User::getById($this->getId_user());
     }
 
     /**
@@ -275,15 +290,25 @@ class Reservation extends Modele {
     /**
      * Sets the value of id_salle.
      *
-     * @param mixed $id_salle the id_salle
+     * @param object $PId_salle Object class Salle
      *
      * @return self
      */
-    public function setId_salle($id_salle)
+    public function setId_salle($PId_salle)
     {
-        $this->id_salle = $id_salle;
+        $this->id_salle = $PId_salle->getId_salle();
 
         return $this;
+    }
+
+    /**
+     * Gets the object of id_salle.
+     *
+     * @return objet salle
+     */
+
+    public function getSalle() {
+        return Salle::getById($this->getId_salle());
     }
 
     /**
@@ -299,15 +324,25 @@ class Reservation extends Modele {
     /**
      * Sets the value of id_client.
      *
-     * @param mixed $id_client the id_client
+     * @param object $PId_client Object class Client
      *
      * @return self
      */
-    public function setId_client($id_client)
+    public function setId_client($PId_client)
     {
-        $this->id_client = $id_client;
+        $this->id_client = $PId_client->getId_client();
 
         return $this;
+    }
+
+    /**
+     * Gets the object of id_client.
+     *
+     * @return objet client
+     */
+
+    public function getClient() {
+        return Client::getById($this->getId_client());
     }
 
     /**
@@ -323,14 +358,24 @@ class Reservation extends Modele {
     /**
      * Sets the value of id_facture.
      *
-     * @param mixed $id_facture the id_facture
+     * @param object $PId_facture Object class Facture
      *
      * @return self
      */
-    public function setId_facture($id_facture)
+    public function setId_facture($PId_facture)
     {
-        $this->id_facture = $id_facture;
+        $this->id_facture = $PId_facture->getId_facture();
 
         return $this;
+    }
+
+    /**
+     * Gets the object of id_facture.
+     *
+     * @return objet facture
+     */
+
+    public function getFacture() {
+        return Facture::getById($this->getId_facture());
     }
 }

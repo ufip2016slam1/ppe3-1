@@ -27,7 +27,7 @@ class Salle extends Modele {
 	 * @AssociationType categorie
 	 * @AssociationMultiplicity 1
 	 */
-	private $categorie;
+	private $id_categorie;
 	/**
 	 * @AssociationType reservation
 	 * @AssociationMultiplicity *
@@ -121,24 +121,34 @@ class Salle extends Modele {
     }
 
     /**
-     * Gets the value of categorie.
+     * Gets the value of id_categorie.
      *
      * @return mixed
      */
-    public function getCategorie()
+    public function getId_categorie()
     {
-        return $this->categorie;
+        return $this->id_categorie;
     }
 
     /**
      * Sets the value of categorie.
      *
-     * @param mixed $categorie the categorie
+     * @param objet $PId_categorie objet Categorie
      *
      */
-    public function setCategorie($PCategorie)
+    public function setId_categorie($PId_categorie)
     {
-        $this->categorie = $categorie;
+        $this->id_categorie = $PId_categorie->getId_categorie();
+    }
+
+    /**
+     * Gets the object of id_categorie.
+     *
+     * @return objet categorie
+     */
+
+    public function getCategorie() {
+        return salle::getById($this->getId_categorie());
     }
 
     /**
@@ -155,13 +165,24 @@ class Salle extends Modele {
     /**
      * Sets the value of numReserv.
      *
-     * @param array $numReserv Tableau des numéros de reservation
+     * @param array $numReserv Tableau d'objet Reservation
      */
     public function setNumReserv($PNumReserv)
     {
-        foreach ($PNumReserv as $key => $value) {
-        	$numReserv[$key] = $value;
+        foreach ($PNumReserv as $value) {
+        	$numReserv[] = $value->getId_reservation();
         }
+    }
+
+    /**
+     * Gets the objet of numReserv.
+     *
+     * @return object class Reservation
+     *
+     */
+
+    public function getReserv() {
+        return Reservation::getBy('id_salle', $this->getId_salle());
     }
 }
 ?>

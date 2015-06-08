@@ -35,7 +35,7 @@ class Categorie extends Modele {
 	 * @AssociationMultiplicity *
 	 * @AssociationKind Aggregation
 	 */
-	private $salles = array();
+	private $id_salles = array();
 
 	// Fonctions
 
@@ -138,21 +138,32 @@ class Categorie extends Modele {
 	/**
 	 * @access public
 	 */
-	public function getSalle() {
-		return $this->salle;
+	public function getId_salle() {
+		return $this->id_salle;
 	}
 
 	/**
 	 * @access public
-	 * @param string PSalle
+	 * @param objet PId_salle
 	 * @return void
-	 * @ParamType PSalle string
+	 * @ParamType PId_salle objet
 	 * @ReturnType void
 	 */
-	public function setSalle($PSalle) {
-		foreach ($PNumReserv as $key => $value) {
-        	$numReserv[$key] = $value;
+	public function setId_salle($PId_salle) {
+		foreach ($PId_salle as $value) {
+        	$numSalle[] = $value->getId_salle();
         }
 	}
+
+	/**
+     * Gets the objet of id_salle.
+     *
+     * @return object class Salle
+     *
+     */
+
+    public function getSalle() {
+        return Salle::getBy('id_categorie', $this->getId_categorie());
+    }
 }
 ?>
