@@ -44,16 +44,16 @@ class Vue {
         // Nécessaire pour les URI de type controleur/action/id
         $racineWeb = Configuration::get("racineWeb", "/");
         // Génération du gabarit commun utilisant la partie spécifique
-       // if ($_SESSION['auth'] == 1) {
+        if ($_SESSION['auth'] == 1) {
             $vue = $this->genererFichier('Vue/gabarit3.php',
                 array('titre' => $this->titre, 'contenu' => $contenu,
                     'racineWeb' => $racineWeb));
-        //}
-        /*else {
+        }
+        else {
             $vue = $this->genererFichier('Vue/gabaritConnexion.php',
                 array('titre' => $this->titre, 'contenu' => $contenu,
                     'racineWeb' => $racineWeb));
-        }*/
+        }
 
         // Renvoi de la vue générée au navigateur
         echo $vue;
@@ -93,6 +93,13 @@ class Vue {
      */
     private function nettoyer($valeur) {
         return htmlspecialchars($valeur, ENT_QUOTES, 'UTF-8', false);
+    }
+
+    protected function lien ($controleur, $action){
+        $rewrite = Configuration::get('rewrite_url',false);
+        if ($rewrite)
+            return $controleur.'/'.$action;
+        return '?controleur='.$controleur.'&action='.$action;
     }
 
 }
