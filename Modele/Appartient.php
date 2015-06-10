@@ -71,7 +71,7 @@ class Appartient extends Modele {
 	* @return Array Résutat de la requête sous forme de tableau
 	**/
 
-	public static function getDroitBy($PUser, PClient) {
+	public static function getDroitBy($PUser, $PClient) {
 		$sql = 'SELECT droit FROM '.strtolower(get_called_class()).' WHERE id_user = :user AND id_client = :client';
         $retour = self::executerRequete($sql, array(
             'user' => $PUser, 'client' => $PClient,
