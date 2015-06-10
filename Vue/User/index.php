@@ -5,7 +5,7 @@
 </div><!-- /.login-logo -->
 <div class="login-box-body">
 <p class="login-box-msg">pour demarer ta session</p>
-<form action="?controleur=user&action=connexion" method="post"><!--GAUTIER-->
+<form action=<?php $this->lien('user', 'connexion') ?> method="post"><!--GAUTIER-->
   <div class="form-group has-feedback">
     <input type="email" class="form-control" placeholder="Email" name="email"/>
     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -28,8 +28,8 @@
   </div>
 </form>
 
-<a href="?controller=user&action=nouveauMdp">mot de passe oublier</a><br>
-<a href="?controller=user&action=register" class="text-center">nouveau membre</a>
+<a href=<?php $this->lien('user', 'nouveauMdp') ?>>mot de passe oublier</a><br>
+<a href=<?php $this->lien('user', 'register') ?> class="text-center">nouveau membre</a>
 
 </div><!-- /.login-box-body -->
 </div><!-- /.login-box -->

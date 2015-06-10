@@ -5,7 +5,7 @@
   </div><!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">pour un nouveau mot de passe</p>
-    <form action="?controleur=user&action=nouveauMdp" method="post"><!--GAUTIER-->
+    <form action=<?php $this->lien('user', 'nouveauMdp') ?> method="post"><!--GAUTIER-->
       <div class="form-group has-feedback">
         <input type="email" class="form-control" placeholder="Email"/>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>

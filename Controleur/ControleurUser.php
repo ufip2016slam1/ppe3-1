@@ -145,15 +145,15 @@ class ControleurUser extends Controleur
    			<p>Bonjour,'.$user->getIdentifiant().',<br />
    				<br />
    				Pour valider votre compte veillez clické sur le lien ci-dessous :<br />
-   				<a href='.......'>Validation du compte</a>
+   				<a href=""#">Validation du compte</a>
    			</p>
    			</body>
 			</html>
 		'; 
 		// Fin message
 		$headers = 'Content-type: text/html; charset=utf-8' . "\r\n"; // Pour utilisation HTML UTF-8
-		$headers .= 'From: M2L <M2L@email.com>'
-		mail($user->getMail(), 'Validation compte M2L', $message, $headers) 
+		$headers .= 'From: M2L <M2L@email.com>';
+		mail($user->getMail(), 'Validation compte M2L', $message, $headers);
  	}
 	/*
 	*	// Message simple

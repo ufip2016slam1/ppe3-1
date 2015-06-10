@@ -95,11 +95,17 @@ class Vue {
         return htmlspecialchars($valeur, ENT_QUOTES, 'UTF-8', false);
     }
 
+    /**
+     * @param $controleur
+     * @param $action
+     * @return string
+     */
     protected function lien ($controleur, $action){
         $rewrite = Configuration::get('rewrite_url',false);
         if ($rewrite)
-            return $controleur.'/'.$action;
-        return '?controleur='.$controleur.'&action='.$action;
+            echo $controleur.'/'.$action;
+        else
+            echo '?controleur='.$controleur.'&action='.$action;
     }
 
 }

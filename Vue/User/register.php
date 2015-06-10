@@ -6,7 +6,7 @@
 
   <div class="register-box-body">
     <p class="login-box-msg">Creer un nouveau compte</p>
-    <form action="?controller=user" method="post"><!--GAUTIER-->
+    <form action=<?php $this->lien('user', 'register') ?> method="post"><!--GAUTIER-->
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Identifiant" name="identifiant"/>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
