@@ -17,7 +17,7 @@ require_once('Framework/Modele.php');
 
 /**
  * @access public
- * @author vincent
+ * @author bruno
  */
 class Client extends Modele {
 	private $id_client;

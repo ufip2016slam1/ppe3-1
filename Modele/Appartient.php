@@ -16,6 +16,10 @@ require_once('Modele/Client.php');
 require_once('Modele/User.php');
 require_once('Framework/Modele.php');
 
+/**
+ * @access public
+ * @author bruno
+ */
 class Appartient extends Modele {
 	private $droit;
 	/**
@@ -23,7 +27,7 @@ class Appartient extends Modele {
 	 */
 	private $id_client;
 	/**
-	 * @AssociationType reservation
+	 * @AssociationType user
 	 */
 	private $id_user;
 
@@ -40,10 +44,10 @@ class Appartient extends Modele {
 	
 	/**
 	*
-	* Fonction add de la classe User
+	* Fonction add de la classe Appartient
 	* Range toute les variables dans un tableau et l'ajoute a la BDD
 	* 
-    * @param array tableau Tableau des données du formulaire
+    * @param array tableau Tableau des données
 	* @return Bool Réussite de la requete
 	**/
 
@@ -63,7 +67,7 @@ class Appartient extends Modele {
 	* Fonction getDroitBy Retourne les droits en fonction du client et du user
 	* 
     * @param int PUser Id du user
-    * @param int PUser Id du client
+    * @param int PClient Id du client
 	* @return Array Résutat de la requête sous forme de tableau
 	**/
 
@@ -105,7 +109,7 @@ class Appartient extends Modele {
 
 	/**
 	 * @access public
-	 * @param PDroit
+	 * @param PClient
 	 * @return void
 	 * 
 	 * @ReturnType void
@@ -123,7 +127,7 @@ class Appartient extends Modele {
 
 	/**
 	 * @access public
-	 * @param PDroit
+	 * @param PUser
 	 * @return void
 	 * 
 	 * @ReturnType void

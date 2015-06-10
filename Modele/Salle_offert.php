@@ -16,6 +16,10 @@ require_once('Modele/Client.php');
 require_once('Modele/Categorie.php');
 require_once('Framework/Modele.php');
 
+/**
+ * @access public
+ * @author bruno
+ */
 class Salle_offert extends Modele {
 	private $nbre;
 	/**
@@ -23,7 +27,7 @@ class Salle_offert extends Modele {
 	 */
 	private $id_client;
 	/**
-	 * @AssociationType reservation
+	 * @AssociationType categorie
 	 */
 	private $id_categorie;
 
@@ -40,7 +44,7 @@ class Salle_offert extends Modele {
 	
 	/**
 	*
-	* Fonction add de la classe User
+	* Fonction add de la classe Salle_offert
 	* Range toute les variables dans un tableau et l'ajoute a la BDD
 	* 
     * @param array tableau Tableau des données du formulaire
@@ -62,12 +66,12 @@ class Salle_offert extends Modele {
 	*
 	* Fonction getDroitBy Retourne les droits en fonction du client et du user
 	* 
-    * @param int PUser Id du client
-    * @param int PUser Id de la categorie
+    * @param int PClient Id du client
+    * @param int PCategorie Id de la categorie
 	* @return Array Résutat de la requête sous forme de tableau
 	**/
 
-	public static function getNbreBy(PClient, PCategorie) {
+	public static function getNbreBy($PClient, $PCategorie) {
 		$sql = 'SELECT nbre FROM '.strtolower(get_called_class()).' WHERE id_client = :client AND id_categorie = :categorie';
         $retour = self::executerRequete($sql, array(
             'client' => $PClient, 'categorie' => $PCategorie,
@@ -87,7 +91,7 @@ class Salle_offert extends Modele {
 
 	/**
 	 * @access public
-	 * @param PDroit
+	 * @param PNbre
 	 * @return void
 	 * 
 	 * @ReturnType void
@@ -105,7 +109,7 @@ class Salle_offert extends Modele {
 
 	/**
 	 * @access public
-	 * @param PDroit
+	 * @param PClient
 	 * @return void
 	 * 
 	 * @ReturnType void
@@ -123,7 +127,7 @@ class Salle_offert extends Modele {
 
 	/**
 	 * @access public
-	 * @param PDroit
+	 * @param PCategorie
 	 * @return void
 	 * 
 	 * @ReturnType void
