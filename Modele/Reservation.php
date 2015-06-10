@@ -19,6 +19,10 @@ require_once('Modele/Salle.php');
 require_once('Modele/Client.php');
 require_once('Modele/Facture.php');
 
+/**
+ * @access public
+ * @author bruno
+ */
 class Reservation extends Modele {
 	// Variables
 	private $id_reservation;
@@ -93,11 +97,11 @@ class Reservation extends Modele {
     **/
 
     public static function getAllPeriode($dbt, $fin) {
-        $sql = 'SELECT * FROM '.strtolower(get_called_class($this)).' WHERE date_dbt BETWEEN :dbt AND :fin';
+        $sql = 'SELECT * FROM '.strtolower(get_called_class()).' WHERE date_dbt BETWEEN :dbt AND :fin';
         $retour = self::executerRequete($sql, array(
             'dbt' => $dbt, 'fin' => $fin,
         ));
-        while ($sortie [] = $retour->fetchObject(strtolower(get_called_class($this))));
+        while ($sortie [] = $retour->fetchObject(strtolower(get_called_class())));
         return $sortie;
     }
 

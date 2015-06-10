@@ -15,7 +15,10 @@ require_once('Framework/Modele.php');
 require_once('Modele/Categorie.php');
 require_once('Modele/Reservation.php');
 
-
+/**
+ * @access public
+ * @author bruno
+ */
 class Salle extends Modele {
     private $id_salle;
 	private $nom_salle;

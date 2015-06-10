@@ -18,6 +18,10 @@ require_once('Modele/Client.php');
 require_once('Modele/Reservation.php');
 require_once('Framework/Modele.php');
 
+/**
+ * @access public
+ * @author bruno
+ */
 class User extends Modele {
 	private $id_user;
 	private $identifiant;

@@ -15,6 +15,10 @@ require_once('Framework/Modele.php');
 require_once('Modele/Reservation.php');
 require_once('Modele/Client.php');
 
+/**
+ * @access public
+ * @author bruno
+ */
 class Facture extends Modele {
 	private $id_facture;
 	private $date_fact;

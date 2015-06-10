@@ -16,7 +16,7 @@ require_once('salle.php');
 
 /**
  * @access public
- * @author vincent
+ * @author bruno
  */
 class Categorie extends Modele {
 	/**
