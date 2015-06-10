@@ -134,10 +134,9 @@ abstract class Modele {
 
     public static function getBy($colonne, $valeur) {
         $sql = 'SELECT * FROM '.strtolower(get_called_class()).' WHERE '.$colonne.' = :valeur';
-        var_dump($sql);
         $retour = self::executerRequete($sql, array('valeur' => $valeur,));
-        while ($sortie [] = $retour->fetchObject(strtolower(get_called_class($this))));
-        if (sizeof($sortie) == 2)
+        while ($sortie [] = $retour->fetchObject(strtolower(get_called_class())));
+        if (sizeof($sortie) <= 2)
             return $sortie[0];
         return $sortie;
     }

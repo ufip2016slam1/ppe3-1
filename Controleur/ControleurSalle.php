@@ -15,7 +15,7 @@ class ControleurSalle extends Controleur
     public static $champsModifiable = array();
 
     public function index() {
-        echo ('appel de la fonction index du ControleurSalle');
+        $this->genererVue();
     }
 
     public function add() {

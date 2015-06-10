@@ -23,6 +23,8 @@ class User extends Modele {
 	private $identifiant;
 	private $password;
 	private $mail;
+
+
 	/**
 	 * @AssociationType client
 	 * @AssociationMultiplicity 1..*
@@ -195,6 +197,22 @@ class User extends Modele {
 
     public function getReserv() {
         return Reservation::getBy('id_user', $this->getId_user());
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMail()
+    {
+        return $this->mail;
+    }
+
+    /**
+     * @param mixed $mail
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
     }
 }
 ?>

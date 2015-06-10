@@ -16,8 +16,12 @@ class ControleurClient extends Controleur
     public static $champsModifiable = array('nom', 'prenom', 'raison_sociale', 'adresse', 'code_postal', 'ville', 'telephone');
 
 	public function index() {
-		echo ('appel de la foncion index du ControleurClient');
+        $this->genererVue();
 	}
+
+    public function test() {
+        $this->genererVue();
+    }
 
 	/**
 	*
@@ -26,17 +30,17 @@ class ControleurClient extends Controleur
 	*
 	**/
 	public function add() {	
-		if ($this->requete->existeParametre('adresse', 'code_postal', 'ville', 'telephone') && ($this->requete->existeParametre(array('nom', 'prenom')||$this->requete->existeParametre('raison_sociale'))) {
+		if ($this->requete->existeParametre('adresse', 'code_postal', 'ville', 'telephone') && ($this->requete->existeParametre(array('nom', 'prenom'))||$this->requete->existeParametre('raison_sociale'))) {
 			$client = new Client();
 			$client->setAdresse($this->requete->getParametre('adresse'));
 			$client->setCode_postal($this->requete->getParametre('code_postal'));
 			$client->setVille($this->requete->getParametre('ville'));
 			$client->setTelephone($this->requete->getParametre('telephone'));
 
-			if ($this->requete->existeParametre(array('nom', 'prenom') {
+			/*if ($this->requete->existeParametre(array('nom', 'prenom')) {
 				$client->setNom($this->requete->getParametre('nom'));
 				$client->setPrenom($this->requete->getParametre('prenom'));
-			}
+			}*/
 			if ($this->requete->existeParametre('raison_sociale')) {
 				$client->setRaison_sociale($this->requete->getParametre('raison_sociale'));
 			}

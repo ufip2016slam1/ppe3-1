@@ -44,9 +44,17 @@ class Vue {
         // Nécessaire pour les URI de type controleur/action/id
         $racineWeb = Configuration::get("racineWeb", "/");
         // Génération du gabarit commun utilisant la partie spécifique
-        $vue = $this->genererFichier('Vue/gabarit.php',
+       // if ($_SESSION['auth'] == 1) {
+            $vue = $this->genererFichier('Vue/gabarit3.php',
                 array('titre' => $this->titre, 'contenu' => $contenu,
                     'racineWeb' => $racineWeb));
+        //}
+        /*else {
+            $vue = $this->genererFichier('Vue/gabaritConnexion.php',
+                array('titre' => $this->titre, 'contenu' => $contenu,
+                    'racineWeb' => $racineWeb));
+        }*/
+
         // Renvoi de la vue générée au navigateur
         echo $vue;
     }
