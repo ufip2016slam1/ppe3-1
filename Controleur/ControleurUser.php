@@ -126,4 +126,42 @@ class ControleurUser extends Controleur
         }
         return false;
     }
+	
+	/**
+	*
+	* Fonction mail($@mail, $sujet, $message, $headers); headers non obligatoire
+	* Si le message dépasse 70 caracétres utilisé $message = wordwrap($message, 70, "\r\n"); 
+	* Message en HTML possible
+	*/
+	private function envoiMail() {
+		// Message en utilisant HTML UTF-8
+		$message ='
+			<html>
+			<head>
+    		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    		<title>Validation d\'inscription M2L</title>
+			</head>
+			<body>
+   			<p>Bonjour,'.$user->getIdentifiant().',<br />
+   				<br />
+   				Pour valider votre compte veillez clické sur le lien ci-dessous :<br />
+   				<a href='.......'>Validation du compte</a>
+   			</p>
+   			</body>
+			</html>
+		'; 
+		// Fin message
+		$headers = 'Content-type: text/html; charset=utf-8' . "\r\n"; // Pour utilisation HTML UTF-8
+		$headers .= 'From: M2L <M2L@email.com>'
+		mail($user->getMail(), 'Validation compte M2L', $message, $headers) 
+ 	}
+	/*
+	*	// Message simple
+	*	$message = 'Bonjour '.$user->getIdentifiant().',\r\n
+	*			Afin de valider l'inscription au systéme de réservation de la M2L veillez vous dirigez vers ce lien :\r\n
+	*			...';
+	*	if($message.length >= 70)
+	*			$message = wordwrap($message, 70, "\r\n");
+	*
+	**/
 }

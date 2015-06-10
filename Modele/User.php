@@ -6,10 +6,9 @@
 *
 * Liste des fonctions disponible dans cet classe
 *       add() : Bool;
-*		addClient(string $PClient, int $PDroit) : void;
-*		getClient() : void;
-*		deleteClient(string $PClient) : void;
-*       tout les guetteurs et setteurs
+*		getClient() : Objet;
+*		getReserv() : Objet;
+*       tout les guetters and setters
 *
 **/
 
@@ -27,8 +26,6 @@ class User extends Modele {
 	private $identifiant;
 	private $password;
 	private $mail;
-
-
 	/**
 	 * @AssociationType client
 	 * @AssociationMultiplicity 1..*
@@ -71,7 +68,7 @@ class User extends Modele {
 		return $retour;
 	}
 
-	// Guetteurs et Setteurs
+	// Guetters and Setters
 
 	/**
 	 * @access public

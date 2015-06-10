@@ -6,13 +6,14 @@
 *
 * Liste des fonctions disponible dans cet classe
 *       add() : Bool;
+*		getSalle() : Objet;
 *       tout les guetteurs et setteurs
 *
 **/
 
 // includes
 require_once('Framework/Modele.php');
-require_once('salle.php');
+//require_once('Modele/Salle.php');
 
 /**
  * @access public

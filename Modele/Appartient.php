@@ -12,8 +12,6 @@
 **/
 
 // includes
-require_once('Modele/Client.php');
-require_once('Modele/User.php');
 require_once('Framework/Modele.php');
 
 /**

@@ -7,6 +7,11 @@
 * Liste des fonctions disponible dans cet classe
 *       add() : Bool;
 *       getAllPeriode(Datetime debut, Datetime fin) : Objet;
+*       getFacture() : Objet;
+*       getClient() : Objet;
+*       getSalle() : Objet;
+*       getUser() : Objet;
+*       getRepetition : Objet;
 *       tout les guetteurs et setteurs
 *
 **/
@@ -15,7 +20,7 @@
 require_once('Framework/Modele.php');
 require_once('Modele/Repetition.php');
 require_once('Modele/User.php');
-require_once('Modele/Salle.php');
+//require_once('Modele/Salle.php');
 require_once('Modele/Client.php');
 require_once('Modele/Facture.php');
 
@@ -105,7 +110,7 @@ class Reservation extends Modele {
         return $sortie;
     }
 
-	// Guetteur and Setteur
+	// Guetteurs and Setters
 
     /**
      * Gets the value of id_reservation.

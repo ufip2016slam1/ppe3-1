@@ -6,6 +6,8 @@
 *
 * Liste des fonctions disponible dans cet classe
 *       add() : Bool;
+*       getReserv() : Objet;
+*       getCategorie() : Objet;
 *       tout les guetteurs et setteurs
 *
 **/
