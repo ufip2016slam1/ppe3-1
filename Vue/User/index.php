@@ -50,8 +50,8 @@
           </div>
         </form>
 
-        <a href="motdepasseoublier.php">mot de passe oublier</a><br>
-        <a href="register.php" class="text-center">nouveau membre</a>
+        <a href="?controller=user&action=nouveauMdp">mot de passe oublier</a><br>
+        <a href="?controller=user&action=register" class="text-center">nouveau membre</a>
 
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->

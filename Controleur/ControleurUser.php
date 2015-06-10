@@ -28,16 +28,22 @@ class ControleurUser extends Controleur
 	*   	insertion en base de donnée
 	* sinon exception
 	**/	
-	public function add() {	
-		if ($this->requete->existeParametre(array('identifiant', 'password', 'mail'))) {
+	public function register() {
+		if ($this->requete->existeParametre(array('identifiant', 'mail'))) {
 			$user = new User ();
 			$user->setIdentifiant($this->requete->getParametre('identifiant'));
-			$user->setPassword(sha1($this->requete->getParametre('password')));
 			$user->setMail($this->requete->getParametre('mail'));
+            $user->setPassword(sha1($pass = $this->genererMdp()));
 			$user->add();
+
+            mail($this->requete->getParametre('mail'),'inscription MLL', "identifiant : ".
+                $this->requete->getParametre('identifiant')."<br />".
+                "mot de passe : ".$pass);
+
+            header('location:'.$_SERVER['HTTP_HOST'].'index.php');
 		}
 		else {
-			throw new Exception("Paramètres utilisateur incomplets");
+            $this->genererVue();
 		}
 	}
 

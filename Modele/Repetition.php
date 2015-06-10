@@ -14,7 +14,7 @@
 require_once('Framework/Modele.php');
 require_once('Modele/Reservation.php');
 
-class Facture extends Modele {
+class Repetition extends Modele {
 	private $id_repetition;
 	private $date_deb_rep;
 	private $date_fin_rep;
