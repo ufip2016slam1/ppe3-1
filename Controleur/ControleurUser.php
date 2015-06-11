@@ -164,4 +164,9 @@ class ControleurUser extends Controleur
 	*			$message = wordwrap($message, 70, "\r\n");
 	*
 	**/
+
+    public function deconnexion() {
+        session_destroy();
+        header('location:index.php');
+    }
 }

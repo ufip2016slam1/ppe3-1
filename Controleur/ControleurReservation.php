@@ -22,7 +22,7 @@ class ControleurReservation extends Controleur
     public static $champsModifiable = array('date_dbt', 'date_fin', 'id_salle');
 
 	public function index() {
-		echo ('appel de la fonction index du ControleurReservation');
+		$this->genererVue();
 	}
 
 	/**

@@ -44,7 +44,7 @@ class Vue {
         // Nécessaire pour les URI de type controleur/action/id
         $racineWeb = Configuration::get("racineWeb", "/");
         // Génération du gabarit commun utilisant la partie spécifique
-        if ($_SESSION['auth'] == 1) {
+        if ($_SESSION['auth'] === 1) {
             $vue = $this->genererFichier('Vue/gabarit3.php',
                 array('titre' => $this->titre, 'contenu' => $contenu,
                     'racineWeb' => $racineWeb));
@@ -96,16 +96,23 @@ class Vue {
     }
 
     /**
+     * retourne le lien en tenant compte de l'activation de la reecriture url parametrer dans le fichier configuration
+     * action par defaut index
+     * page page par defaut si pas de parametre index.php
      * @param $controleur
      * @param $action
      * @return string
      */
-    protected function lien ($controleur, $action){
+    protected function lien ($controleur = null, $action = 'index'){
         $rewrite = Configuration::get('rewrite_url',false);
-        if ($rewrite)
-            echo $controleur.'/'.$action;
+        if ($controleur != null) {
+            if ($rewrite)
+                echo $controleur . '/' . $action;
+            else
+                echo '?controleur=' . $controleur . '&action=' . $action;
+        }
         else
-            echo '?controleur='.$controleur.'&action='.$action;
+            echo 'index.php';
     }
 
 }

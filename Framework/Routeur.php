@@ -42,6 +42,8 @@ class Routeur {
         // index.php?controleur=XXX&action=YYY&id=ZZZ
 
         $controleur = "User";  // Contrôleur par défaut
+        if ($_SESSION['auth'] === 1)
+            $controleur = "Reservation"; // Controleur par defaut si le user est identifier
         if ($requete->existeParametre('controleur')) {
             $controleur = $requete->getParametre('controleur');
             // Première lettre en majuscules

@@ -29,7 +29,7 @@
       
       <header class="main-header">
         <!-- Logo -->
-        <a href="../index2.html" class="logo">
+        <a href=<?php $this->lien() ?> class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>A</b>LT</span>
           <!-- logo for regular state and mobile devices -->
@@ -159,7 +159,7 @@
                       <a href="#" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href=<?php $this->lien('user', 'deconnexion') ?> class="btn btn-default btn-flat">Sign out</a>
                     </div>
                   </li>
                 </ul>
@@ -210,14 +210,14 @@
             
            <!--NAVICALENDAR-->
             <li>
-              <a href="calendar.html">
+              <a href=<?php $this->lien('reservation') ?>>
                 <i class="fa fa-calendar"></i> <span>Calendrier</span>
                 <small class="label pull-right bg-red">3</small>
               </a>
             </li>
             <!--NAVImail-->
             <li>
-              <a href="mailbox/mailbox.html">
+              <a href="#">
                 <i class="fa fa-envelope"></i> <span>E-Mail</span>
                 <small class="label pull-right bg-yellow">12</small>
               </a>
@@ -225,7 +225,7 @@
             
             <!--NAVIClient-->
              <li>
-              <a href=<?php $this->lien('client', 'index') ?>>
+              <a href=<?php $this->lien('client') ?>>
                 <i class="fa fa-envelope"></i> <span>Client</span>
                 <small class="label pull-right bg-yellow">12</small>
               </a>
@@ -233,7 +233,7 @@
             
             <!--NAVISalle-->
              <li>
-              <a href=<?php $this->lien('salle', 'index') ?>>
+              <a href=<?php $this->lien('salle') ?>>
                 <i class="fa fa-envelope"></i> <span>Salle</span>
                 <small class="label pull-right bg-yellow">12</small>
               </a>
