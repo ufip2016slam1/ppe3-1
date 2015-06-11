@@ -225,7 +225,7 @@
             
             <!--NAVIClient-->
              <li>
-              <a href="?controleur=client&action=index">
+              <a href=<?php $this->lien('client', 'index') ?>>
                 <i class="fa fa-envelope"></i> <span>Client</span>
                 <small class="label pull-right bg-yellow">12</small>
               </a>
@@ -233,7 +233,7 @@
             
             <!--NAVISalle-->
              <li>
-              <a href="?controleur=salle&action=index">
+              <a href=<?php $this->lien('salle', 'index') ?>>
                 <i class="fa fa-envelope"></i> <span>Salle</span>
                 <small class="label pull-right bg-yellow">12</small>
               </a>
