@@ -37,10 +37,10 @@ class ControleurClient extends Controleur
 			$client->setVille($this->requete->getParametre('ville'));
 			$client->setTelephone($this->requete->getParametre('telephone'));
 
-			/*if ($this->requete->existeParametre(array('nom', 'prenom')) {
+			if ($this->requete->existeParametre(array('nom', 'prenom')) {
 				$client->setNom($this->requete->getParametre('nom'));
 				$client->setPrenom($this->requete->getParametre('prenom'));
-			}*/
+			}
 			if ($this->requete->existeParametre('raison_sociale')) {
 				$client->setRaison_sociale($this->requete->getParametre('raison_sociale'));
 			}

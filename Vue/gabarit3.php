@@ -466,5 +466,10 @@
     
     <!-- Demo -->
     <script src="Contenu/dist/js/demo.js" type="text/javascript"></script>
+    <script>
+        $("form").bind("submit", function(){
+            $.ajax({});
+        });
+    </script>
   </body>
 </html>
