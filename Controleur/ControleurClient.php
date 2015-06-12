@@ -29,7 +29,8 @@ class ControleurClient extends Controleur
 	* 	raison_sociale ou nom et prenom selon le cas (personne morale ou physique)
 	*
 	**/
-	public function add() {	
+	public function add() {
+        return json_encode(array('valeur' => 'OK'));
 		if ($this->requete->existeParametre('adresse', 'code_postal', 'ville', 'telephone') && ($this->requete->existeParametre(array('nom', 'prenom'))||$this->requete->existeParametre('raison_sociale'))) {
 			$client = new Client();
 			$client->setAdresse($this->requete->getParametre('adresse'));
@@ -37,7 +38,7 @@ class ControleurClient extends Controleur
 			$client->setVille($this->requete->getParametre('ville'));
 			$client->setTelephone($this->requete->getParametre('telephone'));
 
-			if ($this->requete->existeParametre(array('nom', 'prenom')) {
+			if ($this->requete->existeParametre(array('nom', 'prenom'))) {
 				$client->setNom($this->requete->getParametre('nom'));
 				$client->setPrenom($this->requete->getParametre('prenom'));
 			}

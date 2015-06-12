@@ -468,7 +468,13 @@
     <script src="Contenu/dist/js/demo.js" type="text/javascript"></script>
     <script>
         $("form").bind("submit", function(){
-            $.ajax({});
+            $.ajax({
+                url : '/ppe3-1/?controleur=client&action=add',
+                type : 'GET',
+                success : function () {
+                    console.log('ok');
+                }
+            });
         });
     </script>
   </body>
