@@ -464,17 +464,23 @@
     <!-- AdminLTE App -->
     <script src="Contenu/dist/js/app.min.js" type="text/javascript"></script>
     
-    <!-- Demo -->
-    <script src="Contenu/dist/js/demo.js" type="text/javascript"></script>
+    <!-- Demo
+    <script src="Contenu/dist/js/demo.js" type="text/javascript"></script> -->
+
+
     <script>
-        $("form").bind("submit", function(){
-            $.ajax({
-                url : '/ppe3-1/?controleur=client&action=add',
-                type : 'GET',
-                success : function () {
-                    console.log('ok');
+        $("form").bind("submit", function(e){
+            e.preventDefault(); // on bloque le comportement par defaut du navigateur
+            // on stocke l'objet JQuery formulaire
+            var $this = $(this);
+
+            $.post(
+                $this.attr('action'),
+                $this.serialize(),
+                function (data) {
+                    alert(data);
                 }
-            });
+            );
         });
     </script>
   </body>

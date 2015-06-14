@@ -28,6 +28,54 @@ class Client extends Modele {
 	private $raison_sociale;
 	private $adresse;
 	private $code_postal;
+
+    /**
+     * @return mixed
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * @param mixed $ville
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCodePostal()
+    {
+        return $this->code_postal;
+    }
+
+    /**
+     * @param mixed $code_postal
+     */
+    public function setCodePostal($code_postal)
+    {
+        $this->code_postal = $code_postal;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+    /**
+     * @param mixed $telephone
+     */
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+    }
 	private $ville;
 	private $telephone;
 	/**

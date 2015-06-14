@@ -30,11 +30,10 @@ class ControleurClient extends Controleur
 	*
 	**/
 	public function add() {
-        return json_encode(array('valeur' => 'OK'));
 		if ($this->requete->existeParametre('adresse', 'code_postal', 'ville', 'telephone') && ($this->requete->existeParametre(array('nom', 'prenom'))||$this->requete->existeParametre('raison_sociale'))) {
 			$client = new Client();
 			$client->setAdresse($this->requete->getParametre('adresse'));
-			$client->setCode_postal($this->requete->getParametre('code_postal'));
+			$client->setCodePostal($this->requete->getParametre('code_postal'));
 			$client->setVille($this->requete->getParametre('ville'));
 			$client->setTelephone($this->requete->getParametre('telephone'));
 
@@ -51,6 +50,7 @@ class ControleurClient extends Controleur
 		else {
 			throw new Exception("Paramètres client incomplets");
 		}
+        echo ('OK');
 	}
 
 }

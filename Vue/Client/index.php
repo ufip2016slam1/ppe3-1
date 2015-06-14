@@ -34,7 +34,7 @@
                   <h3 class="box-title">Ajouter un Client</h3>
                 </div>
                 <div class="box-body">
-                	<form action="" method="post"><!--GAUTIER-->
+                	<form action=<?php $this->lien('client','add') ?> method="post"><!--GAUTIER-->
                 
                               <!-- NOM -->
                               <div class="form-group">
@@ -43,7 +43,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                   </div>
-                                  <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask/>
+                                  <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
@@ -54,7 +54,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                   </div>
-                                  <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask/>
+                                  <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="prenom"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
@@ -65,7 +65,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-phone"></i>
                                   </div>
-                                  <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask/>
+                                  <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask name="telephone"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
@@ -76,7 +76,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-phone"></i>
                                   </div>
-                                  <input type="text" class="form-control" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask/>
+                                  <input type="text" class="form-control" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask name="raison_sociale"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
@@ -87,7 +87,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-laptop"></i>
                                   </div>
-                                  <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask/>
+                                  <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="adresse"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
                               
@@ -98,7 +98,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-laptop"></i>
                                   </div>
-                                  <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask/>
+                                  <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="code_postal"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
                               
@@ -109,7 +109,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-laptop"></i>
                                   </div>
-                                  <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask/>
+                                  <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="ville"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
                               
