@@ -33,10 +33,10 @@
 		
                               <!-- Nom salle -->
                               <div class="form-group">
-                                <label>Nom salle:</label>
+                                <label>Nom salle :</label>
                                 <div class="input-group">
                                   <div class="input-group-addon">
-                                    <i class="fa fa-calendar"></i>
+                                    <i class="fa fa-square-o"></i>
                                   </div>
                                   <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask/>
                                 </div><!-- /.input group -->
@@ -44,13 +44,18 @@
             
                               <!-- Categorie -->
                               <div class="form-group">
-                                <label>Categorie:</label>
+                                <label>Categorie :</label>
                                 <div class="input-group">
                                   <div class="input-group-addon">
-                                    <i class="fa fa-phone"></i>
-                                  </div>
-                                  <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask/>
+                                    <i class="fa fa-navicon"></i>
+                                  </div><!--MENU DEROULANT-->
+                                  <select class="form-control">
+                                        <option>example1</option>
+                                        <option>example2</option>
+                                        <option>example3</option>
+                                    </select>
                                 </div><!-- /.input group -->
+
                               </div><!-- /.form group -->
                               
                                <button type="submit" class="btn btn-primary btn-block btn-flat">Ajouter</button>
@@ -74,11 +79,16 @@
                     
                     <div class="row">
                     	<div class="col-md-6">
-                           <div id="example1_filter" class="dataTables_filter">
-                                   <label>
-                                         Chercher:
-                                     <input class="form-control input-sm" type="search" placeholder="" aria-controls="example1"></i></label>
-                             </div>
+                            
+                              <div class="form-group">
+                                <label>Rechercher :</label>
+                                <div class="input-group">
+                                  <div class="input-group-addon">
+                                    <a href="#"><i class="fa fa-search"></i></a>
+                                  </div>
+                                  <input type="text" class="form-control input-sm" type="search" placeholder="" />
+                                </div><!-- /.input group -->
+                              </div><!-- /.form group -->
                          </div>
                          
                          <div class="col-md-6">
@@ -95,10 +105,17 @@
                         <th>Nom salle</th>
 						<th>Categorie</th>
                         <th>Select</th>
+                        <th>Tarif 1</th>
+                        <th>Tarif 2</th>
+                        <th>Tarif 3</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
+                        <td>aaa</td>
+                        <td>aaa</td>
+                        <td>aaa</td>
+                        <td>aaa</td>
                         <td>aaa</td>
                         <td>aaa</td>
                         <td>
@@ -118,6 +135,9 @@
                         <th>Nom salle</th>
 						<th>Categorie</th>
                         <th>Select</th>
+                        <th>Tarif 1</th>
+                        <th>Tarif 2</th>
+                        <th>Tarif 3</th>
                       </tr>
                     </tfoot>
                   </table>

@@ -15,13 +15,7 @@
 
           <!-- Default box -->
           <div class="box">
-            <div class="box-header with-border">
-             
-              <div class="box-tools pull-right">
-                <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
-                <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
+            
             <div class="box-body">
               <div class="content">
 				<div class="row">
@@ -41,7 +35,7 @@
                                 <label>Nom:</label>
                                 <div class="input-group">
                                   <div class="input-group-addon">
-                                    <i class="fa fa-calendar"></i>
+                                    <i class="fa fa-user"></i>
                                   </div>
                                   <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom"/>
                                 </div><!-- /.input group -->
@@ -52,7 +46,7 @@
                                 <label>Prenom:</label>
                                 <div class="input-group">
                                   <div class="input-group-addon">
-                                    <i class="fa fa-calendar"></i>
+                                    <i class="fa fa-user"></i>
                                   </div>
                                   <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="prenom"/>
                                 </div><!-- /.input group -->
@@ -74,7 +68,7 @@
                                 <label>Raison sociale:</label>
                                 <div class="input-group">
                                   <div class="input-group-addon">
-                                    <i class="fa fa-phone"></i>
+                                    <i class="fa fa-university"></i>
                                   </div>
                                   <input type="text" class="form-control" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask name="raison_sociale"/>
                                 </div><!-- /.input group -->
@@ -85,7 +79,7 @@
                                 <label>Adresse:</label>
                                 <div class="input-group">
                                   <div class="input-group-addon">
-                                    <i class="fa fa-laptop"></i>
+                                    <i class="fa fa-envelope-o"></i>
                                   </div>
                                   <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="adresse"/>
                                 </div><!-- /.input group -->
@@ -96,7 +90,7 @@
                                 <label>Code postal:</label>
                                 <div class="input-group">
                                   <div class="input-group-addon">
-                                    <i class="fa fa-laptop"></i>
+                                    <i class="fa fa-envelope"></i>
                                   </div>
                                   <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="code_postal"/>
                                 </div><!-- /.input group -->
@@ -107,7 +101,7 @@
                                 <label>Ville:</label>
                                 <div class="input-group">
                                   <div class="input-group-addon">
-                                    <i class="fa fa-laptop"></i>
+                                    <i class="fa fa-building"></i>
                                   </div>
                                   <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="ville"/>
                                 </div><!-- /.input group -->
@@ -231,7 +225,7 @@
                     
                                             <a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">
                                         
-                                                Previous
+                                                Precedente
                                         
                                             </a>
                                         
@@ -284,7 +278,7 @@
                     
                                         <a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0">
                     
-                                            Next
+                                            Suivante
                     
                                         </a>
                                     </li>
