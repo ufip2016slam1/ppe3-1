@@ -144,14 +144,14 @@
                   <!-- Menu Body -->
                   <li class="user-body">
                     <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
+                      <a href="#">Abonnés</a>
                     </div>
-                    <div class="col-xs-4 text-center">
+                    <!--<div class="col-xs-4 text-center">
                       <a href="#">Sales</a>
                     </div>
                     <div class="col-xs-4 text-center">
                       <a href="#">Friends</a>
-                    </div>
+                    </div>--><!--SUPPMY-->
                   </li>
                   <!-- Menu Footer-->
                   <li class="user-footer">
@@ -159,15 +159,12 @@
                       <a href="#" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href=<?php $this->lien('user', 'deconnexion') ?> class="btn btn-default btn-flat">Sign out</a>
+                      <a href=<?php $this->lien('user', 'deconnexion') ?> class="btn btn-default btn-flat">Deconnexion</a>
                     </div>
                   </li>
                 </ul>
               </li>
-              <!-- Control Sidebar Toggle Button -->
-              <li>
-                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-              </li>
+             
             </ul>
           </div>
         </nav>
@@ -226,7 +223,7 @@
             <!--NAVIClient-->
              <li>
               <a href=<?php $this->lien('client') ?>>
-                <i class="fa fa-envelope"></i> <span>Client</span>
+                <i class="fa fa-users"></i> <span>Client</span>
                 <small class="label pull-right bg-yellow">12</small>
               </a>
             </li>
@@ -234,7 +231,7 @@
             <!--NAVISalle-->
              <li>
               <a href=<?php $this->lien('salle') ?>>
-                <i class="fa fa-envelope"></i> <span>Salle</span>
+                <i class="fa fa-square-o "></i> <span>Salle</span>
                 <small class="label pull-right bg-yellow">12</small>
               </a>
             </li>
@@ -242,7 +239,7 @@
             <!--NAVIReservation-->
              <li>
               <a href="mailbox/mailbox.html">
-                <i class="fa fa-envelope"></i> <span>Reservation</span>
+                <i class="fa fa-file"></i> <span>Reservation</span>
                 <small class="label pull-right bg-yellow">12</small>
               </a>
             </li>
