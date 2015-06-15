@@ -16,12 +16,29 @@ class ControleurClient extends Controleur
     public static $champsModifiable = array('nom', 'prenom', 'raison_sociale', 'adresse', 'code_postal', 'ville', 'telephone');
 
 	public function index() {
-        $this->genererVue();
+        $clients = Client::getAll();
+        $pClients = array();
+        foreach ($clients as $client) {
+            if ($client != false) {
+                $pClients[] = array(
+                    'id' => $client->getId_client(),
+                    'nom' => $client->getNom(),
+                    'prenom' => $client->getPrenom(),
+                    'RS' => $client->getRaison_sociale(),
+                    'adresse' => $client->getAdresse(),
+                    'CP' => $client->getCodePostal(),
+                    'ville' => $client->getVille(),
+                    'tel' => $client->getTelephone()
+                );
+            }
+        }
+        $this->genererVue(array('clients' => $pClients));
 	}
 
-    public function test() {
-        $this->genererVue();
+    public function delete () {
+        echo 'OK';
     }
+
 
 	/**
 	*

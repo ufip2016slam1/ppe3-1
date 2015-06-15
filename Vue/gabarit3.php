@@ -482,6 +482,26 @@
                 }
             );
         });
+
+        $(".supprimer").on("click", function(){
+            var bouton = $(this);
+            var Ids;
+            $('.index:checked').each(function(){
+                Ids + { id : ($(this).attr('name'))};
+            });
+            Ids = JSON.stringify(Ids);
+            if (Ids != '' || Ids != 'undefinided'){
+                $.post(
+                    bouton.attr('formaction'),
+                    Ids,
+                    function (data) {
+                        alert(data);
+                    }
+                );
+            }
+        });
+
+
     </script>
   </body>
 </html>

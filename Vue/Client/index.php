@@ -158,7 +158,7 @@
                 
                 <!--TABLEAU-->
                 
-                  <table id="example2" class="table table-bordered table-hover">
+                  <table id="example2" class="table table-bordered table-hover detail">
                     <thead>
                       <tr>
                         <th>Nom</th>
@@ -173,19 +173,33 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>aaa</td><!--Nom-->
-                        <td>aaa</td><!--Prenom-->
-                        <td>aaa</td><!--Raison sociale-->
-                        <td>aaa</td><!--Adresse-->
-                        <td>aaa</td><!--E-mail-->
-                        <td>aaa</td><!--Code postal-->
-						<td>aaa</td><!--Ville-->
-						<td>aaa</td><!--Telephone-->
-                        <td>aaa</td><!--Select-->
-                        <td><input type="checkbox"/></td>
-                      </tr>
-					  
+                      <?php
+                        foreach ($clients as $client) {
+                            ?>
+                            <tr>
+                                <td><?= $client['nom'] ?></td>
+                                <!--Nom-->
+                                <td><?= $client['prenom'] ?></td>
+                                <!--Prenom-->
+                                <td><?= $client['RS'] ?></td>
+                                <!--Raison sociale-->
+                                <td><?= $client['adresse'] ?></td>
+                                <!--Adresse-->
+                                <td><?= '' ?></td>
+                                <!--E-mail-->
+                                <td><?= $client['CP'] ?></td>
+                                <!--Code postal-->
+                                <td><?= $client['ville'] ?></td>
+                                <!--Ville-->
+                                <td><?= $client['tel'] ?></td>
+                                <!--Telephone-->
+                                <td><?= '' ?></td>
+                                <!--Select-->
+                                <td><input type="checkbox" class="index" name="<?= $client['id'] ?>"/></td>
+                            </tr>
+                            <?php
+                        }
+                      ?>
 					</tbody>
                     <tfoot>
                       <tr>
@@ -212,7 +226,7 @@
                     	<div class="col-md-9">
                          </div>
                          <div class="col-md-2">
-                           <button type="submit" class="btn btn-primary">suprimer les clients selectionnés</button> 
+                           <button type="submit" class="btn btn-primary supprimer" formaction=<?php $this->lien('client', 'delete') ?>>suprimer les clients selectionnés</button>
                              </div>
                          </div>
                 	</div>

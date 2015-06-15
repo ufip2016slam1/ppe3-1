@@ -76,6 +76,7 @@ abstract class Modele {
         $retour = self::executerRequete($sql);
 
         while ($sortie [] = $retour->fetchObject(strtolower(get_called_class())));
+        //$sortie = array_slice($sortie, 0, -1); // on enleve la derniere case du tableau false pour utiliser des boucles foreach
 
         return $sortie;
     }
