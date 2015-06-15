@@ -25,8 +25,8 @@ class ControleurFacture extends Controleur
         $pdf->AliasNbPages();
         $pdf->AddPage();
         $pdf->SetFont('Times','',12);
-        for($i=1;$i<=40;$i++)
-            $pdf->Cell(0,10,'Impression de la ligne numéro '.$i,0,1);
+        $header = array('Salle', 'Date', 'Heure', 'tarif(1h)', 'Prix');
+        $pdf->BasicTable($header, $data); // $data -> tableau de tableau
         $pdf->Output();
     }
 

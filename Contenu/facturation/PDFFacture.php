@@ -5,7 +5,7 @@
  * Date: 08/06/2015
  * Time: 11:20
  */
-require_once 'Contenu/facturation/fpdf.php';
+require_once 'Contenu/facturation/fpdf/fpdf.php';
 
 class PDFFacture extends FPDF {
     // En-tête
@@ -34,6 +34,36 @@ class PDFFacture extends FPDF {
         $this->SetFont('Arial','I',8);
         // Numéro de page
         $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
+    }
+
+    // Tableau simple
+    // @param array $header 
+    function BasicTable($header, $data)
+    {
+        $largeur = count($header)*7.4;
+        $hauteur = 6;
+        $this->ln(20);
+        $this->SetFont('helvetica','',12);
+        $this->SetTextColor(216, 31, 42);
+        // En-tête
+        foreach($header as $col)
+            $this->Cell($largeur,8,$col,1,0,'C');
+        $this->Ln();
+
+        $this->SetFont('Arial','',10);
+        $this->SetTextColor(0, 0, 0);
+        // Données
+        foreach($data as $row)
+        {
+            foreach($row as $col)
+                $this->Cell($largeur,$hauteur,$col,1); // param : 1=largeurur 2=Hauteur 3=Contenue
+            $this->Ln();
+        }
+        foreach($data as $row){
+            $total += $row['prix'];
+        }
+        $this->Cell((count($header)-1)*$largeur,$hauteur,'Total de la somme a payer du mois',1,0,'C');
+        $this->Cell($largeur,$hauteur,$total.'$',1);
     }
 }
 

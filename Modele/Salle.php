@@ -27,7 +27,9 @@ class Salle extends Modele {
 	/**
 	 * @AttributeType int
 	 */
-	private $tarif = array();
+	private $tarif1;
+    private $tarif2;
+    private $tarif3;
 	/**
 	 * @AssociationType categorie
 	 * @AssociationMultiplicity 1
@@ -107,22 +109,62 @@ class Salle extends Modele {
      *
      * @return mixed
      */
-    public function getTarif()
+    public function getTarif1()
     {
-        return $this->tarif;
+        return $this->tarif1;
     }
 
     /**
      * Sets the value of tarif.
      *
-     * @param array $PTarif Tableau avec les tarifs
+     * @param int $PTarif1 Tarif pour les ligues
      *
      */
-    public function setTarif($PTarif)
+    public function setTarif1($PTarif1)
     {
-        foreach ($PTarif as $key => $value) {
-        	$tarif[$key] = $value;
-        }
+    	$this->tarif1 = $PTarif1;
+    }
+
+    /**
+     * Gets the value of tarif.
+     *
+     * @return mixed
+     */
+    public function getTarif2()
+    {
+        return $this->tarif2;
+    }
+
+    /**
+     * Sets the value of tarif.
+     *
+     * @param int $PTarif2 Tarif pour les clubs
+     *
+     */
+    public function setTarif2($PTarif2)
+    {
+        $this->tarif2 = $PTarif2;
+    }
+
+    /**
+     * Gets the value of tarif.
+     *
+     * @return mixed
+     */
+    public function getTarif3()
+    {
+        return $this->tarif3;
+    }
+
+    /**
+     * Sets the value of tarif.
+     *
+     * @param int $PTarif3 Tarif des particuliers
+     *
+     */
+    public function setTarif3($PTarif3)
+    {
+        $this->tarif3 = $PTarif3;
     }
 
     /**

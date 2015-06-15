@@ -99,4 +99,18 @@ abstract class Controleur {
 			}
         }
     }
+
+    /**
+    *
+    * Envoie un e-mail
+    *
+    * @param array $info Tableau contenant mail, sujet, message
+    * @return bool $result Réussite de l'envoie du mail
+    */
+    private function envoiMail($info) {
+        $headers = 'Content-type: text/html; charset=utf-8' . "\r\n"; // Pour utilisation HTML UTF-8
+        $headers .= 'From: M2L <M2L@email.com>';
+        $result = mail($info['mail'], $info['sujet'], $info['message'], $headers);
+        return $result;
+    }
 }
