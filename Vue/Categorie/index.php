@@ -1,4 +1,4 @@
-<?php $this->titre = "ajouter client"?>
+<?php $this->titre = "ajouter categorie"?>
 <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -25,14 +25,14 @@
 
               <div class="box box-danger">
                 <div class="box-header">
-                  <h3 class="box-title">Ajouter un Client</h3>
+                  <h3 class="box-title">Ajouter une catégorie</h3>
                 </div>
                 <div class="box-body">
-                	<form action=<?php $this->lien('client','add') ?> method="post"><!--GAUTIER-->
+                	<form action=<?php $this->lien('categorie','add') ?> method="post"><!--GAUTIER-->
                 
-                              <!-- NOM -->
+                              <!-- NOM SALLE -->
                               <div class="form-group">
-                                <label>Nom:</label>
+                                <label>Nom de categorie:</label>
                                 <div class="input-group">
                                   <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
@@ -41,72 +41,28 @@
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
-                              <!-- PRENOM -->
+                              <!-- Dbt réservation -->
                               <div class="form-group">
-                                <label>Prenom:</label>
+                                <label>Début réservation:</label>
                                 <div class="input-group">
-                                  <div class="input-group-addon">
-                                    <i class="fa fa-user"></i>
-                                  </div>
-                                  <input type="text" class="form-control" />
-                                </div><!-- /.input group -->
+                      				<div class="input-group-addon">
+                       				 	<i class="fa fa-clock"></i>
+                     				 </div>
+                      				<input type="text"/>
+                   				 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
-                              <!-- TELEPHONE -->
+                              <!-- Fin reservation -->
                               <div class="form-group">
-                                <label>Telephone:</label>
+                                <label>Fin reservation:</label>
                                 <div class="input-group">
-                                  <div class="input-group-addon">
-                                    <i class="fa fa-phone"></i>
-                                  </div>
-                                  <input type="text" class="form-control" />
-                                </div><!-- /.input group -->
+                      				<div class="input-group-addon">
+                       				 	<i class="fa fa-clock-o"></i>
+                     				 </div>
+                      				<input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask/>
+                   				 </div><!-- /.input group -->
                               </div><!-- /.form group -->
-            
-                              <!-- Raison sociale -->
-                              <div class="form-group">
-                                <label>Raison sociale:</label>
-                                <div class="input-group">
-                                  <div class="input-group-addon">
-                                    <i class="fa fa-university"></i>
-                                  </div>
-                                  <input type="text" class="form-control" />
-                                </div><!-- /.input group -->
-                              </div><!-- /.form group -->
-            
-                              <!-- Adresse -->
-                              <div class="form-group">
-                                <label>Adresse:</label>
-                                <div class="input-group">
-                                  <div class="input-group-addon">
-                                    <i class="fa fa-envelope-o"></i>
-                                  </div>
-                                  <input type="text" class="form-control"/>
-                                </div><!-- /.input group -->
-                              </div><!-- /.form group -->
-                              
-                              <!-- Code postal -->
-                              <div class="form-group">
-                                <label>Code postal:</label>
-                                <div class="input-group">
-                                  <div class="input-group-addon">
-                                    <i class="fa fa-envelope"></i>
-                                  </div>
-                                  <input type="text"  />
-                                </div><!-- /.input group -->
-                              </div><!-- /.form group -->
-                              
-                              <!-- Ville -->
-                              <div class="form-group">
-                                <label>Ville:</label>
-                                <div class="input-group">
-                                  <div class="input-group-addon">
-                                    <i class="fa fa-building"></i>
-                                  </div>
-                                  <input type="text" class="form-control" />
-                                </div><!-- /.input group -->
-                              </div><!-- /.form group -->
-                              
+
                           <button type="submit" class="btn btn-primary btn-block btn-flat">Ajouter</button> 
                      </form>
                      
@@ -122,7 +78,7 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                  <h3 class="box-title">Liste des Clients</h3>
+                  <h3 class="box-title">Liste des categories</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                 	<div class="row">
@@ -139,9 +95,6 @@
                          
                          <div class="col-md-6">
                     	
-                
-                          <!--aenlever <button type="submit" class="btn btn-primary">suprimer les clients selectionnés</button> -->
-                                   
                              </div>
                              
                          </div>
@@ -155,41 +108,26 @@
                   <table id="example2" class="table table-bordered table-hover detail">
                     <thead>
                       <tr>
-                        <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>Raison sociale</th>
-                        <th>Adresse</th>
-                        <th>E-mail</th>
-                        <th>Code postal</th>
-						<th>Ville</th>
-						<th>Telephone</th>
+                        <th>Nom categorie</th>
+                        <th>Dbt reservation</th>
+                        <th>Fin reservation</th>
                         <th>Select</th>
                       </tr>
                     </thead>
                     <tbody>
                       <?php
-                        foreach ($clients as $client) {
+                        foreach ($categories as $categorie) {
                             ?>
                             <tr>
-                                <td><?= $client['nom'] ?></td>
+                                <td><?= $categorie['nom_categorie'] ?></td>
                                 <!--Nom-->
-                                <td><?= $client['prenom'] ?></td>
+                                <td><?= $categorie['horaire_dbt_reserv'] ?></td>
                                 <!--Prenom-->
-                                <td><?= $client['RS'] ?></td>
-                                <!--Raison sociale-->
-                                <td><?= $client['adresse'] ?></td>
-                                <!--Adresse-->
-                                <td><?= '' ?></td>
-                                <!--E-mail-->
-                                <td><?= $client['CP'] ?></td>
-                                <!--Code postal-->
-                                <td><?= $client['ville'] ?></td>
-                                <!--Ville-->
-                                <td><?= $client['tel'] ?></td>
-                                <!--Telephone-->
-                                <td><?= '' ?></td>
+                                <td><?= $categorie['horaire_fin_reserv'] ?></td>
+                                
+                               
                                 <!--Select-->
-                                <td><input type="checkbox" class="index" name="<?= $client['id'] ?>"/></td>
+                                <td><input type="checkbox" class="index" name="<?= $categorie['id'] ?>"/></td>
                             </tr>
                             <?php
                         }
@@ -197,14 +135,10 @@
 					</tbody>
                     <tfoot>
                       <tr>
-                        <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>Raison sociale</th>
+                        <th>Nom categorie</th>
+                        <th>Dbt reservation</th>
+                        <th>Fin reservation/th>
                         <th>Adresse</th>
-                        <th>E-mail</th>
-                        <th>Code postal</th>
-						<th>Ville</th>
-						<th>Telephone</th>
                         <th>Select</th>
                       </tr>
                     </tfoot>
@@ -220,7 +154,7 @@
                     	<div class="col-md-9">
                          </div>
                          <div class="col-md-2">
-                           <button type="submit" class="btn btn-primary supprimer" formaction=<?php $this->lien('client', 'delete') ?>>suprimer les clients selectionnés</button>
+                           <button type="submit" class="btn btn-primary supprimer" formaction=<?php $this->lien('categorie', 'delete') ?>>suprimer les categories selectionnés</button>
                              </div>
                          </div>
                 	</div>
