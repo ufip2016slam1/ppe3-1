@@ -466,6 +466,7 @@
 
 
     <script>
+
         $("form").bind("submit", function(e){
             e.preventDefault(); // on bloque le comportement par defaut du navigateur
             // on stocke l'objet JQuery formulaire
@@ -476,23 +477,34 @@
                 $this.serialize(),
                 function (data) {
                     alert(data);
+                    $.get('?controleur=client&action=rafraichirListe', function (retour){ alert(retour)});
                 }
             );
         });
 
+        $(".index").change(function () {
+            if (this.checked){
+                $(this).closest('tr').addClass('aCacher');
+            }
+            else {
+                $(this).closest('tr').removeClass('aCacher');
+            }
+        });
+
         $(".supprimer").on("click", function(){
             var bouton = $(this);
-            var Ids;
+            var Ids = new Array ();
             $('.index:checked').each(function(){
-                Ids + { id : ($(this).attr('name'))};
+                Ids.push(($(this).attr("name")));
             });
-            Ids = JSON.stringify(Ids);
+            console.log(Ids);
             if (Ids != '' || Ids != 'undefinided'){
                 $.post(
                     bouton.attr('formaction'),
-                    Ids,
+                    {id: Ids},
                     function (data) {
                         alert(data);
+                        $.get('?controleur=client&action=rafraichirListe', function (retour){ alert(retour)});
                     }
                 );
             }
