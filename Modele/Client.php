@@ -21,7 +21,7 @@ require_once('Framework/Modele.php');
  * @access public
  * @author bruno
  */
-class Client extends Modele {
+class Client extends Modele implements Serializable {
 	private $id_client;
 	private $nom;
 	private $prenom;
@@ -276,5 +276,23 @@ class Client extends Modele {
     public function getFact() {
         return Facture::getBy('id_Client', $this->getId_client());
     }
+
+    public function serialize(){
+        return serialize(
+            array(
+                'id' => $this->getId_client(),
+                'nom' => $this ->getNom(),
+                'prenom' => $this->getPrenom(),
+                'RS' => $this->getRaison_sociale(),
+                'adresse' => $this->getAdresse(),
+                'CP' => $this->getRaison_sociale(),
+                'ville' => $this->getVille(),
+                'tel' => $this->getTelephone()
+            )
+        );
+    }
+
+    public function unserialize($data){
+        $data = unserialize($data);
+    }
 }
-?>

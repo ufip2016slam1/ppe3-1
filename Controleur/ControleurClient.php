@@ -50,7 +50,7 @@ class ControleurClient extends Controleur
     public function rafraichirListe() {
         $clients = Client::getAll();
 
-        echo json_encode($clients);
+        echo serialize($clients);
     }
 
 

@@ -37,7 +37,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                   </div>
-                                  <input type="text" class="form-control" />
+                                  <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
@@ -48,7 +48,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                   </div>
-                                  <input type="text" class="form-control" />
+                                  <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="prenom"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
@@ -59,7 +59,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-phone"></i>
                                   </div>
-                                  <input type="text" class="form-control" />
+                                  <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask name="telephone"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
@@ -70,7 +70,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-university"></i>
                                   </div>
-                                  <input type="text" class="form-control" />
+                                  <input type="text" class="form-control" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask name="raison_sociale"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
@@ -81,7 +81,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-envelope-o"></i>
                                   </div>
-                                  <input type="text" class="form-control"/>
+                                  <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="adresse"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
                               
@@ -92,7 +92,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-envelope"></i>
                                   </div>
-                                  <input type="text"  />
+                                  <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="code_postal"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
                               
@@ -103,7 +103,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-building"></i>
                                   </div>
-                                  <input type="text" class="form-control" />
+                                  <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="ville"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
                               
