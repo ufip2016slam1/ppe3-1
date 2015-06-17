@@ -15,6 +15,8 @@ class Vue {
     /** Titre de la vue (défini dans le fichier vue) */
     private $titre;
 
+    private $addCSS = null;
+
     /**
      * Constructeur
      * 
@@ -43,11 +45,17 @@ class Vue {
         // Il s'agit du chemin vers le site sur le serveur Web
         // Nécessaire pour les URI de type controleur/action/id
         $racineWeb = Configuration::get("racineWeb", "/");
+
+        $fichierInclus = array(
+            'titre' => $this->titre,
+            'contenu' => $contenu,
+            'racineWeb' => $racineWeb
+        );
+        if (!is_null($this->addCSS))
+            $fichierInclus['addCSS'] = $this->addCSS;
         // Génération du gabarit commun utilisant la partie spécifique
         if ($_SESSION['auth'] === 1) {
-            $vue = $this->genererFichier('Vue/gabarit3.php',
-                array('titre' => $this->titre, 'contenu' => $contenu,
-                    'racineWeb' => $racineWeb));
+            $vue = $this->genererFichier('Vue/gabarit3.php',$fichierInclus);
         }
         else {
             $vue = $this->genererFichier('Vue/gabaritConnexion.php',

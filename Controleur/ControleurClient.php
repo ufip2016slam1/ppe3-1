@@ -36,9 +36,6 @@ class ControleurClient extends Controleur
 	}
 
     public function delete () {
-<<<<<<< HEAD
-        echo 'OK';
-=======
         if ($this->requete->existeParametre('id')){
             $Ids = $this->requete->getParametre('id');
             foreach ($Ids as $id){
@@ -48,13 +45,6 @@ class ControleurClient extends Controleur
         }
         else
             echo 'Nok';
-    }
-
-    public function rafraichirListe() {
-        $clients = Client::getAll();
-
-        echo serialize($clients);
->>>>>>> origin/master
     }
 
 
@@ -83,7 +73,8 @@ class ControleurClient extends Controleur
 			$client->add();
 		}
 		else {
-			throw new Exception("Paramètres client incomplets");
+			//throw new Exception("Paramètres client incomplets");
+            echo ('nOK');
 		}
         echo ('OK');
 	}

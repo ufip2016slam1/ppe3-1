@@ -77,7 +77,6 @@ class ControleurReservation extends Controleur
 
     public function ajaxGetReserv() {
         $tabReserv = Reservation::getAll();
-        $tabReserv = array_splice($tabReserv,0,-1);
         $json = array();
 
         foreach ($tabReserv as $reservation) {
@@ -106,13 +105,4 @@ class ControleurReservation extends Controleur
 		Reservation::update('date_annule', date("Y-m-d H:i:s"), $id);
 	}
 
-	/**
-	*
-	* retourne l'id d'un salle en fonction de son nom
-	*
-	**/	
-	private function getIdSalleByNom ($nom) {
-		Salle::getBy('nom_salle',$nom);
-		return $salle->getId_salle();
-	}
 }

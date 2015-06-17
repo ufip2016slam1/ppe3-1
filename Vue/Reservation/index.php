@@ -1,4 +1,7 @@
-<?php $this->titre = "accueil" ?>
+<?php
+    $this->titre = "accueil" ;
+    $this->addCSS = '<link href="Contenu/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />';
+?>
 <!--bloc nouvelle reservation -->
 
  <div class="content-wrapper">
