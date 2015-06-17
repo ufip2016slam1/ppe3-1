@@ -1,11 +1,19 @@
 <!DOCTYPE html>
+<!-- Ajout provisoir du css full calendar ligne 8/9 --> 
 <html>
   <head>
     <meta charset="UTF-8">
     <title>SLAM/PPE3</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+
+    <link href="Contenu/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+   
+
+
     <!-- Bootstrap 3.3.4 -->
     <link href="Contenu/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href='Contenu/plugins/fullcalendar/jqueryUi/jquery-ui.min.css' rel="stylesheet" type="text/css" />
+
     <!-- Font Awesome Icons -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
@@ -463,10 +471,23 @@
     
     <!-- Demo
     <script src="Contenu/dist/js/demo.js" type="text/javascript"></script> -->
+    <script src="Contenu/plugins/fullcalendar/jqueryUi/jquery-ui.min.js"></script>
+    <script src='Contenu/plugins/fullcalendar/lib/moment.min.js'></script>
+     <script src='Contenu/plugins/fullcalendar/fullcalendar.js'></script>
+     
+     <script src='Contenu/plugins/fullcalendar/lang/fr.js'></script>
+
+
+    <!--<script src='Contenu/plugins/fullcalendar/lib/moment.min.js'></script>-->
+    
+
+    <script src='Contenu/plugins/fullcalendar/calendrier.js'></script>
+
+    <!--<script src='Contenu/plugins/fullcalendar/lib/jquery.min.js'></script>-->
+    <!--<script src='Contenu/plugins/fullcalendar/lang/fr.js'></script>-->
 
 
     <script>
-
         $("form").bind("submit", function(e){
             e.preventDefault(); // on bloque le comportement par defaut du navigateur
             // on stocke l'objet JQuery formulaire
@@ -477,34 +498,23 @@
                 $this.serialize(),
                 function (data) {
                     alert(data);
-                    $.get('?controleur=client&action=rafraichirListe', function (retour){ alert(retour)});
                 }
             );
         });
 
-        $(".index").change(function () {
-            if (this.checked){
-                $(this).closest('tr').addClass('aCacher');
-            }
-            else {
-                $(this).closest('tr').removeClass('aCacher');
-            }
-        });
-
         $(".supprimer").on("click", function(){
             var bouton = $(this);
-            var Ids = new Array ();
+            var Ids;
             $('.index:checked').each(function(){
-                Ids.push(($(this).attr("name")));
+                Ids + { id : ($(this).attr('name'))};
             });
-            console.log(Ids);
+            Ids = JSON.stringify(Ids);
             if (Ids != '' || Ids != 'undefinided'){
                 $.post(
                     bouton.attr('formaction'),
-                    {id: Ids},
+                    Ids,
                     function (data) {
                         alert(data);
-                        $.get('?controleur=client&action=rafraichirListe', function (retour){ alert(retour)});
                     }
                 );
             }

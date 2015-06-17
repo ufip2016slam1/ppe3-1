@@ -15,6 +15,7 @@
 **/
 require_once 'Framework/Controleur.php';
 require_once 'Modele/Reservation.php';
+require_once 'Modele/Salle.php';
 
 class ControleurReservation extends Controleur
 {
@@ -22,7 +23,9 @@ class ControleurReservation extends Controleur
     public static $champsModifiable = array('date_dbt', 'date_fin', 'id_salle');
 
 	public function index() {
+		
 		$this->genererVue();
+
 	}
 
 	/**
@@ -30,12 +33,24 @@ class ControleurReservation extends Controleur
 	* 		instantiation d'un objet Reservation	
 	**/	
 	public function add() {	
+		echo 'OK' ;
 		if ($this->requete->existeParametre(array('date_dbt', 'date_fin', 'nom_salle'))) {
 			$reserv = new Reservation ();
-			$reserv->setDate_dbt($requete->getParametre('date_dbt'));
-			$reserv->setDate_fin($requete->getParametre('date_fin'));
-			$reserv->setId_salle($this->getIdSalleByNom($requete->getParametre('nom_salle')));
-			$reserv->setId_user($_SESSION['user']->getId_user());
+
+			//$reserv->setDate_dbt($requete->getParametre('date_dbt'));
+			$reserv->setDate_dbt('2015-06-17 09:00:00');
+			//$reserv->setDate_fin($requete->getParametre('date_fin'));
+			$reserv->setDate_fin('2015-06-17 10:00:00');
+
+			//$reserv->setId_salle($this->getIdSalleByNom($requete->getParametre('nom_salle')));
+
+			$reserv->setId_salle('1');
+			$reserv->setId_client('54');
+
+			//$reserv->setId_client($requete->getParametre('date_dbt'));
+
+			//$reserv->setId_user($_SESSION['user']->getId_user());
+			$reserv->setId_user('5');
 			return $reserv->add();
 		}
 		else {
@@ -68,13 +83,13 @@ class ControleurReservation extends Controleur
         foreach ($tabReserv as $reservation) {
             $json[] = array(
                 "id" => $reservation->getId_reservation(),
-                "titre" => $reservation->getSalle()->getNom_salle(),
+                "title" => $reservation->getSalle()->getNom_salle(),
                 "start" => $reservation->getDate_dbt(),
                 "end" => $reservation->getDate_fin(),
                 "allDay" => false
             );
         }
-        return json_encode($json);
+        echo json_encode($json);
     }
 
 	/**

@@ -20,7 +20,7 @@
 require_once('Framework/Modele.php');
 require_once('Modele/Repetition.php');
 require_once('Modele/User.php');
-//require_once('Modele/Salle.php');
+require_once('Modele/Salle.php');
 require_once('Modele/Client.php');
 require_once('Modele/Facture.php');
 
@@ -271,7 +271,7 @@ class Reservation extends Modele {
      */
     public function setId_user($PId_user)
     {
-        $this->id_user = $PId_user->getId_user();
+        $this->id_user = $PId_user;//->getId_user();
 
         return $this;
     }
@@ -305,7 +305,7 @@ class Reservation extends Modele {
      */
     public function setId_salle($PId_salle)
     {
-        $this->id_salle = $PId_salle->getId_salle();
+        $this->id_salle = $PId_salle;//->getId_salle();
 
         return $this;
     }
@@ -339,7 +339,7 @@ class Reservation extends Modele {
      */
     public function setId_client($PId_client)
     {
-        $this->id_client = $PId_client->getId_client();
+        $this->id_client = $PId_client;//->getId_client();
 
         return $this;
     }
