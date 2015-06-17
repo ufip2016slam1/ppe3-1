@@ -61,11 +61,11 @@ class Salle extends Modele {
 
 	public function add($tableau = Null) {
 		$tab = array(
-			'nom_salle' => $this->nom_salle,
-			'tarif1' => $this->tarif[1],
-			'tarif2' => $this->tarif[2],
-			'tarif3' => $this->tarif[3],
-			'categorie' => $this->categorie,
+			'nom_salle' => $this->getNom_salle(),
+			'tarif1' => $this->getTarif1(),
+			'tarif2' => $this->getTarif2(),
+			'tarif3' => $this->getTarif3(),
+			'categorie' => $this->getCategorie(),
 		);
 		$retour = parent::add($tab);
 
@@ -101,7 +101,7 @@ class Salle extends Modele {
      */
     public function setNom_salle($PNom_salle)
     {
-        $this->nom_salle = $nom_salle;
+        $this->nom_salle = $PNom_salle;
     }
 
     /**
@@ -195,7 +195,7 @@ class Salle extends Modele {
      */
 
     public function getCategorie() {
-        return salle::getById($this->getId_categorie());
+        return Categorie::getById($this->getId_categorie());
     }
 
     /**

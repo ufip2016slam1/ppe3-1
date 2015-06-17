@@ -59,9 +59,9 @@ class User extends Modele {
 
 	public function add($tableau = Null) {
 		$tab = array(
-			'identifiant' => $this->identifiant,
-			'password' => $this->password,
-			'mail' => $this->mail,
+			'identifiant' => $this->getIdentifiant(),
+			'password' => $this->getPassword(),
+			'mail' => $this->getMail(),
 		);
 		$retour = parent::add($tab);
 
@@ -69,24 +69,6 @@ class User extends Modele {
 	}
 
 	// Guetters and Setters
-
-	/**
-	 * @access public
-	 */
-	public function getDroit() {
-		return $this->droit;
-	}
-
-	/**
-	 * @access public
-	 * @param PDroit
-	 * @return void
-	 * 
-	 * @ReturnType void
-	 */
-	public function setDroit($PDroit) {
-		$this->droit = $PDroit;
-	}
 
 	/**
 	 * @access public

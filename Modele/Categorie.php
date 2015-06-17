@@ -60,9 +60,9 @@ class Categorie extends Modele {
 
 	public function add($tableau = Null) {
 		$tab = array(
-			'nom_categorie' => $this->nom_categorie,
-			'horaire_dbt_reserv' => $this->horaire_dbt_reserv,
-			'horaire_fin_reserv' => $this->horaire_fin_reserv,
+			'nom_categorie' => $this->getNom(),
+			'horaire_dbt_reserv' => $this->getHoraire_dbt_reserv(),
+			'horaire_fin_reserv' => $this->getHoraire_fin_reserv(),
 		);
 		$retour = parent::add($tab);
 		return $retour;

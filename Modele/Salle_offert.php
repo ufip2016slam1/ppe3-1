@@ -51,9 +51,9 @@ class Salle_offert extends Modele {
 
 	public function add($tableau = Null) {
 		$tab = array(
-			'nbre' => $this->nbre,
-			'id_client' => $this->id_client,
-			'id_categorie' => $this->id_categorie,
+			'nbre' => $this->getNbre(),
+			'id_client' => $this->getId_client(),
+			'id_categorie' => $this->getId_categorie(),
 		);
 		$retour = parent::add($tab);
 

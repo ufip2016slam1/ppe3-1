@@ -491,14 +491,12 @@ if (isset($addJS))
 
 <script src='Contenu/plugins/fullcalendar/calendrier.js'></script>
 
-<<<<<<< HEAD
 <!--<script src='Contenu/plugins/fullcalendar/lib/jquery.min.js'></script>-->
 <!--<script src='Contenu/plugins/fullcalendar/lang/fr.js'></script>-->
 
 
 <script>
     $("form").bind("submit", function(e){
-        =======
             function synchronisation (data) {
                 alert(data);
                 console.log(data);
@@ -515,18 +513,15 @@ if (isset($addJS))
          * bloque l'action normale pour la realiser en ajax
          */
         $(".insertion").bind("submit", function(e){
-            >>>>>>> origin/master
             e.preventDefault(); // on bloque le comportement par defaut du navigateur
             // on stocke l'objet JQuery formulaire
             var formulaire = $(this);
 
             $.post(
-            <<<<<<< HEAD
             $this.attr('action'),
                 $this.serialize(),
                 function (data) {
                     alert(data);
-                    =======
                         formulaire.attr('action'),
                         formulaire.serialize(),
                         function () {
@@ -541,7 +536,6 @@ if (isset($addJS))
                                     $('.detail tbody tr').append('<td>'+input+'</td>');
                                 });
                             });
-                            >>>>>>> origin/master
                         }
                     );
                 });
@@ -552,7 +546,6 @@ if (isset($addJS))
                 $('.index:checked').each(function(){
                     Ids + { id : ($(this).attr('name'))};
                 });
-                <<<<<<< HEAD
                 Ids = JSON.stringify(Ids);
                 if (Ids != '' || Ids != 'undefinided'){
                     $.post(
@@ -560,14 +553,12 @@ if (isset($addJS))
                         Ids,
                         function (data) {
                             alert(data);
-                            =======
                             if (Ids != '' || Ids != 'undefinided'){
                                 $.post(
                                     bouton.attr('formaction'),
                                     {id: Ids},
                                     function () {
                                         $.get('?controleur=client&action=rafraichirListe', function (retour){ alert(retour)});
-                                        >>>>>>> origin/master
                                     }
                                 );
                             }

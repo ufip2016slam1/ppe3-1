@@ -51,9 +51,9 @@ class Appartient extends Modele {
 
 	public function add($tableau = Null) {
 		$tab = array(
-			'droit' => $this->droit,
-			'id_client' => $this->id_client,
-			'id_user' => $this->id_user,
+			'droit' => $this->getDroit(),
+			'id_client' => $this->getId_client(),
+			'id_user' => $this->getId_user(),
 		);
 		$retour = parent::add($tab);
 

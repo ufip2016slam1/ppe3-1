@@ -57,7 +57,7 @@ class Facture extends Modele {
 
 	public function add($tableau = Null) {
 		$tab = array(
-			'date_fact' => $this->date_fact,
+			'date_fact' => $this->getDate_fact,
 		);
 		$retour = parent::add($tab);
 
@@ -80,8 +80,8 @@ class Facture extends Modele {
      * @return datetime
      *
      */
-	public function getDate() {
-		return $this->date;
+	public function getDate_fact() {
+		return $this->date_fact;
 	}
 
 	/**
@@ -91,8 +91,8 @@ class Facture extends Modele {
 	 * 
 	 * @ReturnType void
 	 */
-	public function setDate($PDate) {
-		$this->date = $PDate;
+	public function setDate_fact($PDate) {
+		$this->date_fact = $PDate;
 	}
 
 	/**
@@ -145,8 +145,8 @@ class Facture extends Modele {
      */
     public function setNumReserv($PNumReserv)
     {
-        foreach ($PNumReserv as $key) {
-        	$numReserv[$key] = $value->getId_reservation();
+        foreach ($PNumReserv as $value) {
+        	$numReserv[] = $value->getId_reservation();
         }
     }
 

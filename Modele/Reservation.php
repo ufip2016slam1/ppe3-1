@@ -79,13 +79,13 @@ class Reservation extends Modele {
 	
 	public function add($tableau = Null) {
 		$tab = array(
-			'date_dbt' => $this->date_dbt,
-			'date_fin' => $this->date_fin,
-			'date_reserv' => $this->date_reserv,
-			'date_annule' => $this->date_annule,
-            'id_user' => $this->id_user,
-            'id_salle' => $this->id_salle,
-            'id_client' => $this->id_client,
+			'date_dbt' => $this->getDate_dbt(),
+			'date_fin' => $this->getDate_fin(),
+			'date_reserv' => $this->getDate_reserv(),
+			'date_annule' => $this->detDate_annule(),
+            'id_user' => $this->getId_user(),
+            'id_salle' => $this->getId_salle(),
+            'id_client' => $this->getId_client(),
 		);
 		$retour = parent::add($tab);
         
@@ -137,13 +137,11 @@ class Reservation extends Modele {
      *
      * @param mixed $date_dbt the date_dbt
      *
-     * @return self
+     * @return void
      */
     public function setDate_dbt($date_dbt)
     {
         $this->date_dbt = $date_dbt;
-
-        return $this;
     }
 
     /**
@@ -161,13 +159,11 @@ class Reservation extends Modele {
      *
      * @param mixed $date_fin the date_fin
      *
-     * @return self
+     * @return void
      */
     public function setDate_fin($date_fin)
     {
         $this->date_fin = $date_fin;
-
-        return $this;
     }
 
     /**
@@ -185,13 +181,11 @@ class Reservation extends Modele {
      *
      * @param mixed $date_reserv the date_reserv
      *
-     * @return self
+     * @return void
      */
     public function setDate_reserv($date_reserv)
     {
         $this->date_reserv = $date_reserv;
-
-        return $this;
     }
 
     /**
@@ -209,13 +203,11 @@ class Reservation extends Modele {
      *
      * @param mixed $date_annule the date_annule
      *
-     * @return self
+     * @return void
      */
     public function setDate_annule($date_annule)
     {
         $this->date_annule = $date_annule;
-
-        return $this;
     }
 
     /**
@@ -223,9 +215,9 @@ class Reservation extends Modele {
      *
      * @return mixed
      */
-    public function getId_repeat()
+    public function getId_repetition()
     {
-        return $this->id_repeat;
+        return $this->id_repetition;
     }
 
     /**
@@ -233,13 +225,11 @@ class Reservation extends Modele {
      *
      * @param object $PId_repeat Object class Repetition
      *
-     * @return self
+     * @return void
      */
     public function setId_repetition($PId_repetition)
     {
         $this->id_repetition = $PId_repetition->getId_repetition();
-
-        return $this;
     }
 
     /**
@@ -267,13 +257,11 @@ class Reservation extends Modele {
      *
      * @param object $PId_user Object class User
      *
-     * @return self
+     * @return void
      */
     public function setId_user($PId_user)
     {
         $this->id_user = $PId_user;//->getId_user();
-
-        return $this;
     }
 
     /**
@@ -301,11 +289,11 @@ class Reservation extends Modele {
      *
      * @param object $PId_salle Object class Salle
      *
-     * @return self
+     * @return void
      */
     public function setId_salle($PId_salle)
     {
-        $this->id_salle = $PId_salle;//->getId_salle();
+        $this->id_salle = $PId_salle->getId_salle();
 
         return $this;
     }
@@ -335,13 +323,11 @@ class Reservation extends Modele {
      *
      * @param object $PId_client Object class Client
      *
-     * @return self
+     * @return void
      */
     public function setId_client($PId_client)
     {
-        $this->id_client = $PId_client;//->getId_client();
-
-        return $this;
+        $this->id_client = $PId_client->getId_client();
     }
 
     /**
@@ -369,13 +355,11 @@ class Reservation extends Modele {
      *
      * @param object $PId_facture Object class Facture
      *
-     * @return self
+     * @return void
      */
     public function setId_facture($PId_facture)
     {
         $this->id_facture = $PId_facture->getId_facture();
-
-        return $this;
     }
 
     /**

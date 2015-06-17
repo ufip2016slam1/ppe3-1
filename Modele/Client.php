@@ -21,7 +21,7 @@ require_once('Framework/Modele.php');
  * @access public
  * @author bruno
  */
-class Client extends Modele implements Serializable {
+class Client extends Modele {
 	private $id_client;
 	private $nom;
 	private $prenom;
@@ -113,13 +113,13 @@ class Client extends Modele implements Serializable {
 
 	public function add($tableau = Null) {
 		$tab = array(
-			'nom' => $this->nom,
-			'prenom' => $this->prenom,
-			'raison_sociale' => $this->raison_sociale,
-			'adresse' => $this->adresse,
-			'code_postal' => $this->code_postal,
-			'ville' => $this->ville,
-			'telephone' => $this->telephone
+			'nom' => $this->getNom(),
+			'prenom' => $this->getPrenom(),
+			'raison_sociale' => $this->getRaison_sociale(),
+			'adresse' => $this->getAdresse(),
+			'code_postal' => $this->getCode_postal(),
+			'ville' => $this->getVille(),
+			'telephone' => $this->getTelephone()
 		);
 		$retour = parent::add($tab);
 		return $retour;
@@ -275,24 +275,5 @@ class Client extends Modele implements Serializable {
 
     public function getFact() {
         return Facture::getBy('id_Client', $this->getId_client());
-    }
-
-    public function serialize(){
-        return serialize(
-            array(
-                'id' => $this->getId_client(),
-                'nom' => $this ->getNom(),
-                'prenom' => $this->getPrenom(),
-                'RS' => $this->getRaison_sociale(),
-                'adresse' => $this->getAdresse(),
-                'CP' => $this->getRaison_sociale(),
-                'ville' => $this->getVille(),
-                'tel' => $this->getTelephone()
-            )
-        );
-    }
-
-    public function unserialize($data){
-        $data = unserialize($data);
     }
 }

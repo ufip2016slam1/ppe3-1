@@ -46,9 +46,9 @@ class Repetition extends Modele {
 
 	public function add($tableau = Null) {
 		$tab = array(
-			'date_deb_rep' => $this->date_deb_rep,
-			'date_fin_rep' => $this->date_fin_rep,
-			'pas' => $this->pas,
+			'date_deb_rep' => $this->getDate_deb_rep(),
+			'date_fin_rep' => $this->getDate_fin_rep(),
+			'pas' => $this->getPas(),
 		);
 		$retour = parent::add($tab);
 
