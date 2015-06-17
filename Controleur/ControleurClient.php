@@ -36,7 +36,25 @@ class ControleurClient extends Controleur
 	}
 
     public function delete () {
+<<<<<<< HEAD
         echo 'OK';
+=======
+        if ($this->requete->existeParametre('id')){
+            $Ids = $this->requete->getParametre('id');
+            foreach ($Ids as $id){
+                Client::delete($id);
+            }
+            echo 'OK';
+        }
+        else
+            echo 'Nok';
+    }
+
+    public function rafraichirListe() {
+        $clients = Client::getAll();
+
+        echo serialize($clients);
+>>>>>>> origin/master
     }
 
 

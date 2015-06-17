@@ -483,21 +483,57 @@
 
     <script src='Contenu/plugins/fullcalendar/calendrier.js'></script>
 
+<<<<<<< HEAD
     <!--<script src='Contenu/plugins/fullcalendar/lib/jquery.min.js'></script>-->
     <!--<script src='Contenu/plugins/fullcalendar/lang/fr.js'></script>-->
 
 
     <script>
         $("form").bind("submit", function(e){
+=======
+        function synchronisation (data) {
+            alert(data);
+            console.log(data);
+            $('.detail tbody').prepend('<tr>');
+
+            $('.detail tbody tr').append('<td>');
+            data.input.each(function() {
+                alert ('OK each');
+            })
+        };
+
+        /*
+        * Lors de la validation d'un formulaire insere les element en BDD
+         * bloque l'action normale pour la realiser en ajax
+        */
+        $(".insertion").bind("submit", function(e){
+>>>>>>> origin/master
             e.preventDefault(); // on bloque le comportement par defaut du navigateur
             // on stocke l'objet JQuery formulaire
-            var $this = $(this);
+            var formulaire = $(this);
 
             $.post(
+<<<<<<< HEAD
                 $this.attr('action'),
                 $this.serialize(),
                 function (data) {
                     alert(data);
+=======
+                formulaire.attr('action'),
+                formulaire.serialize(),
+                function () {
+                    $.get('?controleur=client&action=rafraichirListe', function () {
+                        // on ajoute une ligne au tableau
+                        $('.detail tbody').prepend('<tr>');
+                        //test en dev
+                        // on parcours les element input de l'element de class insertion
+                        $('.insertion input').each(function() {
+                            var input = $(this).val();
+                            //$(this).val("");
+                            $('.detail tbody tr').append('<td>'+input+'</td>');
+                        });
+                    });
+>>>>>>> origin/master
                 }
             );
         });
@@ -508,6 +544,7 @@
             $('.index:checked').each(function(){
                 Ids + { id : ($(this).attr('name'))};
             });
+<<<<<<< HEAD
             Ids = JSON.stringify(Ids);
             if (Ids != '' || Ids != 'undefinided'){
                 $.post(
@@ -515,6 +552,14 @@
                     Ids,
                     function (data) {
                         alert(data);
+=======
+            if (Ids != '' || Ids != 'undefinided'){
+                $.post(
+                    bouton.attr('formaction'),
+                    {id: Ids},
+                    function () {
+                        $.get('?controleur=client&action=rafraichirListe', function (retour){ alert(retour)});
+>>>>>>> origin/master
                     }
                 );
             }
