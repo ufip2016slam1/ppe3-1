@@ -16,6 +16,7 @@ class Vue {
     private $titre;
 
     private $addCSS = null;
+    private $addJS = null;
 
     /**
      * Constructeur
@@ -53,6 +54,8 @@ class Vue {
         );
         if (!is_null($this->addCSS))
             $fichierInclus['addCSS'] = $this->addCSS;
+        if (!is_null($this->addJS))
+            $fichierInclus['addJS'] = $this->addJS;
         // Génération du gabarit commun utilisant la partie spécifique
         if ($_SESSION['auth'] === 1) {
             $vue = $this->genererFichier('Vue/gabarit3.php',$fichierInclus);

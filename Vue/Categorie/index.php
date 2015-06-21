@@ -1,13 +1,26 @@
-<?php $this->titre = "ajouter categorie"?>
+<?php
+    $this->titre = "ajouter categorie";
+    $this->addCSS = "
+        <link type=\"text/css\" href=\"Contenu/plugins/timepicker/bootstrap-timepicker.min.css\" />
+    ";
+    $this->addJS = '
+        <script src="Contenu/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+        <script type="text/javascript">
+            $(\'.timepicker\').timepicker(\'setTime\', \'12:45 AM\');
+        </script>
+    ';
+?>
+
+
 <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
             Client
-            
+
           </h1>
-         
+
         </section>
 
         <!-- Main content -->
@@ -15,7 +28,7 @@
 
           <!-- Default box -->
           <div class="box">
-            
+
             <div class="box-body">
               <div class="content">
 				<div class="row">
@@ -28,7 +41,7 @@
                   <h3 class="box-title">Ajouter une catégorie</h3>
                 </div>
                 <div class="box-body">
-                	<form action=<?php $this->lien('categorie','add') ?> method="post"><!--GAUTIER-->
+                	<form action="<?php $this->lien('categorie','add') ?>" method="post"><!--GAUTIER-->
                 
                               <!-- NOM SALLE -->
                               <div class="form-group">
@@ -45,10 +58,13 @@
                               <div class="form-group">
                                 <label>Début réservation:</label>
                                 <div class="input-group">
-                      				<div class="input-group-addon">
-                       				 	<i class="fa fa-clock"></i>
-                     				 </div>
-                      				<input type="text"/>
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <div class="input-append bootstrap-timepicker">
+                                        <input type="text" class="input-small form-control timepicker">
+                                        <span class="add-on"><i class="icon-time"></span>
+                                    </div>
                    				 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
@@ -119,11 +135,11 @@
                         foreach ($categories as $categorie) {
                             ?>
                             <tr>
-                                <td><?= $categorie['nom_categorie'] ?></td>
+                                <td><?= $categorie['nom'] ?></td>
                                 <!--Nom-->
-                                <td><?= $categorie['horaire_dbt_reserv'] ?></td>
+                                <td><?= $categorie['horaire_dbt'] ?></td>
                                 <!--Prenom-->
-                                <td><?= $categorie['horaire_fin_reserv'] ?></td>
+                                <td><?= $categorie['horaire_fin'] ?></td>
                                 
                                
                                 <!--Select-->

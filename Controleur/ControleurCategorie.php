@@ -19,11 +19,14 @@ class ControleurCategorie extends Controleur
         $categories = Categorie::getAll();
         $tabCategories = array();
         foreach ($categories as $cat) {
-            $tabCategories[] = array(
-                'nom' => $cat->getNom(),
-                'horaire_dbt' => $cat->getHoraire_dbt_reserv(),
-                'horaire_fin' => $cat->getHoraire_fin_reserv(),
-            );
+            if ($cat != false){
+                $tabCategories[] = array(
+                    'id' => $cat->getId_categorie(),
+                    'nom' => $cat->getNom(),
+                    'horaire_dbt' => $cat->getHoraire_dbt_reserv(),
+                    'horaire_fin' => $cat->getHoraire_fin_reserv(),
+                );
+            }
         }
         // on genere la vue avec l'ensemble des categorie et leur details
         $this->genererVue(array('categories'=>$tabCategories));

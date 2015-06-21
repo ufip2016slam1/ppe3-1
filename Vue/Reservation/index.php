@@ -1,6 +1,16 @@
 <?php
-    $this->titre = "accueil" ;
-    $this->addCSS = '<link href="Contenu/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />';
+    $this->titre = "reservation" ;
+    $this->addCSS = '
+		<link href="Contenu/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+		<link href="Contenu/plugins/fullcalendar/jqueryUi/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+	';
+	$this->addJS = '
+		<script src="Contenu/plugins/fullcalendar/jqueryUi/jquery-ui.min.js"></script>
+		<script src="Contenu/plugins/fullcalendar/lib/moment.min.js"></script>
+		<script src="Contenu/plugins/fullcalendar/fullcalendar.js"></script>
+		<script src="Contenu/plugins/fullcalendar/lang/fr.js"></script>
+		<script src="Contenu/plugins/fullcalendar/calendrier.js"></script>
+	';
 ?>
 <!--bloc nouvelle reservation -->
 

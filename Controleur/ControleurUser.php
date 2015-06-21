@@ -69,7 +69,8 @@ class ControleurUser extends Controleur
             if ($user->getPassword() === sha1($this->requete->getParametre('password'))) {
                 $_SESSION['user'] = $user;
                 $_SESSION['auth'] = 1;
-                $this->genererVue();
+                //$this->genererVue();
+                header('location:index.php?controleur=reservation&action=index');
                 /**
                  * appel de la vue principale affichage du calandrier
                  */
@@ -130,5 +131,9 @@ class ControleurUser extends Controleur
     public function deconnexion() {
         session_destroy();
         header('location:index.php');
+    }
+
+    public function affichage(){
+        $this->genererVue();
     }
 }
