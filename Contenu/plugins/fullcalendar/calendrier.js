@@ -128,6 +128,7 @@ $(document).ready(function() {
 				var start = date_reserv+' '+$('#heureDebut').val()+':'+$('#minuteDebut').val()+':00' ; 
 				var end = date_reserv+' '+$('#heureFin').val()+':'+$('#minuteFin').val()+':00' ;
 				
+				console.log(title);
 
 				$.ajax({ 
 					'url': '?controleur=reservation&action=add',  //page ou controler appellé
@@ -191,7 +192,7 @@ $(document).ready(function() {
 
 		//evenement au click sur une date
 		dayClick : function(calEvent, jsEvent, date,view) {
-			console.log(calEvent);
+			//console.log(calEvent);
 
 		//On verifie si on est sur le l'affichage mois 
 		//Au click on ouvre la journée 
@@ -241,7 +242,10 @@ $(document).ready(function() {
 			*	On concatene 
 			*	date_reserv = AAAA-MM-JJ
 			**/
-			date_reserv = start._i[0]+'-'+(start._i[1]+1)+'-'+start._i[2] ;
+			if(start._i){
+				date_reserv = start._i[0]+'-'+(start._i[1]+1)+'-'+start._i[2] ;
+				
+			}
 			/*
 			remplacer par la fonction remplirDialog() afin d'eviter la recurrence 
 			var horaires = $('.fc-time:last').attr('data-full'); 

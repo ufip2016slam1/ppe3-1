@@ -82,7 +82,7 @@ class Reservation extends Modele {
 			'date_dbt' => $this->getDate_dbt(),
 			'date_fin' => $this->getDate_fin(),
 			'date_reserv' => $this->getDate_reserv(),
-			'date_annule' => $this->detDate_annule(),
+			'date_annule' => $this->getDate_annule(),
             'id_user' => $this->getId_user(),
             'id_salle' => $this->getId_salle(),
             'id_client' => $this->getId_client(),

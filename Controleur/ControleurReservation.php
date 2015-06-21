@@ -23,7 +23,7 @@ class ControleurReservation extends Controleur
     public static $champsModifiable = array('date_dbt', 'date_fin', 'id_salle');
 
 	public function index() {
-		
+
 		$salles = Salle::getAll();
         $pSalles = array();
         foreach ($salles as $salle) {
@@ -49,6 +49,7 @@ class ControleurReservation extends Controleur
 
 			$reserv->setDate_dbt($this->requete->getParametre('date_dbt'));
 			$reserv->setDate_fin($this->requete->getParametre('date_fin'));
+			var_dump((Salle::getBy('nom_salle',$this->requete->getParametre('nom_salle'))));
 			
 			$reserv->setId_salle(Salle::getBy('nom_salle',$this->requete->getParametre('nom_salle')));
 			$reserv->setDate_reserv($this->requete->getParametre('date_reserv'));
@@ -67,9 +68,9 @@ class ControleurReservation extends Controleur
 			//$reserv->setId_user(1);//$_SESSION['user']->getId_user());
 
 			$user = User::getById(1) ;
-			$reserv->setId_user($user);
+			$reserv->setId_user($user->getId_user());
 
-			var_dump($reserv);
+		//	var_dump();
 			
 			return $reserv->add();
 		}
