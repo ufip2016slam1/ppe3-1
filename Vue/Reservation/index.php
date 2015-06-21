@@ -15,6 +15,7 @@
 <!--bloc nouvelle reservation -->
 
  <div class="content-wrapper">
+
        <!-- Content Header (Page header) -->
        <section class="content-header">
 
@@ -30,10 +31,13 @@
 		      <br>
 		      <label for="title">Quelle Salle Souhaitez vous reserver : </label><br />
 		       <select name="title" id="title">
-		           <option value="salle1">Salle 1</option>
-		           <option value="salle 2">Salle 2</option>
-		           <option value="salle 3">Salle 3</option>
-		           <option value="salle 4">Salle 4</option>          
+		       	<?php
+                    foreach ($salles as $salle) { ?>
+						<option value="<?= $salle['nom_salle'] ?>"><?= $salle['nom_salle'] ?></option>
+						<?php
+                     }
+                ?>
+      
 		       </select>
 
 		      <br>

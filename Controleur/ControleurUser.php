@@ -66,9 +66,12 @@ class ControleurUser extends Controleur
     public function connexion() {
         if ($this->requete->existeParametre(array('email','password'))) {
             $user = User::getBy('mail', $this->requete->getParametre('email'));
+            
             if ($user->getPassword() === sha1($this->requete->getParametre('password'))) {
+
                 $_SESSION['user'] = $user;
                 $_SESSION['auth'] = 1;
+
                 //$this->genererVue();
                 header('location:index.php?controleur=reservation&action=index');
                 /**

@@ -24,7 +24,16 @@ class ControleurReservation extends Controleur
 
 	public function index() {
 		
-		$this->genererVue();
+		$salles = Salle::getAll();
+        $pSalles = array();
+        foreach ($salles as $salle) {
+            if ($salle != false) {
+                $pSalles[] = array(
+                    'nom_salle' => $salle-> getNom_salle()
+                );
+            }
+        }
+        $this->genererVue(array('salles' => $pSalles));
 
 	}
 
