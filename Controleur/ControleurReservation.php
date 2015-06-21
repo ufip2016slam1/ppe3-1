@@ -33,24 +33,35 @@ class ControleurReservation extends Controleur
 	* 		instantiation d'un objet Reservation	
 	**/	
 	public function add() {	
-		echo 'OK' ;
-		if ($this->requete->existeParametre(array('date_dbt', 'date_fin', 'nom_salle'))) {
+
+		if ($this->requete->existeParametre(array('date_dbt', 'date_fin', 'nom_salle','date_reserv'))) {
+
 			$reserv = new Reservation ();
 
-			//$reserv->setDate_dbt($requete->getParametre('date_dbt'));
-			$reserv->setDate_dbt('2015-06-17 09:00:00');
-			//$reserv->setDate_fin($requete->getParametre('date_fin'));
-			$reserv->setDate_fin('2015-06-17 10:00:00');
+			$reserv->setDate_dbt($this->requete->getParametre('date_dbt'));
+			$reserv->setDate_fin($this->requete->getParametre('date_fin'));
+			
+			$reserv->setId_salle(Salle::getBy('nom_salle',$this->requete->getParametre('nom_salle')));
+			$reserv->setDate_reserv($this->requete->getParametre('date_reserv'));
+			
 
-			//$reserv->setId_salle($this->getIdSalleByNom($requete->getParametre('nom_salle')));
 
-			$reserv->setId_salle('1');
-			$reserv->setId_client('54');
+			$client = Client::getById(54) ; 
+			//var_dump($client) ;
+			$reserv->setId_client($client);
+			
+			
+			//var_dump($reserv) ;
 
-			//$reserv->setId_client($requete->getParametre('date_dbt'));
+			//$reserv->setId_client(54);//$this->requete->getParametre('date_dbt'));
 
-			//$reserv->setId_user($_SESSION['user']->getId_user());
-			$reserv->setId_user('5');
+			//$reserv->setId_user(1);//$_SESSION['user']->getId_user());
+
+			$user = User::getById(1) ;
+			$reserv->setId_user($user);
+
+			var_dump($reserv);
+			
 			return $reserv->add();
 		}
 		else {
@@ -77,6 +88,7 @@ class ControleurReservation extends Controleur
 
     public function ajaxGetReserv() {
         $tabReserv = Reservation::getAll();
+        $tabReserv = array_splice($tabReserv,0,-1);
         $json = array();
 
         foreach ($tabReserv as $reservation) {
@@ -105,4 +117,13 @@ class ControleurReservation extends Controleur
 		Reservation::update('date_annule', date("Y-m-d H:i:s"), $id);
 	}
 
+	/**
+	*
+	* retourne l'id d'un salle en fonction de son nom
+	*
+	**/	
+	private function getIdSalleByNom ($nom) {
+		Salle::getBy('nom_salle',$nom);
+		return $salle->getId_salle();
+	}
 }
