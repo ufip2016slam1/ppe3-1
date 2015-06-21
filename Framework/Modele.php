@@ -81,6 +81,7 @@ abstract class Modele {
         return $sortie;
     }
 
+    
     /**
     *
     * Fonction pour l'ajout dans la base de données

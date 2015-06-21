@@ -7,6 +7,7 @@
 * Liste des fonctions disponible dans cet classe
 *       add() : Bool;
 *       getAllPeriode(Datetime debut, Datetime fin) : Objet;
+*       ajaxGetAll() : Objet dedié au calendrier recupere les reservations avec date_annule NULL ;
 *       getFacture() : Objet;
 *       getClient() : Objet;
 *       getSalle() : Objet;
@@ -91,6 +92,7 @@ class Reservation extends Modele {
         
 		return $retour;
 	}
+    
 
     /**
     *
@@ -109,6 +111,27 @@ class Reservation extends Modele {
         while ($sortie [] = $retour->fetchObject(strtolower(get_called_class())));
         return $sortie;
     }
+
+
+    /**
+    *
+    * Fonction ajaxGetAll
+    * commentaire : Objet dedié au calendrier recupere les reservations avec date_annule NULL ;
+    * @return Objet Resultat de la requête lorque date_annule IS NULL
+    *
+    **/
+    public static function ajaxGetAll(){
+        
+        $sql = 'SELECT * FROM '.strtolower(get_called_class()).' WHERE date_annule IS NULL ';
+        $retour = self::executerRequete($sql);
+
+        while ($sortie [] = $retour->fetchObject(strtolower(get_called_class())));
+        //$sortie = array_slice($sortie, 0, -1); // on enleve la derniere case du tableau false pour utiliser des boucles foreach
+
+        return $sortie;
+    
+    }
+
 
 	// Guetteurs and Setters
 

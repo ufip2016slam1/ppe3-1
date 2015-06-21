@@ -40,6 +40,16 @@
       
 		       </select>
 
+		       <label for="title">Pour quelle ligue souhaitez vous reverver : </label><br />
+		       <select name="title" id="title">
+		       	<?php
+                    foreach ($salles as $salle) { ?>
+						<option value="<?= $salle['nom_salle'] ?>"><?= $salle['nom_salle'] ?></option>
+						<?php
+                     }
+                ?>
+      
+		       </select>
 		      <br>
 		      
 		      date de la reservation : <span class="date_reserv" style="text-decoration:underline"></span>

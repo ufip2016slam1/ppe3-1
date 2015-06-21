@@ -26,6 +26,13 @@ class ControleurReservation extends Controleur
 
 		$salles = Salle::getAll();
         $pSalles = array();
+
+
+        /**
+        *
+        * Recuperation de toutes les salles disponibles 
+        *
+        **/
         foreach ($salles as $salle) {
             if ($salle != false) {
                 $pSalles[] = array(
@@ -33,6 +40,8 @@ class ControleurReservation extends Controleur
                 );
             }
         }
+
+
         $this->genererVue(array('salles' => $pSalles));
 
 	}
@@ -97,8 +106,10 @@ class ControleurReservation extends Controleur
 	}
 
     public function ajaxGetReserv() {
-        $tabReserv = Reservation::getAll();
+        $tabReserv = Reservation::ajaxGetAll();
+
         $tabReserv = array_splice($tabReserv,0,-1);
+
         $json = array();
 
         foreach ($tabReserv as $reservation) {
