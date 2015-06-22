@@ -493,19 +493,22 @@
          * Lors de la validation d'un formulaire insere les element en BDD
          * bloque l'action normale pour la realiser en ajax
          */
-        $(".insertion").bind("submit", function(e){});
-          /*e.preventDefault(); // on bloque le comportement par defaut du navigateur
+        $(".insertion").bind("submit", function(e){
+          e.preventDefault(); // on bloque le comportement par defaut du navigateur
           // on stocke l'objet JQuery formulaire
           var formulaire = $(this);
 
-          $.post(
-              formulaire.attr('action'),
-              formulaire.serialize(),
-              function (data) {
-                  alert (data);
-              };
-          );
-        }); */
+        $.ajax({
+          url: formulaire.attr('action'), // Le nom du fichier indiqué dans le formulai
+          method: 'post',
+          data: formulaire.serialize(), 
+          // Je sérialise les données (j'envoie toutes les valeurs présentes dans le formulaire)
+          success: function() { 
+            ajaxAjoutTab() ;
+          }
+                    
+        }); 
+      });
 
       /*$(".supprimer").on("click", function()
        var bouton = $(this);
@@ -531,13 +534,16 @@
        }
        });*/
 
-$('.ajouter').on('click', function(){
+function ajaxAjoutTab(){
+
+
+        $('.ajouter').on('click', function(){
           //recuperation des valeurs des champs du formumaire 
           //On stock la construction de la ligne du tableau dans tabData  ; 
           var tabData ; 
           var champ = $('.champ_ajout') ; 
 
-          if(champ.val()!=''){
+          if(champ){
 
             tabData ='<tr>' ; 
 
@@ -553,9 +559,11 @@ $('.ajouter').on('click', function(){
           }
 
           console.log(tabData) ;
+          alert('test');
           return false; 
         });
 
+}
     </script>
   </body>
 </html>

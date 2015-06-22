@@ -38,38 +38,7 @@
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-square-o"></i>
                                                         </div>
-                                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom_salle"/>
-                                                    </div><!-- /.input group -->
-                                                </div><!-- /.form group -->
-
-                                                <!-- T1 -->
-                                                <div class="form-group">
-                                                    <label>Tarif 1 :</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-square-o"></i>
-                                                        </div>
-                                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="t1"/>
-                                                    </div><!-- /.input group -->
-                                                </div><!-- /.form group -->
-                                                <!-- T2 -->
-                                                <div class="form-group">
-                                                    <label>Tarif 2 :</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-square-o"></i>
-                                                        </div>
-                                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="t2"/>
-                                                    </div><!-- /.input group -->
-                                                </div><!-- /.form group -->
-                                                <!-- T3 -->
-                                                <div class="form-group">
-                                                    <label>Tarif 3 :</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-addon">
-                                                            <i class="fa fa-square-o"></i>
-                                                        </div>
-                                                        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="t3"/>
+                                                        <input type="text" class="form-control champ_ajout" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom_salle"/>
                                                     </div><!-- /.input group -->
                                                 </div><!-- /.form group -->
 
@@ -80,11 +49,14 @@
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-navicon"></i>
                                                         </div><!--MENU DEROULANT-->
-                                                        <select class="form-control" name="categorie">
+                                                        <select class="form-control champ_ajout" name="categorie">
                                                             <?php
+                                                            $i = 0 ;
                                                             foreach ($categories as $categorie){
+
+                                                                $i++ ; 
                                                                 ?>
-                                                                <option><?= $categorie ?></option>
+                                                                <option value="<?= $categorie ?>"<?php if($i==1) echo 'selected'?> ><?= $categorie ?></option>
                                                             <?php
                                                             }
                                                             ?>
@@ -93,7 +65,40 @@
 
                                                 </div><!-- /.form group -->
 
-                                                <button type="submit" class="btn btn-primary btn-block btn-flat">Ajouter</button>
+
+                                                <!-- T1 -->
+                                                <div class="form-group">
+                                                    <label>Tarif 1 :</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-square-o"></i>
+                                                        </div>
+                                                        <input type="text" class="form-control champ_ajout" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="t1"/>
+                                                    </div><!-- /.input group -->
+                                                </div><!-- /.form group -->
+                                                <!-- T2 -->
+                                                <div class="form-group">
+                                                    <label>Tarif 2 :</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-square-o"></i>
+                                                        </div>
+                                                        <input type="text" class="form-control champ_ajout" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="t2"/>
+                                                    </div><!-- /.input group -->
+                                                </div><!-- /.form group -->
+                                                <!-- T3 -->
+                                                <div class="form-group">
+                                                    <label>Tarif 3 :</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-square-o"></i>
+                                                        </div>
+                                                        <input type="text" class="form-control champ_ajout" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="t3"/>
+                                                    </div><!-- /.input group -->
+                                                </div><!-- /.form group -->
+
+                                                
+                                                <button type="submit" class="btn btn-primary btn-block btn-flat ajouter">Ajouter</button>
 
                                             </form>
 
