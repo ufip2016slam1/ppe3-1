@@ -19,7 +19,7 @@
             <div class="box-body">
               <div class="content">
 				<div class="row">
-					<section class="content">
+					
           <div class="row">
             <div class="col-md-6">
 
@@ -31,13 +31,13 @@
                 	<form action=<?php $this->lien('client','add') ?> method="post"><!--GAUTIER-->
                 
                               <!-- NOM -->
-                              <div class="form-group">
+                              <div class="form-group ">
                                 <label>Nom:</label>
                                 <div class="input-group">
                                   <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                   </div>
-                                  <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom"/>
+                                  <input class="champ_ajout" type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
@@ -48,7 +48,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                   </div>
-                                  <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="prenom"/>
+                                  <input class="champ_ajout" type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="prenom"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
@@ -59,7 +59,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-phone"></i>
                                   </div>
-                                  <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask name="telephone"/>
+                                  <input class="champ_ajout" type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask name="telephone"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
@@ -70,7 +70,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-university"></i>
                                   </div>
-                                  <input type="text" class="form-control" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask name="raison_sociale"/>
+                                  <input class="champ_ajout" type="text" class="form-control" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask name="raison_sociale"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
@@ -81,7 +81,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-envelope-o"></i>
                                   </div>
-                                  <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="adresse"/>
+                                  <input class="champ_ajout" type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="adresse"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
                               
@@ -92,7 +92,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-envelope"></i>
                                   </div>
-                                  <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="code_postal"/>
+                                  <input class="champ_ajout" type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="code_postal"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
                               
@@ -103,7 +103,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-building"></i>
                                   </div>
-                                  <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="ville"/>
+                                  <input class="champ_ajout" type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="ville"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
                               
@@ -115,7 +115,7 @@
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
 				
-				</div>
+            </div>
 				
 				 <!-- Main content -->
        
@@ -211,10 +211,10 @@
                   </table>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
-            </div><!-- /.col -->
+              <div class="col-md-12">
 			  
 			  
-			  </div>
+			  
               <!--SUPPCLIENT-->
                <div class="row">
                     	<div class="col-md-9">
@@ -223,8 +223,148 @@
                            <button type="submit" class="btn btn-primary supprimer" formaction=<?php $this->lien('client', 'delete') ?>>suprimer les clients selectionnés</button>
                              </div>
                          </div>
-                	</div>
+                </div>	
             </div><!-- /.box-body -->
+            
+          <!--  <div class="col-xs-12">-->
+                <div class="box"><!--NEW-->
+                                        <div class="box-header">
+                                        <h3 class="box-title">Atribuer droit</h3>
+                                        </div>
+                                                <div class="box-body"><!--ATrIBUER Droit-->
+                                                        <div class="row">
+                                                                <div class="col-md-4">
+                                                                                <div class="form-group">
+
+                                                                                        <label>utilisateur</label>
+                                                                                        <input class="form-control" type="text" placeholder="Enter ..."></input>
+
+                                                                                </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                        <div class="form-group">
+                                                                                <label>Droit :</label>
+                                                                                <div class="input-group">
+                                                                                <div class="input-group-addon">
+                                                                                <i class="fa fa-navicon"></i>
+                                                                                </div><!--MENU DEROULANT-->
+                                                                                <select class="form-control">
+                                                                                        <option>example1</option>
+                                                                                        <option>example2</option>
+                                                                                        <option>example3</option>
+                                                                                </select>
+                                                                                </div><!-- /.input group -->
+
+                                                                        </div><!-- /.form group -->
+                                                                </div>
+
+                                                                <div class="col-md-4">
+
+                                                                                <div class="form-group">
+
+                                                                                        <label>Client</label>
+                                                                                        <input class="form-control" type="text" placeholder="Enter ..."></input>
+
+                                                                                </div>
+
+                                                                </div>
+
+                                                                <div class="col-md-12">
+                                                                                <div class="row" id="atribuer">
+                                                                                        <div class="col-md-10">
+                                                                                         </div>
+                                                                                         <div class="col-md-1">
+                                                                                           <button type="submit" class="btn btn-primary supprimer" >atribuer</button>
+                                                                                         </div>
+                                                                                </div>
+                                                                </div>
+
+                                                        </div><!--row-->
+                                                </div>
+                                        </div>
+                </div>
+          
+            <!--LISTE USERS-->
+            
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Liste des Utilisateurs</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                    	<div class="col-md-6">
+                    	
+                
+                           <div id="example1_filter" class="dataTables_filter">
+                                   <label>
+                                         Chercher:
+                                     <input class="form-control input-sm" type="search" placeholder="" aria-controls="example1"></i></label>
+                             </div>
+                             
+                         </div>
+                         
+                         <div class="col-md-6">
+                    	
+                
+                          <!--aenlever <button type="submit" class="btn btn-primary">suprimer les clients selectionnés</button> -->
+                                   
+                             </div>
+                             
+                    </div>
+                         
+                </div>
+                     
+                     
+                <div class="box-body">
+                <!--TABLEAU-->
+                
+                  
+                              <table id="example2" class="table table-bordered table-hover detail">
+                                  <thead>
+                                      <tr>
+                                           <th>Identifiant</th>
+                                           <th>Password</th>
+                                          <th>Mail</th>
+										  <th>Select</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                      <?php
+                        foreach ($users as $user) {
+                            ?>
+                            <tr>
+                                <td><?= $user['identifiant'] ?></td>
+                                <!--Nom-->
+                                <td><?= $user['password'] ?></td>
+								<!--password-->
+                                <td><?= '' ?></td>
+                                <!--E-mail-->
+                                
+                                <!--<td><input type="hidden" class="id" value="<?= $user['id'] ?>"></td>-->
+                                <!--Select-->
+                                <td><input type="checkbox" class="index" name="<?= $user['id'] ?>"/></td>
+                            </tr>
+                            <?php
+                        }
+                      ?>
+					</tbody>
+                    <tfoot>
+                      <tr>
+                        <th>Identifiant</th>
+                                           <th>Password</th>
+										   <th>Mail</th>
+										  <th>Mail</th>
+                                          <th>Select</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div><!-- /.box-body -->
+              </div>
+            
+            
+            <!--/LISTE USER-->
+
             <div class="box-footer">
               
               
