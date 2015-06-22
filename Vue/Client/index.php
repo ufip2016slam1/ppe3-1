@@ -1,13 +1,28 @@
-<?php $this->titre = "ajouter client"?>
+<?php
+    $this->titre = "ajouter client";
+    $this->addJS =
+        "
+        <script src=\"Contenu/plugins/jQueryUI/jquery-ui-1.11.4.min.js\"></script>
+        <script>
+              $(function() {
+                $( \"#accordion\" ).accordion({
+                    header: \".parentAccordion\",
+                    active: false,
+                    icons: false,
+                    collapsible: true,
+                    event: \"click\"
+                });
+              });
+        </script>
+        "
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
             Client
-
         </h1>
-
     </section>
 
     <!-- Main content -->
@@ -171,11 +186,11 @@
                                                 <th>Select</th>
                                             </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="accordion">
                                             <?php
                                             foreach ($clients as $client) {
                                                 ?>
-                                                <tr>
+                                                <tr class="parentAccordion">
                                                     <td><?= $client['nom'] ?></td>
                                                     <!--Nom-->
                                                     <td><?= $client['prenom'] ?></td>
@@ -192,11 +207,12 @@
                                                     <!--Ville-->
                                                     <td>test</td>
                                                     <!--Telephone-->
-
+                                                    <td><button type="button" class="btn btn-primary">editer</button></td>
                                                     <td><input type="hidden" class="id" value="<?= $client['id'] ?>"></td>
                                                     <!--Select-->
                                                     <td><input type="checkbox" class="index" name="<?= $client['id'] ?>"/></td>
                                                 </tr>
+                                                <tr><td colspan="11">test accordeon</td></tr>
                                             <?php
                                             }
                                             ?>

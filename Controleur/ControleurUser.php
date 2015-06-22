@@ -9,7 +9,6 @@
 *
 **/
 require_once 'Framework/Controleur.php';
-require_once 'Framework/Session.php';
 require_once 'Modele/User.php';
 
 /**
@@ -138,6 +137,16 @@ class ControleurUser extends Controleur
     }
 
     public function affichage(){
-        $this->genererVue();
+        $users = User::getAll();
+        $tabUser = array();
+        foreach ($users as $user) {
+            if ($user != false) {
+                $tabUser[] = array(
+                    'identifiant' => $user->getIdentifiant(),
+                    'id_user' => $user->getId_user()
+                );
+            }
+        }
+        $this->genererVue(array('users' => $tabUser));
     }
 }
