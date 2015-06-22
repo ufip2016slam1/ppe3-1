@@ -501,8 +501,10 @@
           $.post(
               formulaire.attr('action'),
               formulaire.serialize(),
-              function () {}
-          )
+              function (data) {
+                  alert (data);
+              };
+          );
         });
 
       /*$(".supprimer").on("click", function()

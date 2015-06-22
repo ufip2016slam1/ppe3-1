@@ -1,14 +1,5 @@
 <?php
     $this->titre = "ajouter categorie";
-    $this->addCSS = "
-        <link type=\"text/css\" href=\"Contenu/plugins/timepicker/bootstrap-timepicker.min.css\" />
-    ";
-    $this->addJS = '
-        <script src="Contenu/plugins/timepicker/bootstrap-timepicker.min.js"></script>
-        <script type="text/javascript">
-            $(\'.timepicker\').timepicker(\'setTime\', \'12:45 AM\');
-        </script>
-    ';
 ?>
 
 
@@ -50,7 +41,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                   </div>
-                                  <input type="text" class="form-control" />
+                                  <input type="text" class="form-control" name="nom_categorie"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
@@ -61,10 +52,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-clock-o"></i>
                                     </div>
-                                    <div class="input-append bootstrap-timepicker">
-                                        <input type="text" class="input-small form-control timepicker">
-                                        <span class="add-on"><i class="icon-time"></span>
-                                    </div>
+                                    <input type="text" class="form-control" name="horaire_dbt"/>
                    				 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
@@ -75,7 +63,7 @@
                       				<div class="input-group-addon">
                        				 	<i class="fa fa-clock-o"></i>
                      				 </div>
-                      				<input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask/>
+                      				<input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="horaire_fin"/>
                    				 </div><!-- /.input group -->
                               </div><!-- /.form group -->
 

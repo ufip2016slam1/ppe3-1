@@ -34,11 +34,11 @@ class ControleurCategorie extends Controleur
 
     // ajoute une categorie appeler en ajax
     public function add () {
-        if ($this->requete->existeParametre(array('nom_categorie', 'horaire_dbt_reserv', 'horaire_fin_reserv'))) {
+        if ($this->requete->existeParametre(array('nom_categorie', 'horaire_dbt', 'horaire_fin'))) {
             $cat = new Categorie();
             $cat->setNom($this->requete->getParametre('nom_categorie'));
-            $cat->setHoraire_dbt_reserv($this->requete->getParametre('horaire_dbt_reserv'));
-            $cat->setHoraire_fin_reserv($this->requete->getParametre('horaire_fin_reserv'));
+            $cat->setHoraire_dbt_reserv($this->requete->getParametre('horaire_dbt'));
+            $cat->setHoraire_fin_reserv($this->requete->getParametre('horaire_fin'));
             $cat->add();
             echo 'OK';
         }
