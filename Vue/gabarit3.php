@@ -493,19 +493,67 @@
          * Lors de la validation d'un formulaire insere les element en BDD
          * bloque l'action normale pour la realiser en ajax
          */
-        $(".insertion").on("submit", function(e){
-          e.preventDefault(); // on bloque le comportement par defaut du navigateur
+        $(".insertion").bind("submit", function(e){});
+          /*e.preventDefault(); // on bloque le comportement par defaut du navigateur
           // on stocke l'objet JQuery formulaire
           var formulaire = $(this);
 
-            $.ajax({
-                url: formulaire.attr('action'), // Le nom du fichier indiqué dans le formulaire
-                method: 'post',
-                data: formulaire.serialize(), // Je sérialise les données (j'envoie toutes les valeurs présentes dans le formulaire)
-                success: function(data) { // Je récupère la réponse du fichier PHP
-                    //alert(data); // J'affiche cette réponse
-                }
+          $.post(
+              formulaire.attr('action'),
+              formulaire.serialize(),
+              function (data) {
+                  alert (data);
+              };
+          );
+        }); */
+
+      /*$(".supprimer").on("click", function()
+       var bouton = $(this);
+       var Ids;
+       $('.index:checked').each(function(){
+       Ids + { id : ($(this).attr('name'))};
+       });
+       Ids = JSON.stringify(Ids);
+       if (Ids != '' || Ids != 'undefinided'){
+       $.post(
+       bouton.attr('formaction'),
+       Ids,
+       function (data) {
+       alert(data);
+       if (Ids != '' || Ids != 'undefinided'){
+       $.post(
+       bouton.attr('formaction'),
+       {id: Ids},
+       function () {
+       $.get('?controleur=client&action=rafraichirListe', function (retour){ alert(retour)});
+       }
+       );
+       }
+       });*/
+
+$('.ajouter').on('click', function(){
+          //recuperation des valeurs des champs du formumaire 
+          //On stock la construction de la ligne du tableau dans tabData  ; 
+          var tabData ; 
+          var champ = $('.champ_ajout') ; 
+
+          if(champ){
+
+            tabData ='<tr>' ; 
+
+            champ.each(function(){
+              tabData += '<td>'+ $(this).val() +'</td>';
+              
             });
+
+            tabData += '</tr>' ;
+            //la methode .html permet  
+            $('tbody').append(tabData) ;
+
+          }
+
+          console.log(tabData) ;
+          return false; 
         });
 
     </script>
