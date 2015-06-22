@@ -500,6 +500,7 @@
 
             $.ajax({
                 url: formulaire.attr('action'), // Le nom du fichier indiqué dans le formulaire
+                method: 'post',
                 data: formulaire.serialize(), // Je sérialise les données (j'envoie toutes les valeurs présentes dans le formulaire)
                 success: function(data) { // Je récupère la réponse du fichier PHP
                     //alert(data); // J'affiche cette réponse

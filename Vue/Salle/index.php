@@ -162,21 +162,6 @@
                                             <?php
                                             }
                                             ?>
-                                                <td>aaa</td>
-                                                <td>aaa</td>
-                                                <td>aaa</td>
-                                                <td>aaa</td>
-                                                <td>aaa</td>
-                                                <td>aaa</td>
-                                                <td>
-                                                    <div class="icheckox_lat-blue" style="position: relative;" aria-checked="false" aria-disabled="false">
-
-                                                        <input type="checkbox" style="position: absolute; opacity: 0;"></input>
-
-                                                        <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width…255) none repeat scroll 0% 0%; border: 0px none;opacity: 0;">
-                                                        </ins>
-                                                    </div>
-                                                </td>
                                             </tr>
 
                                             </tbody>

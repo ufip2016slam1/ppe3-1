@@ -34,7 +34,7 @@ class ControleurSalle extends Controleur
                     't1' => $salle->getTarif1(),
                     't2' => $salle->getTarif2(),
                     't3' => $salle->getTarif3(),
-                    'categorie' => 'en dur controleur'
+                    'categorie' => $salle->getCategorie()->getNom()
                 );
             }
         }
@@ -57,7 +57,7 @@ class ControleurSalle extends Controleur
             $salle->setTarif1($this->requete->getParametre('t1'));
             $salle->setTarif2($this->requete->getParametre('t2'));
             $salle->setTarif3($this->requete->getParametre('t3'));
-            $salle->setId_categorie(Categorie::getBy('nom_categorie', $this->requete->getParametre('t3')));
+            $salle->setId_categorie(Categorie::getBy('nom_categorie', $this->requete->getParametre('categorie')));
             $salle->add();
         }
     }
