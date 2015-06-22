@@ -96,6 +96,17 @@
                                             </div><!-- /.input group -->
                                         </div><!-- /.form group -->
 
+                                         <!-- Email -->
+                                        <div class="form-group">
+                                            <label>Email:</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-building"></i>
+                                                </div>
+                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="mail"/>
+                                            </div><!-- /.input group -->
+                                        </div><!-- /.form group -->
+
                                         <!-- TELEPHONE -->
                                         <div class="form-group">
                                             <label>Telephone:</label>
@@ -181,6 +192,9 @@
                                                     <!--Ville-->
                                                     <td><?= $client['tel'] ?></td>
                                                     <!--Telephone-->
+                                                     <td><?= $client['mail'] ?></td>
+                                                    <!--Telephone-->
+
                                                     <td><input type="hidden" class="id" value="<?= $client['id'] ?>"></td>
                                                     <!--Select-->
                                                     <td><input type="checkbox" class="index" name="<?= $client['id'] ?>"/></td>
@@ -195,10 +209,10 @@
                                                 <th>Prenom</th>
                                                 <th>Raison sociale</th>
                                                 <th>Adresse</th>
-                                                <th>E-mail</th>
                                                 <th>Code postal</th>
                                                 <th>Ville</th>
                                                 <th>Telephone</th>
+                                                <th>E-mail</th>
                                                 <th>Select</th>
                                             </tr>
                                             </tfoot>
