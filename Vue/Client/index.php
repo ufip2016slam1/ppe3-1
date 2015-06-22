@@ -18,121 +18,283 @@
             
             <div class="box-body">
               <div class="content">
-				<div class="row">
-					<section class="content">
-          <div class="row">
-            <div class="col-md-6">
+				
+					
+                        <div class="row">
+                          <div class="col-md-6">
 
-              <div class="box box-danger">
-                <div class="box-header">
-                  <h3 class="box-title">Ajouter un Client</h3>
-                </div>
-                <div class="box-body">
-                	<form action=<?php $this->lien('client','add') ?> method="post"><!--GAUTIER-->
+                            <div class="box box-danger">
+                              <div class="box-header">
+                                <h3 class="box-title">Ajouter un Client</h3>
+                              </div>
+                              <div class="box-body">
+                                      <form action=<?php $this->lien('client','add') ?> method="post"><!--GAUTIER-->
+
+                                            <!-- NOM -->
+                                            <div class="form-group ">
+                                              <label>Nom:</label>
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                  <i class="fa fa-user"></i>
+                                                </div>
+                                                <input class="champ_ajout form-control " type="text" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom"/>
+                                              </div><!-- /.input group -->
+                                            </div><!-- /.form group -->
+
+                                            <!-- PRENOM -->
+                                            <div class="form-group">
+                                              <label>Prenom:</label>
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                  <i class="fa fa-user"></i>
+                                                </div>
+                                                <input class="champ_ajout form-control " type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="prenom"/>
+                                              </div><!-- /.input group -->
+                                            </div><!-- /.form group -->
+
+                                            <!-- TELEPHONE -->
+                                            <div class="form-group">
+                                              <label>Telephone:</label>
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                  <i class="fa fa-phone"></i>
+                                                </div>
+                                                <input class="champ_ajout form-control " type="text"  data-inputmask='"mask": "(999) 999-9999"' data-mask name="telephone"/>
+                                              </div><!-- /.input group -->
+                                            </div><!-- /.form group -->
+
+                                            <!-- Raison sociale -->
+                                            <div class="form-group">
+                                              <label>Raison sociale:</label>
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                  <i class="fa fa-university"></i>
+                                                </div>
+                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask name="raison_sociale"/>
+                                              </div><!-- /.input group -->
+                                            </div><!-- /.form group -->
+
+                                            <!-- Adresse -->
+                                            <div class="form-group">
+                                              <label>Adresse:</label>
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                  <i class="fa fa-envelope-o"></i>
+                                                </div>
+                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="adresse"/>
+                                              </div><!-- /.input group -->
+                                            </div><!-- /.form group -->
+
+                                            <!-- Code postal -->
+                                            <div class="form-group">
+                                              <label>Code postal:</label>
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                  <i class="fa fa-envelope"></i>
+                                                </div>
+                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="code_postal"/>
+                                              </div><!-- /.input group -->
+                                            </div><!-- /.form group -->
+
+                                            <!-- Ville -->
+                                            <div class="form-group">
+                                              <label>Ville:</label>
+                                              <div class="input-group">
+                                                <div class="input-group-addon">
+                                                  <i class="fa fa-building"></i>
+                                                </div>
+                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="ville"/>
+                                              </div><!-- /.input group -->
+                                            </div><!-- /.form group -->
+
+                                        <button type="submit" class="btn btn-primary btn-block btn-flat">Ajouter</button> 
+                                   </form>
+
+                                   <!--FIN FORM-->
+
+                              </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+
+                          </div>
+
+                                               <!-- Main content -->
+
+                          <div class="col-xs-12"> <!--PARTIE 2-->
+                                <div class="box">
+                                    <div class="box-header">
+                                         <h3 class="box-title">Liste des Clients</h3>
+                                     </div><!-- /.box-header -->
+                                    <div class="box-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div id="example1_filter" class="dataTables_filter">
+                                                    <label>
+                                                       Chercher:
+                                                    <input class="form-control input-sm champ_ajout" type="search" placeholder="" aria-controls="example1"></i></label>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-6">
+
+
+                                        <!--aenlever <button type="submit" class="btn btn-primary">suprimer les clients selectionnÃ©s</button> -->
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <!--TABLEAU-->
+                                              <table id="example2" class="table table-bordered table-hover detail">
+                                                <thead>
+                                                  <tr>
+                                                    <th>Nom</th>
+                                                    <th>Prenom</th>
+                                                    <th>Raison sociale</th>
+                                                    <th>Adresse</th>
+                                                    <th>E-mail</th>
+                                                    <th>Code postal</th>
+                                                                            <th>Ville</th>
+                                                                            <th>Telephone</th>
+                                                    <th>Select</th>
+                                                  </tr>
+                                                </thead>
+                                                <tbody>
+                                                  <?php
+                                                    foreach ($clients as $client) {
+                                                        ?>
+                                                        <tr>
+                                                            <td><?= $client['nom'] ?></td>
+                                                            <!--Nom-->
+                                                            <td><?= $client['prenom'] ?></td>
+                                                            <!--Prenom-->
+                                                            <td><?= $client['RS'] ?></td>
+                                                            <!--Raison sociale-->
+                                                            <td><?= $client['adresse'] ?></td>
+                                                            <!--Adresse-->
+                                                            <td><?= '' ?></td>
+                                                            <!--E-mail-->
+                                                            <td><?= $client['CP'] ?></td>
+                                                            <!--Code postal-->
+                                                            <td><?= $client['ville'] ?></td>
+                                                            <!--Ville-->
+                                                            <td><?= $client['tel'] ?></td>
+                                                            <!--Telephone-->
+                                                            <td><input type="hidden" class="id" value="<?= $client['id'] ?>"></td>
+                                                            <!--Select-->
+                                                            <td><input type="checkbox" class="index" name="<?= $client['id'] ?>"/></td>
+                                                        </tr>
+                                                        <?php
+                                                    }
+                                                  ?>
+                                                                    </tbody>
+                                                <tfoot>
+                                                  <tr>
+                                                    <th>Nom</th>
+                                                    <th>Prenom</th>
+                                                    <th>Raison sociale</th>
+                                                    <th>Adresse</th>
+                                                    <th>E-mail</th>
+                                                    <th>Code postal</th>
+                                                                            <th>Ville</th>
+                                                                            <th>Telephone</th>
+                                                    <th>Select</th>
+                                                  </tr>
+                                                </tfoot>
+                                              </table>
+                              <!-- /.box-body -->
+                                </div><!-- /.box -->
+                                         <div class="col-md-12">
+
+
+
+                            <!--SUPPCLIENT-->
+                                            <div class="row">
+                                                 <div class="col-md-9">
+                                                  </div>
+                                                  <div class="col-md-2">
+                                                    <button type="submit" class="btn btn-primary supprimer" formaction=<?php $this->lien('client', 'delete') ?>>suprimer les clients selectionnÃ©s</button>
+                                                      </div>
+                                            </div>
+                                         </div>	
+                                    </div><!-- /.box-body -->
+                                </div>
+            
+          <!--  <div class="col-xs-12">-->
+                                <div class="box"><!--NEW-->
+                                        <div class="box-header">
+                                        <h3 class="box-title">Atribuer droit</h3>
+                                        </div>
+                                                <div class="box-body"><!--ATrIBUER Droit-->
+                                                        <div class="row">
+                                                                <div class="col-md-4">
+                                                                                <div class="form-group">
+
+                                                                                        <label>utilisateur</label>
+                                                                                        <input class="form-control champ_ajout" type="text" placeholder="Enter ..."></input>
+
+                                                                                </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                        <div class="form-group">
+                                                                                <label>Droit :</label>
+                                                                                <div class="input-group">
+                                                                                <div class="input-group-addon">
+                                                                                <i class="fa fa-navicon"></i>
+                                                                                </div><!--MENU DEROULANT-->
+                                                                                <select class="form-control">
+                                                                                        <option>example1</option>
+                                                                                        <option>example2</option>
+                                                                                        <option>example3</option>
+                                                                                </select>
+                                                                                </div><!-- /.input group -->
+
+                                                                        </div><!-- /.form group -->
+                                                                </div>
+
+                                                                <div class="col-md-4">
+
+                                                                                <div class="form-group">
+
+                                                                                        <label>Client</label>
+                                                                                        <input class="form-control champ_ajout" type="text" placeholder="Enter ..."></input>
+
+                                                                                </div>
+
+                                                                </div>
+
+                                                                <div class="col-md-12">
+                                                                                <div class="row" id="atribuer">
+                                                                                        <div class="col-md-10">
+                                                                                         </div>
+                                                                                         <div class="col-md-1">
+                                                                                           <button type="submit" class="btn btn-primary supprimer" >atribuer</button>
+                                                                                         </div>
+                                                                                </div>
+                                                                </div>
+
+                                                        </div><!--row-->
+                                                </div>
+                                </div>
                 
-                              <!-- NOM -->
-                              <div class="form-group">
-                                <label>Nom:</label>
-                                <div class="input-group">
-                                  <div class="input-group-addon">
-                                    <i class="fa fa-user"></i>
-                                  </div>
-                                  <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom"/>
-                                </div><!-- /.input group -->
-                              </div><!-- /.form group -->
+          
+            <!--LISTE USERS-->
             
-                              <!-- PRENOM -->
-                              <div class="form-group">
-                                <label>Prenom:</label>
-                                <div class="input-group">
-                                  <div class="input-group-addon">
-                                    <i class="fa fa-user"></i>
-                                  </div>
-                                  <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="prenom"/>
-                                </div><!-- /.input group -->
-                              </div><!-- /.form group -->
-            
-                              <!-- TELEPHONE -->
-                              <div class="form-group">
-                                <label>Telephone:</label>
-                                <div class="input-group">
-                                  <div class="input-group-addon">
-                                    <i class="fa fa-phone"></i>
-                                  </div>
-                                  <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask name="telephone"/>
-                                </div><!-- /.input group -->
-                              </div><!-- /.form group -->
-            
-                              <!-- Raison sociale -->
-                              <div class="form-group">
-                                <label>Raison sociale:</label>
-                                <div class="input-group">
-                                  <div class="input-group-addon">
-                                    <i class="fa fa-university"></i>
-                                  </div>
-                                  <input type="text" class="form-control" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask name="raison_sociale"/>
-                                </div><!-- /.input group -->
-                              </div><!-- /.form group -->
-            
-                              <!-- Adresse -->
-                              <div class="form-group">
-                                <label>Adresse:</label>
-                                <div class="input-group">
-                                  <div class="input-group-addon">
-                                    <i class="fa fa-envelope-o"></i>
-                                  </div>
-                                  <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="adresse"/>
-                                </div><!-- /.input group -->
-                              </div><!-- /.form group -->
-                              
-                              <!-- Code postal -->
-                              <div class="form-group">
-                                <label>Code postal:</label>
-                                <div class="input-group">
-                                  <div class="input-group-addon">
-                                    <i class="fa fa-envelope"></i>
-                                  </div>
-                                  <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="code_postal"/>
-                                </div><!-- /.input group -->
-                              </div><!-- /.form group -->
-                              
-                              <!-- Ville -->
-                              <div class="form-group">
-                                <label>Ville:</label>
-                                <div class="input-group">
-                                  <div class="input-group-addon">
-                                    <i class="fa fa-building"></i>
-                                  </div>
-                                  <input type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="ville"/>
-                                </div><!-- /.input group -->
-                              </div><!-- /.form group -->
-                              
-                          <button type="submit" class="btn btn-primary btn-block btn-flat">Ajouter</button> 
-                     </form>
-                     
-                     <!--FIN FORM-->
-
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-				
-				</div>
-				
-				 <!-- Main content -->
-       
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                  <h3 class="box-title">Liste des Clients</h3>
+                  <h3 class="box-title">Liste des Utilisateurs</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                	<div class="row">
+                    <div class="row">
                     	<div class="col-md-6">
                     	
                 
                            <div id="example1_filter" class="dataTables_filter">
                                    <label>
                                          Chercher:
-                                     <input class="form-control input-sm" type="search" placeholder="" aria-controls="example1"></i></label>
+                                     <input class="form-control input-sm champ_ajout" type="search" placeholder="" aria-controls="example1"></i></label>
                              </div>
                              
                          </div>
@@ -140,56 +302,43 @@
                          <div class="col-md-6">
                     	
                 
-                          <!--aenlever <button type="submit" class="btn btn-primary">suprimer les clients selectionnés</button> -->
+                          <!--aenlever <button type="submit" class="btn btn-primary">suprimer les clients selectionnÃ©s</button> -->
                                    
                              </div>
                              
-                         </div>
+                    </div>
                          
-                	</div>
+                </div>
                      
-                     <!--SUPP-->
-                
+                     
+                <div class="box-body">
                 <!--TABLEAU-->
                 
-                  <table id="example2" class="table table-bordered table-hover detail">
-                    <thead>
-                      <tr>
-                        <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>Raison sociale</th>
-                        <th>Adresse</th>
-                        <th>E-mail</th>
-                        <th>Code postal</th>
-						<th>Ville</th>
-						<th>Telephone</th>
-                        <th>Select</th>
-                      </tr>
-                    </thead>
-                    <tbody>
+                  
+                              <table id="example2" class="table table-bordered table-hover detail">
+                                  <thead>
+                                      <tr>
+                                           <th>Identifiant</th>
+                                           <th>Password</th>
+                                          <th>Mail</th>
+										  <th>Select</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
                       <?php
-                        foreach ($clients as $client) {
+                        foreach ($users as $user) {
                             ?>
                             <tr>
-                                <td><?= $client['nom'] ?></td>
+                                <td><?= $user['identifiant'] ?></td>
                                 <!--Nom-->
-                                <td><?= $client['prenom'] ?></td>
-                                <!--Prenom-->
-                                <td><?= $client['RS'] ?></td>
-                                <!--Raison sociale-->
-                                <td><?= $client['adresse'] ?></td>
-                                <!--Adresse-->
+                                <td><?= $user['password'] ?></td>
+								<!--password-->
                                 <td><?= '' ?></td>
                                 <!--E-mail-->
-                                <td><?= $client['CP'] ?></td>
-                                <!--Code postal-->
-                                <td><?= $client['ville'] ?></td>
-                                <!--Ville-->
-                                <td><?= $client['tel'] ?></td>
-                                <!--Telephone-->
-                                <td><input type="hidden" class="id" value="<?= $client['id'] ?>"></td>
+                                
+                                <!--<td><input type="hidden" class="id" value="<?= $user['id'] ?>"></td>-->
                                 <!--Select-->
-                                <td><input type="checkbox" class="index" name="<?= $client['id'] ?>"/></td>
+                                <td><input type="checkbox" class="index champ_ajout" name="<?= $user['id'] ?>"/></td>
                             </tr>
                             <?php
                         }
@@ -197,34 +346,21 @@
 					</tbody>
                     <tfoot>
                       <tr>
-                        <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>Raison sociale</th>
-                        <th>Adresse</th>
-                        <th>E-mail</th>
-                        <th>Code postal</th>
-						<th>Ville</th>
-						<th>Telephone</th>
+                        <th>Identifiant</th>
+                        <th>Password</th>
+                        <th>Mail</th>							 
                         <th>Select</th>
                       </tr>
                     </tfoot>
                   </table>
                 </div><!-- /.box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-			  
-			  
-			  </div>
-              <!--SUPPCLIENT-->
-               <div class="row">
-                    	<div class="col-md-9">
-                         </div>
-                         <div class="col-md-2">
-                           <button type="submit" class="btn btn-primary supprimer" formaction=<?php $this->lien('client', 'delete') ?>>suprimer les clients selectionnés</button>
-                             </div>
-                         </div>
-                	</div>
-            </div><!-- /.box-body -->
+                
+                <!--Supp User--> 
+              </div>
+            
+            
+            <!--/LISTE USER-->
+
             <div class="box-footer">
               
               
@@ -312,7 +448,7 @@
       <script>
       //Evenement valeur de .index => checkBox
         $('.index').change(function(){
-        //si coché
+        //si cochÃ©
           if(this.checked){
             //on recupere le noeud parent tr avec la fonction closest 
             //on ajoute un class sans style pour la selection 
