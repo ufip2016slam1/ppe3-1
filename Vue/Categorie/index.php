@@ -41,7 +41,7 @@
                                   <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                   </div>
-                                  <input type="text" class="form-control" name="nom_categorie"/>
+                                  <input type="text" class="form-control champ_ajout" name="nom_categorie"/>
                                 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
@@ -52,7 +52,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-clock-o"></i>
                                     </div>
-                                    <input type="text" class="form-control" name="horaire_dbt"/>
+                                    <input type="text" class="form-control champ_ajout" name="horaire_dbt"/>
                    				 </div><!-- /.input group -->
                               </div><!-- /.form group -->
             
@@ -63,11 +63,11 @@
                       				<div class="input-group-addon">
                        				 	<i class="fa fa-clock-o"></i>
                      				 </div>
-                      				<input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="horaire_fin"/>
+                      				<input type="text" class="form-control champ_ajout" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="horaire_fin"/>
                    				 </div><!-- /.input group -->
                               </div><!-- /.form group -->
 
-                          <button type="submit" class="btn btn-primary btn-block btn-flat">Ajouter</button>
+                          <button type="submit" submit="" class="btn btn-primary btn-block btn-flat ajouter">Ajouter</button>
                      </form>
                      
                      <!--FIN FORM-->
