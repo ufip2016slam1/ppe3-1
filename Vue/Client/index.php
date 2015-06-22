@@ -18,7 +18,7 @@
             
             <div class="box-body">
               <div class="content">
-				<div class="row">
+				
 					
                         <div class="row">
                           <div class="col-md-6">
@@ -37,7 +37,7 @@
                                                 <div class="input-group-addon">
                                                   <i class="fa fa-user"></i>
                                                 </div>
-                                                <input class="champ_ajout" type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom"/>
+                                                <input class="champ_ajout form-control " type="text" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom"/>
                                               </div><!-- /.input group -->
                                             </div><!-- /.form group -->
 
@@ -48,7 +48,7 @@
                                                 <div class="input-group-addon">
                                                   <i class="fa fa-user"></i>
                                                 </div>
-                                                <input class="champ_ajout" type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="prenom"/>
+                                                <input class="champ_ajout form-control " type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="prenom"/>
                                               </div><!-- /.input group -->
                                             </div><!-- /.form group -->
 
@@ -59,7 +59,7 @@
                                                 <div class="input-group-addon">
                                                   <i class="fa fa-phone"></i>
                                                 </div>
-                                                <input class="champ_ajout" type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask name="telephone"/>
+                                                <input class="champ_ajout form-control " type="text"  data-inputmask='"mask": "(999) 999-9999"' data-mask name="telephone"/>
                                               </div><!-- /.input group -->
                                             </div><!-- /.form group -->
 
@@ -70,7 +70,7 @@
                                                 <div class="input-group-addon">
                                                   <i class="fa fa-university"></i>
                                                 </div>
-                                                <input class="champ_ajout" type="text" class="form-control" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask name="raison_sociale"/>
+                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask name="raison_sociale"/>
                                               </div><!-- /.input group -->
                                             </div><!-- /.form group -->
 
@@ -81,7 +81,7 @@
                                                 <div class="input-group-addon">
                                                   <i class="fa fa-envelope-o"></i>
                                                 </div>
-                                                <input class="champ_ajout" type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="adresse"/>
+                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="adresse"/>
                                               </div><!-- /.input group -->
                                             </div><!-- /.form group -->
 
@@ -92,7 +92,7 @@
                                                 <div class="input-group-addon">
                                                   <i class="fa fa-envelope"></i>
                                                 </div>
-                                                <input class="champ_ajout" type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="code_postal"/>
+                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="code_postal"/>
                                               </div><!-- /.input group -->
                                             </div><!-- /.form group -->
 
@@ -103,7 +103,7 @@
                                                 <div class="input-group-addon">
                                                   <i class="fa fa-building"></i>
                                                 </div>
-                                                <input class="champ_ajout" type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask name="ville"/>
+                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="ville"/>
                                               </div><!-- /.input group -->
                                             </div><!-- /.form group -->
 
@@ -204,24 +204,25 @@
                                                 </tfoot>
                                               </table>
                               <!-- /.box-body -->
-                            </div><!-- /.box -->
-                            <div class="col-md-12">
+                                </div><!-- /.box -->
+                                         <div class="col-md-12">
 
 
 
                             <!--SUPPCLIENT-->
-                             <div class="row">
-                                      <div class="col-md-9">
-                                       </div>
-                                       <div class="col-md-2">
-                                         <button type="submit" class="btn btn-primary supprimer" formaction=<?php $this->lien('client', 'delete') ?>>suprimer les clients selectionnÃ©s</button>
-                                           </div>
-                                       </div>
-                              </div>	
-                          </div><!-- /.box-body -->
+                                            <div class="row">
+                                                 <div class="col-md-9">
+                                                  </div>
+                                                  <div class="col-md-2">
+                                                    <button type="submit" class="btn btn-primary supprimer" formaction=<?php $this->lien('client', 'delete') ?>>suprimer les clients selectionnÃ©s</button>
+                                                      </div>
+                                            </div>
+                                         </div>	
+                                    </div><!-- /.box-body -->
+                                </div>
             
           <!--  <div class="col-xs-12">-->
-                <div class="box"><!--NEW-->
+                                <div class="box"><!--NEW-->
                                         <div class="box-header">
                                         <h3 class="box-title">Atribuer droit</h3>
                                         </div>
@@ -275,7 +276,7 @@
 
                                                         </div><!--row-->
                                                 </div>
-                                        </div>
+                                </div>
                 
           
             <!--LISTE USERS-->
