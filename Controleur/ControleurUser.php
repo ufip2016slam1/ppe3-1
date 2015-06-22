@@ -71,6 +71,7 @@ class ControleurUser extends Controleur
 
                 $_SESSION['user'] = $user;
                 $_SESSION['auth'] = 1;
+                $_SESSION['client'] = $user->getClient();
 
                 //$this->genererVue();
                 header('location:index.php?controleur=reservation&action=index');
