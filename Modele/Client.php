@@ -83,7 +83,7 @@ class Client extends Modele {
 	 * @AssociationMultiplicity *
 	 * @AssociationKind Aggregation
 	 */
-	private $id_user = array();
+	private $user = array();
 	/**
 	 * @AssociationType facture
 	 * @AssociationMultiplicity *
@@ -117,7 +117,7 @@ class Client extends Modele {
 			'prenom' => $this->getPrenom(),
 			'raison_sociale' => $this->getRaison_sociale(),
 			'adresse' => $this->getAdresse(),
-			'code_postal' => $this->getCodePostal(),
+			'code_postal' => $this->getCode_postal(),
 			'ville' => $this->getVille(),
 			'telephone' => $this->getTelephone()
 		);
@@ -210,37 +210,48 @@ class Client extends Modele {
 	}
 
 	/**
-     * Gets the value of id_user.
+     * Ajoute un user au client.
      *
-     * @return array int
-     *
+     * @param string $col Colonne de la BDD
+     * @param string $val Valeur de recherche
+     * @param int $droit Le droit avec le user
      */
-    public function getId_user()
-    {
-        return $this->id_user;
+    public function addUser($col, $val, $droit) {
+        $user = User::getBy($col, $val);
+        $appart = new Appartient();
+        $appart->setId_client($this->getId_client());
+        $appart->setId_user($user->getId_user());
+        $appart->setDroit($droit);
+        $appart->add();
+        $this->user[] = $user;
     }
 
     /**
-     * Sets the value of id_user.
+     * Supprime un user du client.
      *
-     * @param array $PId_user Tableau d'objet User
+     * @param string $col Colonne de la BDD
+     * @param string $val Valeur de recherche
      */
-    public function setId_user($PId_user)
-    {
-        foreach ($PId_user as $value) {
-        	$numReserv[] = $value->getId_user();
-        }
+    public function suppClient($col, $val) {
+        $user = User::getBy($col, $val);
+        Appartient::deleteBy('id_client', $user->getId_user());
+        $this->getUser();
     }
 
     /**
-     * Gets the objet of id_user.
+     * Gets the objet of user.
      *
      * @return object class User
      *
      */
 
     public function getUser() {
-        return User::getBy('id_client', $this->getId_client());
+    	$lien = Appartient::getBy('id_client', $this->getId_client());
+        array_pop($lien);
+        foreach($lien as $value) {
+            $user[] = User::getById($value->getId_user());
+        }
+        return $this->user = $user;
     }
 
 	/**

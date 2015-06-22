@@ -84,9 +84,9 @@ class Reservation extends Modele {
 			'date_fin' => $this->getDate_fin(),
 			'date_reserv' => $this->getDate_reserv(),
 			'date_annule' => $this->getDate_annule(),
-            'id_user' => $this->getId_user(),
-            'id_salle' => $this->getId_salle(),
-            'id_client' => $this->getId_client(),
+            'id_user' => $this->getId_user()->getId_user(),
+            'id_salle' => $this->getId_salle()->getId_salle(),
+            'id_client' => $this->getId_client()->getId_client(),
 		);
 		$retour = parent::add($tab);
         
@@ -112,6 +112,15 @@ class Reservation extends Modele {
         return $sortie;
     }
 
+    public static function getPeriodeBy($dbt, $fin, $col, $val) {
+        $sql = 'SELECT * FROM '.strtolower(get_called_class()).' WHERE date_dbt BETWEEN :dbt AND :fin '
+        .'AND :colonne = :valeur';
+        $retour = self::executerRequete($sql, array(
+            'dbt' => $dbt, 'fin' => $fin, 'colonne' => $col, 'valeur' => $val,
+        ));
+        while ($sortie [] = $retour->fetchObject(strtolower(get_called_class())));
+        return $sortie;
+    }
 
     /**
     *

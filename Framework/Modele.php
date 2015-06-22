@@ -162,6 +162,16 @@ abstract class Modele {
             return true; // return TRUE si réussi sinon FALSE
     }
 
+    public static function deleteBy($colonne, $valeur) {
+        $sql = 'DELETE from '.strtolower(get_called_class()).' WHERE :col = :val';
+        $result = self::executerRequete($sql, array('col' => $colonne, 'val' => $valeur,));
+        $retour = $result->rowCount(); // nombre de ligne retourné
+        if($retour == 0)
+            return false;
+        else
+            return true; // return TRUE si réussi sinon FALSE
+    }
+
     /**
     *
     * Fonction update Modifie la valeur d'un element

@@ -15,6 +15,7 @@
 // includes
 require_once('Modele/Client.php');
 require_once('Modele/Reservation.php');
+require_once('Modele/Appartient.php');
 require_once('Framework/Modele.php');
 
 /**
@@ -30,7 +31,7 @@ class User extends Modele {
 	 * @AssociationType client
 	 * @AssociationMultiplicity 1..*
 	 */
-	private $id_client = array();
+	private $client = array();
 	/**
 	 * @AssociationType reservation
 	 * @AssociationMultiplicity *
@@ -67,6 +68,7 @@ class User extends Modele {
 
 		return $retour;
 	}
+
 
 	// Guetters and Setters
 
@@ -115,26 +117,59 @@ class User extends Modele {
     }
 
     /**
-     * Gets the value of id_client.
+     * add or delete the client with ID.
      *
-     * @return array int
+     * @param int $Pd_client Id du client
+     * @param int $droit Le droit sur le client
+     */
+    // public function setClient($PId_client, $droit)
+    // {
+    //     $exist = false;
+    //     if(is_null($this->getClient()))
+    //         $this->client[] = Client::getById($PId_client);
+    //     else {
+    //         foreach($this->client as $key => $value) {
+    //             if($value->getId_client() == $PId_client) {
+    //                 $exist = true;
+    //                 unset($this->client[$key]);
+    //                 Appartient::deleteBy($PId_client);
+    //             }
+    //         }
+    //         if($exist == false) {
+    //             $this->client[] = Client::getById($PId_client);
+    //             $appart = new Appartient();
+    //             $appart->setId_client($PId_client);
+    //             $appart->setI_user($this->getId_user());
+    //             $appart->setDroit($droit);
+    //             $appart->add();
+    //         }
+    //     }
+    // }
+
+    /**
+     * Ajoute un client.
      *
      */
-    public function getId_client()
-    {
-        return $this->id_client;
+    public function addClient($col, $val, $droit) {
+        $client = Client::getBy($col, $val);
+        $appart = new Appartient();
+        $appart->setId_client($client->getId_client());
+        $appart->setId_user($this->getId_user());
+        $appart->setDroit($droit);
+        $appart->add();
+        $this->client[] = $client;
     }
 
     /**
-     * Sets the value of numReserv.
+     * Supprime un client.
      *
-     * @param array $numReserv Tableau d'objet Client
+     * @param string $col Colonne de la BDD
+     * @param string $val Valeur de recherche
      */
-    public function setId_client($PId_client)
-    {
-        foreach ($PId_client as $value) {
-        	$client[] = $value->getId_client();
-        }
+    public function suppClient($col, $val) {
+        $client = Client::getBy($col, $val);
+        Appartient::deleteBy('id_client', $client->getId_client());
+        $this->getClient();
     }
 
     /**
@@ -145,7 +180,12 @@ class User extends Modele {
      */
 
     public function getClient() {
-        return Client::getBy('id_user', $this->getId_user());
+        $lien = Appartient::getBy('id_user', $this->getId_user());
+        array_pop($lien);
+        foreach($lien as $value) {
+            $client[] = Client::getById($value->getId_client());
+        }
+        return $this->client = $client;
     }
 
     /**
@@ -197,5 +237,10 @@ class User extends Modele {
     {
         $this->mail = $mail;
     }
+
+
+    // public function getDroit(){
+    //     return Appartient::getBy('id_user', $this->getId_user());
+    // }
 }
 ?>
