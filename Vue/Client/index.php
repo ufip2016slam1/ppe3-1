@@ -17,8 +17,8 @@
         <div class="box">
 
             <div class="box-body">
-                <div class="content">
 
+                <div class="content">
 
                     <div class="row">
                         <div class="col-md-6">
@@ -52,17 +52,6 @@
                                             </div><!-- /.input group -->
                                         </div><!-- /.form group -->
 
-                                        <!-- TELEPHONE -->
-                                        <div class="form-group">
-                                            <label>Telephone:</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-phone"></i>
-                                                </div>
-                                                <input class="champ_ajout form-control " type="text"  data-inputmask='"mask": "(999) 999-9999"' data-mask name="telephone"/>
-                                            </div><!-- /.input group -->
-                                        </div><!-- /.form group -->
-
                                         <!-- Raison sociale -->
                                         <div class="form-group">
                                             <label>Raison sociale:</label>
@@ -74,7 +63,7 @@
                                             </div><!-- /.input group -->
                                         </div><!-- /.form group -->
 
-                                        <!-- Adresse -->
+                                         <!-- Adresse -->
                                         <div class="form-group">
                                             <label>Adresse:</label>
                                             <div class="input-group">
@@ -85,7 +74,7 @@
                                             </div><!-- /.input group -->
                                         </div><!-- /.form group -->
 
-                                        <!-- Code postal -->
+                                         <!-- Code postal -->
                                         <div class="form-group">
                                             <label>Code postal:</label>
                                             <div class="input-group">
@@ -107,7 +96,18 @@
                                             </div><!-- /.input group -->
                                         </div><!-- /.form group -->
 
-                                        <button type="submit" class="btn btn-primary btn-block btn-flat">Ajouter</button>
+                                        <!-- TELEPHONE -->
+                                        <div class="form-group">
+                                            <label>Telephone:</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-phone"></i>
+                                                </div>
+                                                <input class="champ_ajout form-control " type="text"  data-inputmask='"mask": "(999) 999-9999"' data-mask name="telephone"/>
+                                            </div><!-- /.input group -->
+                                        </div><!-- /.form group -->
+
+                                        <button type="submit" submit="return false;"class="btn btn-primary btn-block btn-flat ajouter">Ajouter</button>
                                     </form>
 
                                     <!--FIN FORM-->
