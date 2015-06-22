@@ -59,6 +59,7 @@ class ControleurSalle extends Controleur
             $salle->setTarif3($this->requete->getParametre('t3'));
             $salle->setId_categorie(Categorie::getBy('nom_categorie', $this->requete->getParametre('categorie')));
             $salle->add();
+            echo 'OK';
         }
     }
 }

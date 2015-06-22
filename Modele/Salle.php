@@ -65,7 +65,7 @@ class Salle extends Modele {
 			'tarif1' => $this->getTarif1(),
 			'tarif2' => $this->getTarif2(),
 			'tarif3' => $this->getTarif3(),
-			'categorie' => $this->getCategorie(),
+			'id_categorie' => $this->getCategorie()->getId_categorie(),
 		);
 		$retour = parent::add($tab);
 
