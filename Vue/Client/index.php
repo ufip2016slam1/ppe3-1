@@ -164,10 +164,10 @@
                                                 <th>Prenom</th>
                                                 <th>Raison sociale</th>
                                                 <th>Adresse</th>
-                                                <th>E-mail</th>
                                                 <th>Code postal</th>
                                                 <th>Ville</th>
                                                 <th>Telephone</th>
+                                                <th>E-mail</th>
                                                 <th>Select</th>
                                             </tr>
                                             </thead>
@@ -184,15 +184,13 @@
                                                     <!--Raison sociale-->
                                                     <td><?= $client['adresse'] ?></td>
                                                     <!--Adresse-->
-                                                    <td><?= '' ?></td>
-                                                    <!--E-mail-->
                                                     <td><?= $client['CP'] ?></td>
-                                                    <!--Code postal-->
+                                                    <!--E-mail-->
                                                     <td><?= $client['ville'] ?></td>
-                                                    <!--Ville-->
+                                                    <!--Code postal-->
                                                     <td><?= $client['tel'] ?></td>
-                                                    <!--Telephone-->
-                                                     <td><?= $client['mail'] ?></td>
+                                                    <!--Ville-->
+                                                    <td>test</td>
                                                     <!--Telephone-->
 
                                                     <td><input type="hidden" class="id" value="<?= $client['id'] ?>"></td>
