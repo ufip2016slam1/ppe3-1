@@ -32,7 +32,7 @@
                   <h3 class="box-title">Ajouter une catégorie</h3>
                 </div>
                 <div class="box-body">
-                	<form action="<?php $this->lien('categorie','add') ?>" method="post"><!--GAUTIER-->
+                	<form action="<?php $this->lien('categorie','add') ?>" method="post" class="insertion"><!--GAUTIER-->
                 
                               <!-- NOM SALLE -->
                               <div class="form-group">
@@ -67,7 +67,7 @@
                    				 </div><!-- /.input group -->
                               </div><!-- /.form group -->
 
-                          <button type="submit" class="btn btn-primary btn-block btn-flat">Ajouter</button> 
+                          <button type="submit" class="btn btn-primary btn-block btn-flat">Ajouter</button>
                      </form>
                      
                      <!--FIN FORM-->

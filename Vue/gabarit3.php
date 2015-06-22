@@ -493,43 +493,19 @@
          * Lors de la validation d'un formulaire insere les element en BDD
          * bloque l'action normale pour la realiser en ajax
          */
-        $(".insertion").bind("submit", function(e){
+        $(".insertion").on("submit", function(e){
           e.preventDefault(); // on bloque le comportement par defaut du navigateur
           // on stocke l'objet JQuery formulaire
           var formulaire = $(this);
 
-          $.post(
-              formulaire.attr('action'),
-              formulaire.serialize(),
-              function (data) {
-                  alert (data);
-              };
-          );
+            $.ajax({
+                url: formulaire.attr('action'), // Le nom du fichier indiqué dans le formulaire
+                data: formulaire.serialize(), // Je sérialise les données (j'envoie toutes les valeurs présentes dans le formulaire)
+                success: function(data) { // Je récupère la réponse du fichier PHP
+                    //alert(data); // J'affiche cette réponse
+                }
+            });
         });
-
-      /*$(".supprimer").on("click", function()
-       var bouton = $(this);
-       var Ids;
-       $('.index:checked').each(function(){
-       Ids + { id : ($(this).attr('name'))};
-       });
-       Ids = JSON.stringify(Ids);
-       if (Ids != '' || Ids != 'undefinided'){
-       $.post(
-       bouton.attr('formaction'),
-       Ids,
-       function (data) {
-       alert(data);
-       if (Ids != '' || Ids != 'undefinided'){
-       $.post(
-       bouton.attr('formaction'),
-       {id: Ids},
-       function () {
-       $.get('?controleur=client&action=rafraichirListe', function (retour){ alert(retour)});
-       }
-       );
-       }
-       });*/
 
     </script>
   </body>

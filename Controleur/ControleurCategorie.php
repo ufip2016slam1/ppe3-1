@@ -24,7 +24,7 @@ class ControleurCategorie extends Controleur
                     'id' => $cat->getId_categorie(),
                     'nom' => $cat->getNom(),
                     'horaire_dbt' => $cat->getHoraire_dbt_reserv(),
-                    'horaire_fin' => $cat->getHoraire_fin_reserv(),
+                    'horaire_fin' => $cat->getHoraire_fin_reserv()
                 );
             }
         }
