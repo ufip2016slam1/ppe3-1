@@ -107,7 +107,7 @@
                                             </div><!-- /.input group -->
                                         </div><!-- /.form group -->
 
-                                        <button type="submit" class="btn btn-primary btn-block btn-flat">Ajouter</button>
+                                        <button type="submit" submit="return false;"class="btn btn-primary btn-block btn-flat ajouter">Ajouter</button>
                                     </form>
 
                                     <!--FIN FORM-->

@@ -537,7 +537,7 @@ $('.ajouter').on('click', function(){
           var tabData ; 
           var champ = $('.champ_ajout') ; 
 
-          if(champ){
+          if(champ.val()!=''){
 
             tabData ='<tr>' ; 
 
