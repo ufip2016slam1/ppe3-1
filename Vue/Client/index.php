@@ -66,7 +66,7 @@
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-user"></i>
                                                 </div>
-                                                <input class="champ_ajout form-control " type="text" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom"/>
+                                                <input class="champ_ajout form-control " data-type="isFormatText" type="text" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom"/>
                                             </div><!-- /.input group -->
                                         </div><!-- /.form group -->
 
@@ -77,7 +77,7 @@
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-user"></i>
                                                 </div>
-                                                <input class="champ_ajout form-control " type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="prenom"/>
+                                                <input class="champ_ajout form-control " data-type="isFormatText" type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="prenom"/>
                                             </div><!-- /.input group -->
                                         </div><!-- /.form group -->
 
@@ -88,7 +88,7 @@
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-university"></i>
                                                 </div>
-                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask name="raison_sociale"/>
+                                                <input class="champ_ajout form-control " data-type="isFormatText" type="text"  data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask name="raison_sociale"/>
                                             </div><!-- /.input group -->
                                         </div><!-- /.form group -->
 
@@ -99,7 +99,7 @@
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-envelope-o"></i>
                                                 </div>
-                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="adresse"/>
+                                                <input class="champ_ajout form-control " data-type="isFormatText" type="text"  data-inputmask="'alias': 'ip'" data-mask name="adresse"/>
                                             </div><!-- /.input group -->
                                         </div><!-- /.form group -->
 
@@ -110,7 +110,7 @@
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-envelope"></i>
                                                 </div>
-                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="code_postal"/>
+                                                <input class="champ_ajout form-control " data-type="isFormatCodePostal" type="text"  data-inputmask="'alias': 'ip'" data-mask name="code_postal"/>
                                             </div><!-- /.input group -->
                                         </div><!-- /.form group -->
 
@@ -121,7 +121,7 @@
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-building"></i>
                                                 </div>
-                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="ville"/>
+                                                <input class="champ_ajout form-control " data-type="isFormatText" type="text"  data-inputmask="'alias': 'ip'" data-mask name="ville"/>
                                             </div><!-- /.input group -->
                                         </div><!-- /.form group -->
 
@@ -132,7 +132,7 @@
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-building"></i>
                                                 </div>
-                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="mail"/>
+                                                <input class="champ_ajout form-control " data-type="isFormatMail" type="text"  data-inputmask="'alias': 'ip'" data-mask name="mail"/>
                                             </div><!-- /.input group -->
                                         </div><!-- /.form group -->
 

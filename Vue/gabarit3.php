@@ -559,7 +559,7 @@ function ajaxAjoutTab(){
           }
 
           console.log(tabData) ;
-          alert('test');
+          alert('test gabari3 l 562');
           return false; 
         });
 
@@ -572,8 +572,16 @@ function ajaxAjoutTab(){
 
       switch(champ) { 
 
-        case 'isPhoneNumber'  :
+        case 'isPhoneNumber' :
           var reg = /^[+0-9. ()-]*$/;
+        break ;
+
+        case 'isFormatCodePostal' :
+          var reg = /^[0-9]{5}$/;
+        break ;
+
+        case 'isFormatMail' :
+          var reg = /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
         break ;
 
         case 'isFormatDate' : 
@@ -583,6 +591,11 @@ function ajaxAjoutTab(){
         case 'isFormatColor' :
           var reg = /^(#[0-9a-fA-F]{6}|[a-zA-Z0-9-]*)$/;
         break ;
+
+        case 'isPhoneNumber'  :
+          var reg = /^[+0-9. ()-]*$/;
+        break ;
+
 
         default : 
           return false ;
@@ -595,14 +608,26 @@ function ajaxAjoutTab(){
 
     }
 
-    $('input').on('blur', function(){
+    $('.champ_ajout').on('blur', function(){
 
+      // On stock l'element courant pour eviter la redondance 
       $this = $(this) ; 
 
+      //on recupere la valeur et le type de l'input 
       valeur = $this.val() ;
-      typeChamp = $this.attr('data-type') ; 
+      typeChamp = $this.attr('data-type') ;
 
-      retour = verif(typeChamp , valeur) ; 
+      // On test le type 
+      //si isFormatText on echappe les balises html 
+      if(typeChamp == 'isFormatText'){
+        valeur = valeur.text() ; 
+        retour = true ;
+      //sinon appel de la fonction verif  
+      }else{
+        retour = verif(typeChamp , valeur) ;
+      }
+       
+      //alert visuel et verrouillage du bouton Ajouter 
       if(!retour) {
         $this.css('background','red');
         $('.ajouter').attr('disabled','disabled');
