@@ -588,13 +588,23 @@ function ajaxAjoutTab(){
           var reg = /^([0-9]{4})-((0?[0-9])|(1[0-2]))-((0?[0-9])|([1-2][0-9])|(3[01]))( [0-9]{2}:[0-9]{2}:[0-9]{2})?$/ ; 
         break ; 
 
+        case 'isFormatHeure' : 
+          var reg = /^[0-9]{2}:[0-9]{2}?$/ ; 
+        break ;
+
+        case 'isFormat2Nb'  :
+          var reg = /^[0-9]{2}?$/ ;
+        break ; 
+
         case 'isFormatColor' :
           var reg = /^(#[0-9a-fA-F]{6}|[a-zA-Z0-9-]*)$/;
         break ;
 
-        case 'isPhoneNumber'  :
+        /*case 'isPhoneNumber'  :
           var reg = /^[+0-9. ()-]*$/;
         break ;
+        */
+
 
 
         default : 
@@ -612,15 +622,18 @@ function ajaxAjoutTab(){
 
       // On stock l'element courant pour eviter la redondance 
       $this = $(this) ; 
-
+  
       //on recupere la valeur et le type de l'input 
-      valeur = $this.val() ;
+      valeur = $this.val();
+      valeur = valeur.replace(/\<[a-z0-9+.\/]*\>/g, "<essaie encore>");
+      $this.val(valeur);
+
       typeChamp = $this.attr('data-type') ;
 
       // On test le type 
       //si isFormatText on echappe les balises html 
       if(typeChamp == 'isFormatText'){
-        valeur = valeur.text() ; 
+
         retour = true ;
       //sinon appel de la fonction verif  
       }else{
@@ -635,6 +648,7 @@ function ajaxAjoutTab(){
         $this.css('background','transparent');
         $('.ajouter').removeAttr('disabled');
       }
+
 
     });
 
