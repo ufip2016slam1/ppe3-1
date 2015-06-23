@@ -584,6 +584,10 @@ function ajaxAjoutTab(){
           var reg = /^(#[0-9a-fA-F]{6}|[a-zA-Z0-9-]*)$/;
         break ;
 
+        default : 
+          return true ;
+        break ;
+
       }
 
       return reg.test(valeur);
