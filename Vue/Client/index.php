@@ -135,7 +135,7 @@
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-phone"></i>
                                                 </div>
-                                                <input class="champ_ajout form-control " type="text"  data-inputmask='"mask": "(999) 999-9999"' data-mask name="telephone"/>
+                                                <input class="champ_ajout form-control " data-type="isPhoneNumber" type="text"  data-inputmask='"mask": "(999) 999-9999"' data-mask name="telephone"/>
                                             </div><!-- /.input group -->
                                         </div><!-- /.form group -->
 

@@ -563,7 +563,55 @@ function ajaxAjoutTab(){
           return false; 
         });
 
-}
+  }
+
+
+  $(document).ready(function() {
+
+    function verif(champ,valeur){
+
+      switch(champ) { 
+
+        case 'isPhoneNumber'  :
+          var reg = /^[+0-9. ()-]*$/;
+        break ;
+
+        case 'isFormatDate' : 
+          var reg = /^([0-9]{4})-((0?[0-9])|(1[0-2]))-((0?[0-9])|([1-2][0-9])|(3[01]))( [0-9]{2}:[0-9]{2}:[0-9]{2})?$/ ; 
+        break ; 
+
+        case 'isFormatColor' :
+          var reg = /^(#[0-9a-fA-F]{6}|[a-zA-Z0-9-]*)$/;
+        break ;
+
+      }
+
+      return reg.test(valeur);
+      
+
+    }
+
+    $('input').on('blur', function(){
+
+      $this = $(this) ; 
+
+      valeur = $this.val() ;
+      typeChamp = $this.attr('data-type') ; 
+
+      retour = verif(typeChamp , valeur) ; 
+      if(!retour) {
+        $this.css('background','red');
+        $('.ajouter').attr('disabled','disabled');
+      }else{
+        $this.css('background','transparent');
+        $('.ajouter').removeAttr('disabled');
+      }
+
+    });
+
+  });
+
+
     </script>
   </body>
 </html>
