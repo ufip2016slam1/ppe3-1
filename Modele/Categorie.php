@@ -13,7 +13,7 @@
 
 // includes
 require_once('Framework/Modele.php');
-//require_once('Modele/Salle.php');
+require_once('Modele/Salle.php');
 
 /**
  * @access public

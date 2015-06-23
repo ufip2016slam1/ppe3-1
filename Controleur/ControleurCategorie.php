@@ -12,19 +12,25 @@ require_once 'Modele/Categorie.php';
 class ControleurCategorie extends Controleur
 {
 
-    public static $champsModifiable = array();
-
     public function index() {
         // on recupere l'ensemble des parametre des categories
         $categories = Categorie::getAll();
         $tabCategories = array();
         foreach ($categories as $cat) {
             if ($cat != false){
+                $salles = $cat->getSalle();
+                $tabSalle = array();
+                foreach ($salles as $salle){
+                    if ($salle != false){
+                        $tabSalle[] = $salle->getNom_salle();
+                    }
+                }
                 $tabCategories[] = array(
                     'id' => $cat->getId_categorie(),
                     'nom' => $cat->getNom(),
                     'horaire_dbt' => $cat->getHoraire_dbt_reserv(),
-                    'horaire_fin' => $cat->getHoraire_fin_reserv()
+                    'horaire_fin' => $cat->getHoraire_fin_reserv(),
+                    'salles' => $tabSalle
                 );
             }
         }

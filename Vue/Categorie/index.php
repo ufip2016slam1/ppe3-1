@@ -183,7 +183,7 @@ $this->addJS =
                                                                name="<?= $categorie['id'] ?>"/></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="4">
+                                                    <td colspan="5">
                                                         <table class="table table-bordered table-hover">
                                                             <tr>
                                                                 <td>
@@ -242,6 +242,23 @@ $this->addJS =
                                                                         <button type="submit" submit=""
                                                                                 class="btn btn-primary btn-block btn-flat">Ajouter
                                                                         </button>
+                                                                    </form>
+                                                                </td>
+                                                                <td>
+                                                                    <form>
+                                                                        <fieldset>
+                                                                            <legend>Liste des salles</legend>
+                                                                            <?php
+                                                                            foreach ($categorie['salles'] as $salle) {
+                                                                                ?>
+                                                                                <p>
+                                                                                    <?= $salle ?>
+                                                                                </p>
+
+                                                                            <?php
+                                                                            }
+                                                                            ?>
+                                                                        </fieldset>
                                                                     </form>
                                                                 </td>
                                                             </tr>
