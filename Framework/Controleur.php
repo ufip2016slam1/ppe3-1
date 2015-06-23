@@ -82,24 +82,6 @@ abstract class Controleur {
         }
     }
 
-
-    /**
-     * modifier un element en fonction de son ID
-     * fonction generique
-     */
-    protected function modifier() {
-        $controleur = get_class($this);
-        $instance = substr(get_class($this),10);
-        $id = (int)$this->requete->getParametre('id_'.strtolower($instance));
-
-        if ($this->requete->existeParametre('id_'.strtolower($instance))) {
-            foreach ($controleur::$champsModifiable as $value) {
-                if ($this->requete->existeParametre($value))
-                    $instance::update($value, $this->requete->getParametre($value), $id);
-			}
-        }
-    }
-
     /**
     *
     * Envoie un e-mail
