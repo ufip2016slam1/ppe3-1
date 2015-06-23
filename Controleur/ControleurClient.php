@@ -16,6 +16,7 @@ class ControleurClient extends Controleur
     public static $champsModifiable = array('nom', 'prenom', 'raison_sociale', 'adresse', 'code_postal', 'ville', 'telephone');
 
 	public function index() {
+
         $clients = Client::getAll();
         $pClients = array();
         foreach ($clients as $client) {
@@ -32,7 +33,19 @@ class ControleurClient extends Controleur
                 );
             }
         }
-        $this->genererVue(array('clients' => $pClients));
+
+        $users = User::getAll();
+        $tabUser = array();
+        foreach ($users as $user) {
+            if ($user != false) {
+                $tabUser[] = array(
+                    'identifiant' => $user->getIdentifiant(),
+                    'mail' => $user->getMail(),
+                    'id_user' => $user->getId_user()
+                );
+            }
+        }
+        $this->genererVue(array('clients' => $pClients, 'users' => $tabUser));
 	}
 
     public function delete () {

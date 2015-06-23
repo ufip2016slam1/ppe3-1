@@ -1,18 +1,24 @@
 <?php
     $this->titre = "ajouter client";
+    /*$this->addCSS = "<link rel=\"stylesheet\" href=\"Contenu/plugins/jQueryUI/jquery-ui-1.11.4.min.css\">";*/
     $this->addJS =
         "
         <script src=\"Contenu/plugins/jQueryUI/jquery-ui-1.11.4.min.js\"></script>
         <script>
-              $(function() {
-                $( \"#accordion\" ).accordion({
-                    header: \".parentAccordion\",
-                    active: false,
-                    icons: false,
-                    collapsible: true,
-                    event: \"click\"
+          $(function() {
+            $( \"#accordion\" ).accordion({
+                header: \".parentAccordion\",
+                active: false,
+                icons: false,
+                collapsible: true,
+                event: \"click\"
+            });
+          });
+            $(function() {
+                $( \"#tabs\" ).tabs({
+                    event: \"mouseover\"
                 });
-              });
+            });
         </script>
         "
 ?>
@@ -212,7 +218,124 @@
                                                     <!--Select-->
                                                     <td><input type="checkbox" class="index" name="<?= $client['id'] ?>"/></td>
                                                 </tr>
-                                                <tr><td colspan="11">test accordeon</td></tr>
+                                                <tr>
+                                                    <td colspan="11">
+                                                        <table class="table table-bordered table-hover detail">
+                                                            <tr>
+                                                                <td>
+                                                                    <form action="#" method="post"><!--GAUTIER-->
+
+                                                                        <!-- NOM -->
+                                                                        <div class="form-group ">
+                                                                            <label>Nom:</label>
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-addon">
+                                                                                    <i class="fa fa-user"></i>
+                                                                                </div>
+                                                                                <input class="champ_ajout form-control " type="text" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom"/>
+                                                                            </div><!-- /.input group -->
+                                                                        </div><!-- /.form group -->
+
+                                                                        <!-- PRENOM -->
+                                                                        <div class="form-group">
+                                                                            <label>Prenom:</label>
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-addon">
+                                                                                    <i class="fa fa-user"></i>
+                                                                                </div>
+                                                                                <input class="champ_ajout form-control " type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="prenom"/>
+                                                                            </div><!-- /.input group -->
+                                                                        </div><!-- /.form group -->
+
+                                                                        <!-- Raison sociale -->
+                                                                        <div class="form-group">
+                                                                            <label>Raison sociale:</label>
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-addon">
+                                                                                    <i class="fa fa-university"></i>
+                                                                                </div>
+                                                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask name="raison_sociale"/>
+                                                                            </div><!-- /.input group -->
+                                                                        </div><!-- /.form group -->
+
+                                                                        <!-- Adresse -->
+                                                                        <div class="form-group">
+                                                                            <label>Adresse:</label>
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-addon">
+                                                                                    <i class="fa fa-envelope-o"></i>
+                                                                                </div>
+                                                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="adresse"/>
+                                                                            </div><!-- /.input group -->
+                                                                        </div><!-- /.form group -->
+
+                                                                        <!-- Code postal -->
+                                                                        <div class="form-group">
+                                                                            <label>Code postal:</label>
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-addon">
+                                                                                    <i class="fa fa-envelope"></i>
+                                                                                </div>
+                                                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="code_postal"/>
+                                                                            </div><!-- /.input group -->
+                                                                        </div><!-- /.form group -->
+
+                                                                        <!-- Ville -->
+                                                                        <div class="form-group">
+                                                                            <label>Ville:</label>
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-addon">
+                                                                                    <i class="fa fa-building"></i>
+                                                                                </div>
+                                                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="ville"/>
+                                                                            </div><!-- /.input group -->
+                                                                        </div><!-- /.form group -->
+
+                                                                        <!-- Email -->
+                                                                        <div class="form-group">
+                                                                            <label>Email:</label>
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-addon">
+                                                                                    <i class="fa fa-building"></i>
+                                                                                </div>
+                                                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="mail"/>
+                                                                            </div><!-- /.input group -->
+                                                                        </div><!-- /.form group -->
+
+                                                                        <!-- TELEPHONE -->
+                                                                        <div class="form-group">
+                                                                            <label>Telephone:</label>
+                                                                            <div class="input-group">
+                                                                                <div class="input-group-addon">
+                                                                                    <i class="fa fa-phone"></i>
+                                                                                </div>
+                                                                                <input class="champ_ajout form-control " type="text"  data-inputmask='"mask": "(999) 999-9999"' data-mask name="telephone"/>
+                                                                            </div><!-- /.input group -->
+                                                                        </div><!-- /.form group -->
+
+                                                                        <button type="submit" submit="return false;"class="btn btn-primary btn-block btn-flat ajouter">Ajouter</button>
+                                                                    </form>
+                                                                </td>
+                                                                <td>
+                                                                    <form>
+                                                                        <fieldset>
+                                                                            <legend>Selection des utilisateur</legend>
+                                                                            <?php
+                                                                                $i =0;
+                                                                                foreach ($users as $user) {
+                                                                                    ?>
+                                                                                    <label for="option<?= $i ?>"><?= $user['identifiant'] ?></label> <input type="checkbox" name="option<?= $i ?>"><br/>
+                                                                                    <?php
+                                                                                }
+                                                                            ?>
+                                                                            <label for="option1">Alpha </label> <input type="checkbox" name="option1">
+                                                                        </fieldset>
+                                                                    </form>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
                                             <?php
                                             }
                                             ?>
