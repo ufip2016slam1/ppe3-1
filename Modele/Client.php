@@ -232,10 +232,15 @@ class Client extends Modele {
      * @param string $col Colonne de la BDD
      * @param string $val Valeur de recherche
      */
-    public function suppClient($col, $val) {
-        $user = User::getBy($col, $val);
+    public function suppUser($user) {
+        /*$user = User::getBy($col, $val);
         Appartient::deleteBy('id_client', $user->getId_user());
-        $this->getUser();
+        $this->getUser();*/
+        $idUser = $user->getId_user();
+        $sql = 'DELETE from appartient
+                WHERE id_client = '.$this->getId_client().'
+                AND id_user = '.$idUser;
+        self::executerRequete($sql);
     }
 
     /**
@@ -247,11 +252,18 @@ class Client extends Modele {
 
     public function getUser() {
     	$lien = Appartient::getBy('id_client', $this->getId_client());
-        array_pop($lien);
-        foreach($lien as $value) {
-            $user[] = User::getById($value->getId_user());
+        if (is_array($lien)){
+            array_pop($lien);
+            foreach($lien as $value) {
+                $user[] = User::getById($value->getId_user());
+            }
+            return $this->user = $user;
         }
-        return $this->user = $user;
+        if ($lien)
+            return User::getById($lien->getId_user());
+        else
+            return false;
+
     }
 
 	/**

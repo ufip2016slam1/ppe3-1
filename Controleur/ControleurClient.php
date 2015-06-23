@@ -21,6 +21,20 @@ class ControleurClient extends Controleur
         $pClients = array();
         foreach ($clients as $client) {
             if ($client != false) {
+                $usersClient = $client->getUser();
+                $tabUserClient = array();
+                if ($usersClient != false){
+                    if (is_array($usersClient)){
+                        foreach ($usersClient as $userCli){
+                            if ($userCli != false){
+                                $tabUserClient[] = $userCli->getId_user();
+                            }
+                        }
+                    }
+                    else
+                        $tabUserClient[] = $usersClient->getId_user();
+                }
+
                 $pClients[] = array(
                     'id' => $client->getId_client(),
                     'nom' => $client->getNom(),
@@ -30,7 +44,8 @@ class ControleurClient extends Controleur
                     'CP' => $client->getCodePostal(),
                     'ville' => $client->getVille(),
                     'tel' => $client->getTelephone(),
-                    'mail' => 'attr absent modele'
+                    'mail' => 'attr absent modele',
+                    'user' => $tabUserClient
                 );
             }
         }
@@ -109,16 +124,48 @@ class ControleurClient extends Controleur
             $client = Client::getById($this->requete->getParametre('id'));
 
             if ($client->getAdresse() != $this->requete->getParametre('adresse'))
-                Client::update('adresse', $this->requete->getParametre('adresse'), $client->getgetId_client());
+                Client::update('adresse', $this->requete->getParametre('adresse'), $client->getId_client());
 
             if ($client->getCodePostal() != $this->requete->getParametre('code_postal'))
-                Client::update('code_postal', $this->requete->getParametre('code_postal'), $client->getgetId_client());
+                Client::update('code_postal', $this->requete->getParametre('code_postal'), $client->getId_client());
 
             if ($client->getVille() != $this->requete->getParametre('ville'))
-                Client::update('ville', $this->requete->getParametre('ville'), $client->getgetId_client());
+                Client::update('ville', $this->requete->getParametre('ville'), $client->getId_client());
 
             if ($client->getTelephone() != $this->requete->getParametre('telephone'))
-                Client::update('telephone', $this->requete->getParametre('telephone'), $client->getgetId_client());
+                Client::update('telephone', $this->requete->getParametre('telephone'), $client->getId_client());
+        }
+        echo 'OK';
+    }
+
+    public function droit (){
+        // on test la presence du paramètre id sinon on sort de la fonction
+        if (!$this->requete->existeParametre('id')){
+            echo 'aucun utilisateur selectionner';
+            return false;
+        }
+        // on recupere le client par son ID
+        $client = Client::getById($this->requete->getParametre('id'));
+        // on recupere les user user du client
+        $users = $client->getUser();
+
+        if (is_array($users)){
+            foreach ($users as $user) {
+                if ($user != false){
+                    if (!$this->requete->existeParametre('user'.$user->getId_user()))
+                        $client->suppUser($user);
+                }
+            }
+        }
+        else if ($users != false) {
+            if (!$this->requete->existeParametre('user'.$users->getId_user()))
+                $client->suppUser($users);
+        }
+
+        $params = $this->requete->getAllParametre();
+        foreach ($params as $k => $param){
+            if (preg_match('/user/', $k))
+                $client->addUser('identifiant', $param, 1);
         }
         echo 'OK';
     }

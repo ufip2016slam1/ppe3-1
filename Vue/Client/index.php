@@ -26,6 +26,18 @@ $this->addJS =
                 success: function(data){alert(data);}
             });
           });
+
+           $(\".droit\").bind(\"submit\", function(e){
+            e.preventDefault(); // on bloque le comportement par defaut du navigateur
+            var formulaire = $(this); // on stocke l'objet JQuery formulaire
+
+            $.ajax({
+                url: formulaire.attr('action'),
+                method: 'post',
+                data: formulaire.serializeArray(),
+                success: function(data){alert(data);}
+            });
+          });
         </script>
         "
 ?>
@@ -437,22 +449,29 @@ $this->addJS =
                                                                     </form>
                                                                 </td>
                                                                 <td>
-                                                                    <form>
+                                                                    <form action="<?php $this->lien('client', 'droit') ?>"
+                                                                          method="post" class="droit">
                                                                         <fieldset>
                                                                             <legend>Selection des utilisateur</legend>
                                                                             <?php
                                                                             $i = 0;
                                                                             foreach ($users as $user) {
+                                                                                $i ++;
                                                                                 ?>
                                                                                 <label
                                                                                     for="option<?= $i ?>"><?= $user['identifiant'] ?></label>
-                                                                                <input type="checkbox"
-                                                                                       name="option<?= $i ?>"><br/>
+                                                                                <input type="checkbox" id="option<?= $i ?>"
+                                                                                        <?php if (in_array($user['id_user'], $client['user'])) echo 'checked';?>
+                                                                                       name="user<?= $user['id_user'] ?>" value="<?= $user['identifiant'] ?>"><br/>
                                                                             <?php
                                                                             }
                                                                             ?>
-                                                                            <label for="option1">Alpha </label> <input
-                                                                                type="checkbox" name="option1">
+                                                                            <input type="hidden" class="id" name="id"
+                                                                                   value="<?= $client['id'] ?>">
+                                                                            <button type="submit" submit="return false;"
+                                                                                    class="btn btn-primary btn-block btn-flat">
+                                                                                Attibuer clients
+                                                                            </button>
                                                                         </fieldset>
                                                                     </form>
                                                                 </td>
