@@ -294,7 +294,7 @@ $this->addJS =
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-user"></i>
                                                                                 </div>
-                                                                                <input class="champ_ajout form-control " data-type="isFormatText" 
+                                                                                <input class="champ_modif form-control " data-type="isFormatText" 
                                                                                        type="text"
                                                                                        value="<?= $client['nom'] ?>"
                                                                                        data-inputmask="'alias': 'dd/mm/yyyy'"
@@ -312,7 +312,7 @@ $this->addJS =
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-user"></i>
                                                                                 </div>
-                                                                                <input class="champ_ajout form-control " data-type="isFormatText"
+                                                                                <input class="champ_modif form-control " data-type="isFormatText"
                                                                                        type="text"
                                                                                        value="<?= $client['prenom'] ?>"
                                                                                        class="form-control"
@@ -331,7 +331,7 @@ $this->addJS =
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-university"></i>
                                                                                 </div>
-                                                                                <input class="champ_ajout form-control " data-type="isFormatText"
+                                                                                <input class="champ_modif form-control " data-type="isFormatText"
                                                                                        type="text"
                                                                                        value="<?= $client['RS'] ?>"
                                                                                        data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']"
@@ -349,7 +349,7 @@ $this->addJS =
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-envelope-o"></i>
                                                                                 </div>
-                                                                                <input class="champ_ajout form-control " data-type="isFormatText" 
+                                                                                <input class="champ_modif form-control " data-type="isFormatText" 
                                                                                        type="text"
                                                                                        value="<?= $client['adresse'] ?>"
                                                                                        data-inputmask="'alias': 'ip'"
@@ -367,7 +367,7 @@ $this->addJS =
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-envelope"></i>
                                                                                 </div>
-                                                                                <input class="champ_ajout form-control " data-type="isFormatCodePostal" 
+                                                                                <input class="champ_modif form-control " data-type="isFormatCodePostal" 
                                                                                        type="text"
                                                                                        value="<?= $client['CP'] ?>"
                                                                                        data-inputmask="'alias': 'ip'"
@@ -385,7 +385,7 @@ $this->addJS =
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-building"></i>
                                                                                 </div>
-                                                                                <input class="champ_ajout form-control " data-type="isFormatText" 
+                                                                                <input class="champ_modif form-control " data-type="isFormatText" 
                                                                                        type="text"
                                                                                        value="<?= $client['ville'] ?>"
                                                                                        data-inputmask="'alias': 'ip'"
@@ -403,7 +403,7 @@ $this->addJS =
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-building"></i>
                                                                                 </div>
-                                                                                <input class="champ_ajout form-control " data-type="isFormatMail"
+                                                                                <input class="champ_modif form-control " data-type="isFormatMail"
                                                                                        type="text"
                                                                                        value="<?= $client['mail'] ?>"
                                                                                        data-inputmask="'alias': 'ip'"
@@ -421,7 +421,7 @@ $this->addJS =
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-phone"></i>
                                                                                 </div>
-                                                                                <input class="champ_ajout form-control " data-type="isPhoneNumber" 
+                                                                                <input class="champ_modif form-control " data-type="isPhoneNumber" 
                                                                                        type="text"
                                                                                        value="<?= $client['tel'] ?>"
                                                                                        data-inputmask='"mask": "(999) 999-9999"'
