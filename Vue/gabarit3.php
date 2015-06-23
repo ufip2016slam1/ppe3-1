@@ -585,7 +585,7 @@ function ajaxAjoutTab(){
         break ;
 
         default : 
-          return true ;
+          return false ;
         break ;
 
       }
