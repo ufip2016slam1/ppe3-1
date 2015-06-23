@@ -648,9 +648,36 @@ function ajaxAjoutTab(){
         $this.css('background','transparent');
         $('.ajouter').removeAttr('disabled');
       }
-
-
     });
+
+    $('.modifier').on('click',function(){
+      //niveau de la parentAccordion precedent 
+      var modif = new Array();
+      var page = $('h1').text() ;
+      
+
+      $(this).closest('form').children().children().children('.champ_modif').each(function(){
+        modif.push($(this).val()) ; 
+      });
+
+      console.log(modif);
+      var i = 0 ; 
+      console.log(page);
+
+      if(page=='Client' || page=='Categorie'){
+        $(this).closest('tr').closest('td').parent().prev().children().each(function(){
+          $(this).html(modif[i]);
+          i++ ;
+        });
+      }else{
+        $(this).closest('tr').prev().children().each(function(){
+          $(this).html(modif[i]);
+          i++ ;
+        });
+      }
+      
+    }) ; 
+      
 
   });
 

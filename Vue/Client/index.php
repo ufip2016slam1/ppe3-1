@@ -33,9 +33,7 @@ $this->addJS =
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-            Client
-        </h1>
+        <h1>Client</h1>
     </section>
 
     <!-- Main content -->
@@ -433,8 +431,8 @@ $this->addJS =
                                                                         <input type="hidden" class="id" name="id"
                                                                                value="<?= $client['id'] ?>">
                                                                         <button type="submit" submit="return false;"
-                                                                                class="btn btn-primary btn-block btn-flat ajouter">
-                                                                            Ajouter
+                                                                                class="btn btn-primary btn-block btn-flat modifier">
+                                                                            Modifier
                                                                         </button>
                                                                     </form>
                                                                 </td>

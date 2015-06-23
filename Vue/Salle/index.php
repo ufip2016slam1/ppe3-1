@@ -33,10 +33,7 @@ $this->addJS =
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-            salle
-
-        </h1>
+        <h1>salle</h1>
 
     </section>
 
@@ -204,7 +201,7 @@ $this->addJS =
                                                                     <div class="input-group-addon">
                                                                         <i class="fa fa-square-o"></i>
                                                                     </div>
-                                                                    <input type="text" class="form-control" value="<?= $salle['nom'] ?>"data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom_salle"/>
+                                                                    <input type="text" class="form-control champ_modif" value="<?= $salle['nom'] ?>"data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom_salle"/>
                                                                 </div><!-- /.input group -->
                                                             </div><!-- /.form group -->
 
@@ -215,7 +212,7 @@ $this->addJS =
                                                                     <div class="input-group-addon">
                                                                         <i class="fa fa-navicon"></i>
                                                                     </div><!--MENU DEROULANT-->
-                                                                    <select class="form-control champ_ajout" name="categorie">
+                                                                    <select class="form-control champ_modif" name="categorie">
                                                                         <?php
                                                                         $i = 0 ;
                                                                         foreach ($categories as $categorie){
@@ -239,7 +236,7 @@ $this->addJS =
                                                                     <div class="input-group-addon">
                                                                         <i class="fa fa-square-o"></i>
                                                                     </div>
-                                                                    <input type="text" class="form-control" value="<?= $salle['t1'] ?>" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="t1"/>
+                                                                    <input type="text" class="form-control champ_modif" value="<?= $salle['t1'] ?>" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="t1"/>
                                                                 </div><!-- /.input group -->
                                                             </div><!-- /.form group -->
                                                             <!-- T2 -->
@@ -249,7 +246,7 @@ $this->addJS =
                                                                     <div class="input-group-addon">
                                                                         <i class="fa fa-square-o"></i>
                                                                     </div>
-                                                                    <input type="text" class="form-control" value="<?= $salle['t2'] ?>" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="t2"/>
+                                                                    <input type="text" class="form-control champ_modif" value="<?= $salle['t2'] ?>" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="t2"/>
                                                                 </div><!-- /.input group -->
                                                             </div><!-- /.form group -->
                                                             <!-- T3 -->
@@ -259,15 +256,20 @@ $this->addJS =
                                                                     <div class="input-group-addon">
                                                                         <i class="fa fa-square-o"></i>
                                                                     </div>
-                                                                    <input type="text" class="form-control" value="<?= $salle['t3'] ?>" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="t3"/>
+                                                                    <input type="text" class="form-control champ_modif" value="<?= $salle['t3'] ?>" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="t3"/>
                                                                 </div><!-- /.input group -->
                                                             </div><!-- /.form group -->
 
                                                             <input type="hidden" class="id" name="id"
                                                                    value="<?= $salle['id'] ?>">
-                                                            <button type="submit" class="btn btn-primary btn-block btn-flat ajouter">Modifier</button>
+                                                            <button type="submit" class="btn btn-primary btn-block btn-flat modifier">Modifier</button>
                                                         </form>
                                                     </td>
+                                                     <td>
+                                                                    <form>
+                                                                        
+                                                                    </form>
+                                                                </td>
                                                 </tr>
                                                 <?php
                                             }

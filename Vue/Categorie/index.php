@@ -35,9 +35,7 @@ $this->addJS =
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-            Categorie
-        </h1>
+        <h1>Categorie</h1>
 
     </section>
 
@@ -194,10 +192,10 @@ $this->addJS =
                                                                             <label>Nom de categorie:</label>
 
                                                                             <div class="input-group">
-                                                                                <div class="input-group-addon">
+                                                                                <div class="input-group-addon ">
                                                                                     <i class="fa fa-user"></i>
                                                                                 </div>
-                                                                                <input type="text" class="form-control"
+                                                                                <input type="text" class="form-control champ_modif"
                                                                                        name="nom_categorie"
                                                                                        value="<?= $categorie['nom'] ?>"/>
                                                                             </div>
@@ -213,7 +211,7 @@ $this->addJS =
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-clock-o"></i>
                                                                                 </div>
-                                                                                <input type="text" class="form-control"
+                                                                                <input type="text" class="form-control champ_modif"
                                                                                        name="horaire_dbt" value="<?= $categorie['horaire_dbt'] ?>"/>
                                                                             </div>
                                                                             <!-- /.input group -->
@@ -228,7 +226,7 @@ $this->addJS =
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-clock-o"></i>
                                                                                 </div>
-                                                                                <input type="text" class="form-control"
+                                                                                <input type="text" class="form-control champ_modif"
                                                                                        data-inputmask="'alias': 'dd/mm/yyyy'" data-mask
                                                                                        name="horaire_fin" value="<?= $categorie['horaire_fin'] ?>"/>
                                                                             </div>
@@ -239,7 +237,7 @@ $this->addJS =
                                                                                value="<?= $categorie['id'] ?>">
 
                                                                         <button type="submit" submit=""
-                                                                                class="btn btn-primary btn-block btn-flat">Ajouter
+                                                                                class="btn btn-primary btn-block btn-flat modifier">Modifier
                                                                         </button>
                                                                     </form>
                                                                 </td>
