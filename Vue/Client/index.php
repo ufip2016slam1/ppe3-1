@@ -14,11 +14,19 @@
                 event: \"click\"
             });
           });
-            $(function() {
-                $( \"#tabs\" ).tabs({
-                    event: \"mouseover\"
-                });
+          /* Lors de la validation du formulaire de mise a jour
+          * */
+          $(\".miseAJour\").bind(\"submit\", function(e){
+            e.preventDefault(); // on bloque le comportement par defaut du navigateur
+            var formulaire = $(this); // on stocke l'objet JQuery formulaire
+
+            $.ajax({
+                url: formulaire.attr('action'),
+                method: 'post',
+                data: formulaire.serialize(),
+                success: alert('ok')
             });
+          });
         </script>
         "
 ?>
@@ -223,7 +231,7 @@
                                                         <table class="table table-bordered table-hover detail">
                                                             <tr>
                                                                 <td>
-                                                                    <form action="#" method="post"><!--GAUTIER-->
+                                                                    <form action="<?php $this->lien('client', 'update')?>" method="post" class="miseAJour"><!--GAUTIER-->
 
                                                                         <!-- NOM -->
                                                                         <div class="form-group ">
@@ -232,7 +240,7 @@
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-user"></i>
                                                                                 </div>
-                                                                                <input class="champ_ajout form-control " type="text" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom"/>
+                                                                                <input class="champ_ajout form-control " type="text" value="<?= $client['nom'] ?>" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom"/>
                                                                             </div><!-- /.input group -->
                                                                         </div><!-- /.form group -->
 
@@ -243,7 +251,7 @@
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-user"></i>
                                                                                 </div>
-                                                                                <input class="champ_ajout form-control " type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="prenom"/>
+                                                                                <input class="champ_ajout form-control " type="text" value="<?= $client['prenom'] ?>" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="prenom"/>
                                                                             </div><!-- /.input group -->
                                                                         </div><!-- /.form group -->
 
@@ -254,7 +262,7 @@
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-university"></i>
                                                                                 </div>
-                                                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask name="raison_sociale"/>
+                                                                                <input class="champ_ajout form-control " type="text" value="<?= $client['RS'] ?>" data-inputmask="'mask': ['999-999-9999 [x99999]', '+099 99 99 9999[9]-9999']" data-mask name="raison_sociale"/>
                                                                             </div><!-- /.input group -->
                                                                         </div><!-- /.form group -->
 
@@ -265,7 +273,7 @@
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-envelope-o"></i>
                                                                                 </div>
-                                                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="adresse"/>
+                                                                                <input class="champ_ajout form-control " type="text" value="<?= $client['adresse'] ?>" data-inputmask="'alias': 'ip'" data-mask name="adresse"/>
                                                                             </div><!-- /.input group -->
                                                                         </div><!-- /.form group -->
 
@@ -276,7 +284,7 @@
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-envelope"></i>
                                                                                 </div>
-                                                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="code_postal"/>
+                                                                                <input class="champ_ajout form-control " type="text" value="<?= $client['CP'] ?>" data-inputmask="'alias': 'ip'" data-mask name="code_postal"/>
                                                                             </div><!-- /.input group -->
                                                                         </div><!-- /.form group -->
 
@@ -287,7 +295,7 @@
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-building"></i>
                                                                                 </div>
-                                                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="ville"/>
+                                                                                <input class="champ_ajout form-control " type="text" value="<?= $client['ville'] ?>" data-inputmask="'alias': 'ip'" data-mask name="ville"/>
                                                                             </div><!-- /.input group -->
                                                                         </div><!-- /.form group -->
 
@@ -298,7 +306,7 @@
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-building"></i>
                                                                                 </div>
-                                                                                <input class="champ_ajout form-control " type="text"  data-inputmask="'alias': 'ip'" data-mask name="mail"/>
+                                                                                <input class="champ_ajout form-control " type="text" value="<?= $client['mail'] ?>" data-inputmask="'alias': 'ip'" data-mask name="mail"/>
                                                                             </div><!-- /.input group -->
                                                                         </div><!-- /.form group -->
 
@@ -309,10 +317,10 @@
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-phone"></i>
                                                                                 </div>
-                                                                                <input class="champ_ajout form-control " type="text"  data-inputmask='"mask": "(999) 999-9999"' data-mask name="telephone"/>
+                                                                                <input class="champ_ajout form-control " type="text" value="<?= $client['tel'] ?>" data-inputmask='"mask": "(999) 999-9999"' data-mask name="telephone"/>
                                                                             </div><!-- /.input group -->
                                                                         </div><!-- /.form group -->
-
+                                                                        <input type="hidden" class="id" name="id" value="<?= $client['id'] ?>">
                                                                         <button type="submit" submit="return false;"class="btn btn-primary btn-block btn-flat ajouter">Ajouter</button>
                                                                     </form>
                                                                 </td>

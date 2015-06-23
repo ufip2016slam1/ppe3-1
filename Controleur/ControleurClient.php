@@ -29,7 +29,8 @@ class ControleurClient extends Controleur
                     'adresse' => $client->getAdresse(),
                     'CP' => $client->getCodePostal(),
                     'ville' => $client->getVille(),
-                    'tel' => $client->getTelephone()
+                    'tel' => $client->getTelephone(),
+                    'mail' => 'attr absent modele'
                 );
             }
         }
