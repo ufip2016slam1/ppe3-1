@@ -1,4 +1,34 @@
+<?php
+$this->titre = "salle";
+$this->addJS =
+    "
+        <script src=\"Contenu/plugins/jQueryUI/jquery-ui-1.11.4.min.js\"></script>
+        <script>
+          $(function() {
+            $( \"#accordion\" ).accordion({
+                header: \".parentAccordion\",
+                active: false,
+                icons: false,
+                collapsible: true,
+                event: \"click\"
+            });
+          });
+          /* Lors de la validation du formulaire de mise a jour
+          * */
+          $(\".miseAJour\").bind(\"submit\", function(e){
+            e.preventDefault(); // on bloque le comportement par defaut du navigateur
+            var formulaire = $(this); // on stocke l'objet JQuery formulaire
 
+            $.ajax({
+                url: formulaire.attr('action'),
+                method: 'post',
+                data: formulaire.serialize(),
+                success: function(data){alert(data);}
+            });
+          });
+        </script>
+        "
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->

@@ -64,7 +64,7 @@ class ControleurCategorie extends Controleur
             $cat = Categorie::getById($this->requete->getParametre('id'));
 
             if ($cat->getNom() != $this->requete->getParametre('nom_categorie'))
-                Categorie::update('nom_catgeorie', 'test'/*$this->requete->getParametre('nom_catgegorie')*/, 1/*$cat->getId_categorie()*/);
+                Categorie::update('nom_categorie', $this->requete->getParametre('nom_categorie'), $cat->getId_categorie());
             if ($cat->getHoraire_dbt_reserv() != $this->requete->getParametre('horaire_dbt'))
                 Categorie::update('horaire_dbt_reserv', $this->requete->getParametre('horaire_dbt'), $cat->getId_categorie());
             if ($cat->getHoraire_fin_reserv() != $this->requete->getParametre('horaire_fin'))

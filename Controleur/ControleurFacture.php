@@ -50,6 +50,7 @@ class ControleurFacture extends Controleur
                 $value->getDate_fin,
                 $tarif,
                 $prix,
+            );
         }
         // Instanciation de la classe dérivée
         $pdf = new PDFFacture();
