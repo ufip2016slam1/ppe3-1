@@ -180,25 +180,98 @@ $this->addJS =
                                                 <th>Select</th>
                                             </tr>
                                             </thead>
-                                            <tbody>
-                                            <tr>
-                                                <?php
-                                                foreach ($salles as $salle) {
-                                                ?>
-                                            <tr>
-                                                <td><?= $salle['nom'] ?></td>
-                                                <td><?= $salle['categorie'] ?></td>
-                                                <td><?= $salle['t1'] ?></td>
-                                                <td><?= $salle['t2'] ?></td>
-                                                <td><?= $salle['t3'] ?></td>
-                                                <!--Select-->
-                                                <td><input type="checkbox" class="index"/></td>
-                                            </tr>
+                                            <tbody id="accordion">
                                             <?php
+                                            foreach ($salles as $salle) {
+                                                ?>
+                                                <tr class="parentAccordion">
+                                                    <td><?= $salle['nom'] ?></td>
+                                                    <td><?= $salle['categorie'] ?></td>
+                                                    <td><?= $salle['t1'] ?></td>
+                                                    <td><?= $salle['t2'] ?></td>
+                                                    <td><?= $salle['t3'] ?></td>
+                                                    <!--Select-->
+                                                    <td><input type="checkbox" class="index"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="6">
+                                                        <form action="<?php $this->lien('salle', 'update') ?>" method="post"
+                                                              class="miseAJour">
+                                                            <!-- Nom salle -->
+                                                            <div class="form-group">
+                                                                <label>Nom salle :</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-addon">
+                                                                        <i class="fa fa-square-o"></i>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" value="<?= $salle['nom'] ?>"data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom_salle"/>
+                                                                </div><!-- /.input group -->
+                                                            </div><!-- /.form group -->
+
+                                                            <!-- Categorie -->
+                                                            <div class="form-group">
+                                                                <label>Categorie :</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-addon">
+                                                                        <i class="fa fa-navicon"></i>
+                                                                    </div><!--MENU DEROULANT-->
+                                                                    <select class="form-control champ_ajout" name="categorie">
+                                                                        <?php
+                                                                        $i = 0 ;
+                                                                        foreach ($categories as $categorie){
+
+                                                                            $i++ ;
+                                                                            ?>
+                                                                            <option value="<?= $categorie ?>"<?php if($i==1) echo 'selected'?> ><?= $categorie ?></option>
+                                                                        <?php
+                                                                        }
+                                                                        ?>
+                                                                    </select>
+                                                                </div><!-- /.input group -->
+
+                                                            </div><!-- /.form group -->
+
+
+                                                            <!-- T1 -->
+                                                            <div class="form-group">
+                                                                <label>Tarif 1 :</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-addon">
+                                                                        <i class="fa fa-square-o"></i>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" value="<?= $salle['t1'] ?>" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="t1"/>
+                                                                </div><!-- /.input group -->
+                                                            </div><!-- /.form group -->
+                                                            <!-- T2 -->
+                                                            <div class="form-group">
+                                                                <label>Tarif 2 :</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-addon">
+                                                                        <i class="fa fa-square-o"></i>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" value="<?= $salle['t2'] ?>" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="t2"/>
+                                                                </div><!-- /.input group -->
+                                                            </div><!-- /.form group -->
+                                                            <!-- T3 -->
+                                                            <div class="form-group">
+                                                                <label>Tarif 3 :</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-addon">
+                                                                        <i class="fa fa-square-o"></i>
+                                                                    </div>
+                                                                    <input type="text" class="form-control" value="<?= $salle['t3'] ?>" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="t3"/>
+                                                                </div><!-- /.input group -->
+                                                            </div><!-- /.form group -->
+
+                                                            <input type="hidden" class="id" name="id"
+                                                                   value="<?= $salle['id'] ?>">
+                                                            <button type="submit" class="btn btn-primary btn-block btn-flat ajouter">Modifier</button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                                <?php
                                             }
                                             ?>
-                                            </tr>
-
                                             </tbody>
                                             <tfoot>
                                             <tr>

@@ -30,6 +30,7 @@ class ControleurSalle extends Controleur
         foreach ($salles as $salle) {
             if ($salle != false) {
                 $tabSalles[] = array(
+                    'id' => $salle-> getId_salle(),
                     'nom' => $salle->getNom_salle(),
                     't1' => $salle->getTarif1(),
                     't2' => $salle->getTarif2(),
@@ -60,6 +61,29 @@ class ControleurSalle extends Controleur
             $salle->setId_categorie(Categorie::getBy('nom_categorie', $this->requete->getParametre('categorie')));
             $salle->add();
             echo 'OK';
+        }
+    }
+
+    public function update() {
+        // on test la presence du paramètre id sinon on sort de la fonction
+        if (!$this->requete->existeParametre('id')){
+            echo 'aucune salle selectionner';
+            return false;
+        }
+        if ($this->requete->existeParametre(array('nom_salle', 't1', 't2', 't3', 'categorie'))) {
+            $salle = Salle::getById($this->requete->getParametre('id'));
+
+            if ($salle->getNom_salle() != $this->requete->getParametre('nom_salle'))
+                Salle::update('nom_salle', $this->requete->getParametre('nom_salle'), $salle->getId_salle());
+            if ($salle->getTarif1() != $this->requete->getParametre('t1'))
+                Salle::update('tarif1', $this->requete->getParametre('t1'), $salle->getId_salle());
+            if ($salle->getTarif2() != $this->requete->getParametre('t2'))
+                Salle::update('tarif2', $this->requete->getParametre('t2'), $salle->getId_salle());
+            if ($salle->getTarif3() != $this->requete->getParametre('t3'))
+                Salle::update('tarif3', $this->requete->getParametre('t3'), $salle->getId_salle());
+            if ($salle->getCategorie()->getNom() != $this->requete->getParametre('categorie'))
+                Salle::update('id_categorie', Categorie::getBy('nom_categorie', $this->requete->getParametre('categorie'))->getId_categorie(), $salle->getId_salle());
+            echo 'ok';
         }
     }
 }

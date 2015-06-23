@@ -1,4 +1,34 @@
-<?php $this->titre = "utilisateurs"?>
+<?php
+$this->titre = "utilisateurs";
+$this->addJS =
+    "
+        <script src=\"Contenu/plugins/jQueryUI/jquery-ui-1.11.4.min.js\"></script>
+        <script>
+          $(function() {
+            $( \"#accordion\" ).accordion({
+                header: \".parentAccordion\",
+                active: false,
+                icons: false,
+                collapsible: true,
+                event: \"click\"
+            });
+          });
+          /* Lors de la validation du formulaire de mise a jour
+          * */
+          $(\".miseAJour\").bind(\"submit\", function(e){
+            e.preventDefault(); // on bloque le comportement par defaut du navigateur
+            var formulaire = $(this); // on stocke l'objet JQuery formulaire
+
+            $.ajax({
+                url: formulaire.attr('action'),
+                method: 'post',
+                data: formulaire.serialize(),
+                success: function(data){alert(data);}
+            });
+          });
+        </script>
+        "
+?>
 <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -57,15 +87,41 @@
                                           <th>Select</th>
                                       </tr>
                                   </thead>
-                                  <tbody>
+                                  <tbody id="accordion">
                                     <?php
                                       foreach ($users as $user) {
                                           ?>
-                                          <tr>
+                                          <tr class="parentAccordion">
                                               <!--identifiant-->
                                               <td id="identifiant" name="identifiant"><?= $user['identifiant'] ?></td>
                                               <!--Select-->
                                               <td><input type="checkbox" class="index" name="<?= $user['id_user'] ?>"/></td>
+                                          </tr>
+                                          <tr>
+                                              <td colspan="2">
+                                                  <form action="<?php $this->lien('user', 'update') ?>" method="post"
+                                                        class="miseAJour">
+                                                      <fieldset>
+                                                          <legend>Liste des clients</legend>
+                                                          <?php
+                                                          foreach ($user['clients'] as $cli) {
+                                                              ?>
+                                                              <p>
+                                                                  <?= $cli ?>
+                                                              </p>
+
+                                                          <?php
+                                                          }
+                                                          ?>
+                                                      </fieldset>
+                                                      <input type="hidden" class="id" name="id"
+                                                             value="<?= $user['id_user'] ?>">
+
+                                                      <button type="submit" submit=""
+                                                              class="btn btn-primary btn-block btn-flat">Reinitialiser mot de passe
+                                                      </button>
+                                                  </form>
+                                              </td>
                                           </tr>
                                           <?php
                                       }

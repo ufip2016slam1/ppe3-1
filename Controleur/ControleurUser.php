@@ -141,12 +141,40 @@ class ControleurUser extends Controleur
         $tabUser = array();
         foreach ($users as $user) {
             if ($user != false) {
+                $clients = $user->getClient();
+                $tabClient = array();
+                if ($clients != false){
+                    foreach ($clients as $client){
+                        if ($client != false) {
+                            $tabClient[] = $client->getNom();
+                        }
+                    }
+                }
+
                 $tabUser[] = array(
                     'identifiant' => $user->getIdentifiant(),
-                    'id_user' => $user->getId_user()
+                    'id_user' => $user->getId_user(),
+                    'clients' => $tabClient
                 );
             }
         }
         $this->genererVue(array('users' => $tabUser));
+    }
+
+    public function update () {
+        // on test la presence du paramètre id sinon on sort de la fonction
+        if (!$this->requete->existeParametre('id')){
+            echo 'aucune categorie selectionner';
+            return false;
+        }
+
+        $user = User::getById($this->requete->getParametre('id'));
+        $info = array(
+            'mail' => $user->getMail(),
+            'sujet' => 'reinitialisation mot de passe',
+            'message' => 'votre nouveau mot de passe : '.$this->genererMdp(10)
+        );
+        $this->envoiMail($info);
+        echo 'OK';
     }
 }

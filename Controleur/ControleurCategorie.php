@@ -20,9 +20,11 @@ class ControleurCategorie extends Controleur
             if ($cat != false){
                 $salles = $cat->getSalle();
                 $tabSalle = array();
-                foreach ($salles as $salle){
-                    if ($salle != false){
-                        $tabSalle[] = $salle->getNom_salle();
+                if ($salles != false){
+                    foreach ($salles as $salle){
+                        if ($salle != false){
+                            $tabSalle[] = $salle->getNom_salle();
+                        }
                     }
                 }
                 $tabCategories[] = array(

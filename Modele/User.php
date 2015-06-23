@@ -188,7 +188,10 @@ class User extends Modele {
             }
             return $client;
         }
-        return Client::getById($lien->getId_client());
+        if ($lien)
+            return Client::getById($lien->getId_client());
+        else
+            return false;
     }
 
     /**
