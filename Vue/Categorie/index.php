@@ -70,7 +70,7 @@ $this->addJS =
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-user"></i>
                                                         </div>
-                                                        <input type="text" class="form-control champ_ajout"
+                                                        <input type="text" class="form-control champ_ajout" data-type="isFormatText"
                                                                name="nom_categorie"/>
                                                     </div>
                                                     <!-- /.input group -->
@@ -85,7 +85,7 @@ $this->addJS =
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-clock-o"></i>
                                                         </div>
-                                                        <input type="text" class="form-control champ_ajout"
+                                                        <input type="text" class="form-control champ_ajout" data-type="isFormatHeure"
                                                                name="horaire_dbt"/>
                                                     </div>
                                                     <!-- /.input group -->
@@ -100,7 +100,7 @@ $this->addJS =
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-clock-o"></i>
                                                         </div>
-                                                        <input type="text" class="form-control champ_ajout"
+                                                        <input type="text" class="form-control champ_ajout" data-type="isFormatHeure"
                                                                data-inputmask="'alias': 'dd/mm/yyyy'" data-mask
                                                                name="horaire_fin"/>
                                                     </div>
