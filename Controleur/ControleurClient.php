@@ -69,7 +69,8 @@ class ControleurClient extends Controleur
 	*
 	**/
 	public function add() {
-		if ($this->requete->existeParametre('adresse', 'code_postal', 'ville', 'telephone') && ($this->requete->existeParametre(array('nom', 'prenom'))||$this->requete->existeParametre('raison_sociale'))) {
+		if ($this->requete->existeParametre('adresse', 'code_postal', 'ville', 'telephone')
+            && ($this->requete->existeParametre(array('nom', 'prenom'))||$this->requete->existeParametre('raison_sociale'))) {
 			$client = new Client();
 			$client->setAdresse($this->requete->getParametre('adresse'));
 			$client->setCodePostal($this->requete->getParametre('code_postal'));
@@ -92,5 +93,34 @@ class ControleurClient extends Controleur
 		}
         echo ('OK');
 	}
+
+    /**
+     * appeler en ajax
+     * realise la mise a jour d'un client
+     */
+    public function update() {
+        // on test la presence du paramètre id sinon on sort de la fonction
+        if (!$this->requete->existeParametre('id')){
+            echo 'aucun utilisateur selectionner';
+            return false;
+        }
+        if ($this->requete->existeParametre('adresse', 'code_postal', 'ville', 'telephone')
+            && ($this->requete->existeParametre(array('nom', 'prenom'))||$this->requete->existeParametre('raison_sociale'))) {
+            $client = Client::getById($this->requete->getParametre('id'));
+
+            if ($client->getAdresse() != $this->requete->getParametre('adresse'))
+                Client::update('adresse', $this->requete->getParametre('adresse'), $client->getgetId_client());
+
+            if ($client->getCodePostal() != $this->requete->getParametre('code_postal'))
+                Client::update('code_postal', $this->requete->getParametre('code_postal'), $client->getgetId_client());
+
+            if ($client->getVille() != $this->requete->getParametre('ville'))
+                Client::update('ville', $this->requete->getParametre('ville'), $client->getgetId_client());
+
+            if ($client->getTelephone() != $this->requete->getParametre('telephone'))
+                Client::update('telephone', $this->requete->getParametre('telephone'), $client->getgetId_client());
+        }
+        echo 'OK';
+    }
 
 }
