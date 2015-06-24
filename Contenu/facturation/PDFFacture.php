@@ -12,7 +12,6 @@ class PDFFacture extends FPDF {
     function Header()
     {
         $adresseMLL = utf8_decode("Maison des Ligues\n10 rue de la poupée qui tousse\n06 000 NICE\n04.XX.XX.XX.XX");
-        $adresseCLient = utf8_decode("RS ou nom\nXX avenue quelquechose\n 00 000 VILLE");
         // Logo
         $this->Image('Contenu/images/logo.jpg');
         $this->SetXY(110,20);
@@ -20,9 +19,6 @@ class PDFFacture extends FPDF {
         $this->SetFont('Arial','',12);
         // adresse MLL
         $this->MultiCell(80,8,$adresseMLL,0, 'C');
-        $this->ln(20);
-
-        $this->MultiCell(0, 8, $adresseCLient,0,'C');
     }
 
     // Pied de page
@@ -37,15 +33,30 @@ class PDFFacture extends FPDF {
     }
 
     // Tableau simple
-    // @param array $header 
-    function BasicTable($header, $data)
+    // @param array $header Les colonnes
+    // @param array $data Les données
+    function Body($header, $data, $objetClient)
     {
-        $largeur = count($header)*7.4;
+        $adresseCLient = utf8_decode($objetClient->getNom()."\n".$objetClient->getAdresse()."\n ".$objetClient->getCodePostal()." ".$objetClient->getVille());
+        $nbData = count($data);
+        $nbHeader = count($header);
+        $hauteurTab = 120; // maximum 180
+        $largeurTab = 190;
+        $largeur = $largeurTab/$nbHeader;
         $hauteur = 6;
+        $nb = 0;
+        $total = 0;
+
         $this->ln(20);
+        $this->MultiCell(0, 8, $adresseCLient,0,'C');
+
+        $this->ln(28);
+        $this->Cell($largeurTab, $hauteurTab, '', 1);
+        $this->ln(-8);
+
         $this->SetFont('helvetica','',12);
         $this->SetTextColor(216, 31, 42);
-        // En-tête
+        // En-tête du tableau
         foreach($header as $col)
             $this->Cell($largeur,8,$col,1,0,'C');
         $this->Ln();
@@ -53,17 +64,50 @@ class PDFFacture extends FPDF {
         $this->SetFont('Arial','',10);
         $this->SetTextColor(0, 0, 0);
         // Données
+
+        if($nbData*$hauteur > $hauteurTab) {
+            foreach($data as $row)
+            {
+                foreach($row as $col)
+                    $this->Cell($largeur,$hauteur,$col,1); // param : 1=largeur 2=Hauteur 3=Contenue
+                $this->Ln();
+                $total += $row[4];
+                $nb += 1;
+                if($nb == ($hauteurTab/$hauteur)) {
+                    $this->ln(20);
+                    $this->MultiCell(0, 8, $adresseCLient,0,'C');
+
+                    $this->AddPage();
+                    $this->ln(20);
+                    $this->Cell($largeurTab, $hauteurTab, '', 1);
+                    $this->ln(-8);
+                    $this->SetFont('helvetica','',12);
+                    $this->SetTextColor(216, 31, 42);
+                    // En-tête du tableau
+                    foreach($header as $col)
+                        $this->Cell($largeur,8,$col,1,0,'C');
+                    $this->Ln();
+
+                    $this->SetFont('Arial','',10);
+                    $this->SetTextColor(0, 0, 0);
+                    $nb = 0;
+                } 
+            }
+        }
+
         foreach($data as $row)
         {
-            foreach($row as $col)
-                $this->Cell($largeur,$hauteur,$col,1); // param : 1=largeurur 2=Hauteur 3=Contenue
+            foreach($row as $col) {
+                $this->Cell($largeur,$hauteur,$col,1); // param : 1=largeur 2=Hauteur 3=Contenue
+            }
             $this->Ln();
+            $total += $row[4];
+            $nb += 1;
         }
-        foreach($data as $row){
-            $total += $row['prix'];
-        }
-        $this->Cell((count($header)-1)*$largeur,$hauteur,'Total de la somme a payer du mois',1,0,'C');
-        $this->Cell($largeur,$hauteur,$total.'$',1);
+        $total = mb_convert_encoding($total.'€', 'cp1252');
+        $this->SetXY($this->GetX()+(count($header)-2)*$largeur, $this->GetY()+$hauteurTab-($hauteur*$nb));
+        $this->Cell((count($header)-4)*$largeur,$hauteur,'Total du mois',1,0,'C');
+        $this->Cell($largeur,$hauteur,$total,1);
     }
 }
 
