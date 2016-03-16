@@ -1,0 +1,21 @@
+version: '2'
+services:
+  web:
+    image: tommylau/xdebug
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html/
+    depends_on:
+      - mariadb
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+    links:
+      - mariadb:db
+  mariadb:
+    image: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+

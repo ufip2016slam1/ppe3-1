@@ -13,6 +13,11 @@ $this->addJS =
                 event: \"click\"
             });
           });
+
+        // on empeche l'execution du script accordion lors du clic sur une checkbox
+          $('#accordion input[type=\"checkbox\"]').click(function(e) {
+                e.stopPropagation();
+            });
           /* Lors de la validation du formulaire de mise a jour
           * */
           $(\".miseAJour\").bind(\"submit\", function(e){
@@ -68,7 +73,8 @@ $this->addJS =
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-user"></i>
                                                         </div>
-                                                        <input type="text" class="form-control champ_ajout" data-type="isFormatText"
+                                                        <input type="text" class="form-control champ_ajout"
+                                                               data-type="isFormatText"
                                                                name="nom_categorie"/>
                                                     </div>
                                                     <!-- /.input group -->
@@ -83,7 +89,8 @@ $this->addJS =
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-clock-o"></i>
                                                         </div>
-                                                        <input type="text" class="form-control champ_ajout" data-type="isFormatHeure"
+                                                        <input type="time" class="form-control champ_ajout"
+                                                               data-type="isFormatHeure"
                                                                name="horaire_dbt"/>
                                                     </div>
                                                     <!-- /.input group -->
@@ -98,7 +105,8 @@ $this->addJS =
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-clock-o"></i>
                                                         </div>
-                                                        <input type="text" class="form-control champ_ajout" data-type="isFormatHeure"
+                                                        <input type="time" class="form-control champ_ajout"
+                                                               data-type="isFormatHeure"
                                                                data-inputmask="'alias': 'dd/mm/yyyy'" data-mask
                                                                name="horaire_fin"/>
                                                     </div>
@@ -184,8 +192,10 @@ $this->addJS =
                                                         <table class="table table-bordered table-hover">
                                                             <tr>
                                                                 <td>
-                                                                    <form action="<?php $this->lien('categorie', 'update') ?>" method="post"
-                                                                          class="miseAJour"><!--GAUTIER-->
+                                                                    <form
+                                                                        action="<?php $this->lien('categorie', 'update') ?>"
+                                                                        method="post"
+                                                                        class="miseAJour"><!--GAUTIER-->
 
                                                                         <!-- NOM SALLE -->
                                                                         <div class="form-group">
@@ -195,7 +205,8 @@ $this->addJS =
                                                                                 <div class="input-group-addon ">
                                                                                     <i class="fa fa-user"></i>
                                                                                 </div>
-                                                                                <input type="text" class="form-control champ_modif"
+                                                                                <input type="text"
+                                                                                       class="form-control champ_modif"
                                                                                        name="nom_categorie"
                                                                                        value="<?= $categorie['nom'] ?>"/>
                                                                             </div>
@@ -211,8 +222,10 @@ $this->addJS =
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-clock-o"></i>
                                                                                 </div>
-                                                                                <input type="text" class="form-control champ_modif"
-                                                                                       name="horaire_dbt" value="<?= $categorie['horaire_dbt'] ?>"/>
+                                                                                <input type="text"
+                                                                                       class="form-control champ_modif"
+                                                                                       name="horaire_dbt"
+                                                                                       value="<?= $categorie['horaire_dbt'] ?>"/>
                                                                             </div>
                                                                             <!-- /.input group -->
                                                                         </div>
@@ -226,9 +239,12 @@ $this->addJS =
                                                                                 <div class="input-group-addon">
                                                                                     <i class="fa fa-clock-o"></i>
                                                                                 </div>
-                                                                                <input type="text" class="form-control champ_modif"
-                                                                                       data-inputmask="'alias': 'dd/mm/yyyy'" data-mask
-                                                                                       name="horaire_fin" value="<?= $categorie['horaire_fin'] ?>"/>
+                                                                                <input type="text"
+                                                                                       class="form-control champ_modif"
+                                                                                       data-inputmask="'alias': 'dd/mm/yyyy'"
+                                                                                       data-mask
+                                                                                       name="horaire_fin"
+                                                                                       value="<?= $categorie['horaire_fin'] ?>"/>
                                                                             </div>
                                                                             <!-- /.input group -->
                                                                         </div>
@@ -237,7 +253,8 @@ $this->addJS =
                                                                                value="<?= $categorie['id'] ?>">
 
                                                                         <button type="submit" submit=""
-                                                                                class="btn btn-primary btn-block btn-flat modifier">Modifier
+                                                                                class="btn btn-primary btn-block btn-flat modifier">
+                                                                            Modifier
                                                                         </button>
                                                                     </form>
                                                                 </td>
@@ -252,7 +269,7 @@ $this->addJS =
                                                                                     <?= $salle ?>
                                                                                 </p>
 
-                                                                            <?php
+                                                                                <?php
                                                                             }
                                                                             ?>
                                                                         </fieldset>
@@ -262,7 +279,7 @@ $this->addJS =
                                                         </table>
                                                     </td>
                                                 </tr>
-                                            <?php
+                                                <?php
                                             }
                                             ?>
                                             </tbody>
@@ -270,8 +287,7 @@ $this->addJS =
                                             <tr>
                                                 <th>Nom categorie</th>
                                                 <th>Dbt reservation</th>
-                                                <th>Fin reservation/th>
-                                                <th>Adresse</th>
+                                                <th>Fin reservation</th>
                                                 <th>Select</th>
                                             </tr>
                                             </tfoot>

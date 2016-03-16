@@ -13,6 +13,11 @@ $this->addJS =
                 event: \"click\"
             });
           });
+
+          // on empeche l'execution du script accordion lors du clic sur une checkbox
+          $('#accordion input[type=\"checkbox\"]').click(function(e) {
+                e.stopPropagation();
+            });
           /* Lors de la validation du formulaire de mise a jour
           * */
           $(\".miseAJour\").bind(\"submit\", function(e){
@@ -65,7 +70,7 @@ $this->addJS =
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-square-o"></i>
                                                         </div>
-                                                        <input type="text" class="form-control champ_ajout" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="nom_salle"/>
+                                                        <input type="text" class="form-control champ_ajout" data-type="isFormatText" name="nom_salle"/>
                                                     </div><!-- /.input group -->
                                                 </div><!-- /.form group -->
 
@@ -76,7 +81,7 @@ $this->addJS =
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-navicon"></i>
                                                         </div><!--MENU DEROULANT-->
-                                                        <select class="form-control champ_ajout" name="categorie">
+                                                        <select class="form-control champ_ajout" data-type="isFormatText" name="categorie">
                                                             <?php
                                                             $i = 0 ;
                                                             foreach ($categories as $categorie){
@@ -100,7 +105,8 @@ $this->addJS =
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-square-o"></i>
                                                         </div>
-                                                        <input type="text" class="form-control champ_ajout" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="t1"/>
+                                                        <input type="number" class="form-control champ_ajout" data-type="isFormatText" name="t1"/>
+                                                        <span class="input-group-addon">€</span>
                                                     </div><!-- /.input group -->
                                                 </div><!-- /.form group -->
                                                 <!-- T2 -->
@@ -110,7 +116,8 @@ $this->addJS =
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-square-o"></i>
                                                         </div>
-                                                        <input type="text" class="form-control champ_ajout" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="t2"/>
+                                                        <input type="number" class="form-control champ_ajout" data-type="isFormatText" name="t2"/>
+                                                        <span class="input-group-addon">€</span>
                                                     </div><!-- /.input group -->
                                                 </div><!-- /.form group -->
                                                 <!-- T3 -->
@@ -120,7 +127,8 @@ $this->addJS =
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-square-o"></i>
                                                         </div>
-                                                        <input type="text" class="form-control champ_ajout" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name="t3"/>
+                                                        <input type="number" class="form-control champ_ajout" data-type="isFormatText" name="t3"/>
+                                                        <span class="input-group-addon">€</span>
                                                     </div><!-- /.input group -->
                                                 </div><!-- /.form group -->
 

@@ -13,6 +13,12 @@ $this->addJS =
                 event: \"click\"
             });
           });
+
+          // on empeche l'execution du script accordion lors du clic sur une checkbox
+          $('#accordion input[type=\"checkbox\"]').click(function(e) {
+                e.stopPropagation();
+            });
+
           /* Lors de la validation du formulaire de mise a jour
           * */
           $(\".miseAJour\").bind(\"submit\", function(e){
