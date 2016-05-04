@@ -72,34 +72,16 @@ class ControleurReservation extends Controleur
 	**/	
 	public function add() {	
 
-		if ($this->requete->existeParametre(array('date_dbt', 'date_fin', 'nom_salle'))) {
+		if ($this->requete->existeParametre(array('date_dbt', 'date_fin', 'nom_salle', 'id_client'))) {
 
 			$reserv = new Reservation ();
 
 			$reserv->setDate_dbt($this->requete->getParametre('date_dbt'));
 			$reserv->setDate_fin($this->requete->getParametre('date_fin'));
-			var_dump((Salle::getBy('nom_salle',$this->requete->getParametre('nom_salle'))));
-			
 			$reserv->setId_salle(Salle::getBy('nom_salle',$this->requete->getParametre('nom_salle')));
 			$reserv->setDate_reserv(date('o-m-d G:i:s'));
-			
-
-
-			$client = Client::getById(54) ; 
-			var_dump($_SESSION) ;
-			$reserv->setId_client($client);
-			
-			
-			//var_dump($reserv) ;
-
-			//$reserv->setId_client(54);//$this->requete->getParametre('date_dbt'));
-
-			//$reserv->setId_user(1);//$_SESSION['user']->getId_user());
-
-			$user = User::getById(1) ;
-			$reserv->setId_user($user->getId_user());
-
-		//	var_dump();
+			$reserv->setId_client($this->requete->getParametre('id_client'));
+			$reserv->setId_user($_SESSION['id_user']);
 			
 			return $reserv->add();
 		}
