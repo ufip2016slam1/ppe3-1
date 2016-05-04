@@ -17,6 +17,7 @@ require_once 'Framework/Controleur.php';
 require_once 'Modele/Reservation.php';
 require_once 'Modele/Salle.php';
 require_once 'Modele/Client.php';
+require_once 'Modele/User.php';
 
 class ControleurReservation extends Controleur
 {
@@ -42,7 +43,9 @@ class ControleurReservation extends Controleur
             }
         }
 
-		$clients = $_SESSION['user']->getClient();
+		$userConnecte = User::getById($_SESSION['id_user']);
+		$clients = $userConnecte->getClient();
+
 		$pClients = array();
 
 		foreach ($clients as $client) {

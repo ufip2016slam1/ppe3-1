@@ -68,6 +68,7 @@ class ControleurUser extends Controleur
             
             if ($user->getPassword() === sha1($this->requete->getParametre('password'))) {
 
+                $_SESSION['id_user'] = $user->getId_user();
                 $_SESSION['user'] = $user;
                 $_SESSION['auth'] = 1;
                 $_SESSION['client'] = $user->getClient();
@@ -75,7 +76,7 @@ class ControleurUser extends Controleur
                 //$this->genererVue();
                 header('location:index.php?controleur=reservation&action=index');
                 /**
-                 * appel de la vue principale affichage du calandrier
+                 * appel de la vue principale affichage du calendrier
                  */
             }
             else {
