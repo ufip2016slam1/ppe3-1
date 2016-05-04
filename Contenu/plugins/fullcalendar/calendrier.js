@@ -241,7 +241,7 @@ $(document).ready(function() {
 		"?controleur=reservation&action=ajaxGetReserv",
 		function(datas) {
 			console.log(datas)
-			$.each(datas , function(data){
+			$.each(datas , function(key , data){
 				console.log(data) ; 
 				calendrier.fullCalendar(
 					'renderEvent',
