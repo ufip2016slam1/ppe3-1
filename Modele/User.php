@@ -183,6 +183,7 @@ class User extends Modele {
         $lien = Appartient::getBy('id_user', $this->getId_user());
         if (is_array($lien)){
             array_pop($lien);
+			$client = array();
             foreach($lien as $value) {
                 $client[] = Client::getById($value->getId_client());
             }

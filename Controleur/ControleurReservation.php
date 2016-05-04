@@ -48,15 +48,19 @@ class ControleurReservation extends Controleur
 
 		$pClients = array();
 
-		foreach ($clients as $client) {
-			if ($client != false){
-				$pClients[] = array(
-					'nom' => $client->getNom()
-				);
+		if(is_array($clients))
+			foreach ($clients as $client) {
+				if ($client != false){
+					$pClients[] = array(
+						'id' => $client->getId_client(),
+						'nom' => $client->getNom()
+					);
+				}
 			}
-		}
-
-
+		elseif (!empty($clients))
+			$pClients[] = array(
+				'id' => $clients->getId_client(),
+				'nom' => $clients->getNom());
 
         $this->genererVue(array('salles' => $pSalles, 'clients' => $pClients));
 
