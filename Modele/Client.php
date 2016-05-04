@@ -117,7 +117,7 @@ class Client extends Modele {
 			'prenom' => $this->getPrenom(),
 			'raison_sociale' => $this->getRaison_sociale(),
 			'adresse' => $this->getAdresse(),
-			'code_postal' => $this->getCode_postal(),
+			'code_postal' => $this->getCodePostal(),
 			'ville' => $this->getVille(),
 			'telephone' => $this->getTelephone()
 		);
