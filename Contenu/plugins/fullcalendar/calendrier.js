@@ -139,7 +139,7 @@ $(document).ready(function() {
 						'date_dbt': start, 
 						'date_fin': end,
 						'nom_salle':title , 
-						//'id_client' : ligue 
+						'id_client' : ligue 
 
 						//'date_reserv' : date_reserv
 					} , 
