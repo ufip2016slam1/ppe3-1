@@ -228,7 +228,7 @@ $(document).ready(function() {
 
 				//selectionner l'heure du renctangle bleu 
 				select: function(start){ 
-					
+					console.log(start.format()) ;
 
 					/*
 					*	jour = start._i[2] ; 
