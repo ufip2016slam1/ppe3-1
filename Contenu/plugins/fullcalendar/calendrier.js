@@ -244,7 +244,7 @@ $(document).ready(function() {
 					}
 					console.log("select ligne 245")
 					remplirDialog(start) ;
-					//dialog.dialog('open') ;
+					dialog.dialog('open') ;
 					//$('.date_reserv').html(calEvent.format()) ;
 
 			
