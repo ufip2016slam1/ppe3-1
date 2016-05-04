@@ -80,8 +80,8 @@ class ControleurReservation extends Controleur
 			$reserv->setDate_fin($this->requete->getParametre('date_fin'));
 			$reserv->setId_salle(Salle::getBy('nom_salle',$this->requete->getParametre('nom_salle')));
 			$reserv->setDate_reserv(date('o-m-d G:i:s'));
-			$reserv->setId_client($this->requete->getParametre('id_client'));
-			$reserv->setId_user($_SESSION['id_user']);
+			$reserv->setId_client(Client::getById($this->requete->getParametre('id_client')));
+			$reserv->setId_user(User::getById($_SESSION['id_user']));
 			
 			return $reserv->add();
 		}

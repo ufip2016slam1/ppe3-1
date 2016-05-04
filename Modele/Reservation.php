@@ -85,8 +85,8 @@ class Reservation extends Modele {
 			'date_reserv' => $this->getDate_reserv(),
 			'date_annule' => $this->getDate_annule(),
             'id_user' => $this->getId_user()->getId_user(),
-            'id_salle' => $this->getId_salle()->getId_salle(),
-            'id_client' => $this->getId_client()->getId_client(),
+            'id_salle' => $this->getId_salle(),
+            'id_client' => $this->getId_client(),
 		);
 		$retour = parent::add($tab);
         
