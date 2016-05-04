@@ -43,10 +43,11 @@
 		       <label for="title">Pour quelle ligue souhaitez vous reverver : </label><br />
 		       <select name="title" id="title">
 		       	<?php
-                    foreach ($clients as $client) { ?>
-						<option value="<?= $client['nom'] ?>"><?= $client['nom'] ?></option>
-						<?php
-                     }
+					if($clients)
+						foreach ($clients as $client) { ?>
+							<option value="<?= $client['nom'] ?>"><?= $client['nom'] ?></option>
+							<?php
+						 }
                 ?>
       
 		       </select>
