@@ -207,7 +207,7 @@ $(document).ready(function() {
 				//sinon rien 
 
 				//dialog.dialog('open');
-
+				} , 
 				eventClick: function(calEvent, jsEvent, view) { 
 					console.log(calEvent) ;
 					console.log('code de la reservation :'+calEvent.id)
