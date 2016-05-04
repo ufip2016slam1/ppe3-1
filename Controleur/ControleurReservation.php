@@ -16,6 +16,7 @@
 require_once 'Framework/Controleur.php';
 require_once 'Modele/Reservation.php';
 require_once 'Modele/Salle.php';
+require_once 'Modele/Client.php';
 
 class ControleurReservation extends Controleur
 {
@@ -41,8 +42,20 @@ class ControleurReservation extends Controleur
             }
         }
 
+		$clients = Client::getAll();
+		$pClients = array();
 
-        $this->genererVue(array('salles' => $pSalles));
+		foreach ($clients as $client) {
+			if ($client != false){
+				$pClients[] = array(
+					'nom' => $client->getNom()
+				);
+			}
+		}
+
+
+
+        $this->genererVue(array('salles' => $pSalles, 'clients' => $pClients));
 
 	}
 
