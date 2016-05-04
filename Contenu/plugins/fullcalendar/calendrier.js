@@ -188,7 +188,7 @@ $(document).ready(function() {
 		"?controleur=reservation&action=ajaxGetReserv",
 		function(data) {
 			console.log(JSON.parse(data)) 
-			var events = JSON.parse(data) ;
+			var datas = JSON.parse(data) ;
 
 			var calendrier = 
 			$('#calendrier').fullCalendar({
@@ -197,7 +197,7 @@ $(document).ready(function() {
 					center: 'title',
 					right:   'month,agendaWeek,agendaDay'
 				},
-				events : events , 
+				events : datas , 
 				selectable: true,
 				selectHelper: true,
 				allDayDefault: false ,
