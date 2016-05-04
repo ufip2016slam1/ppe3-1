@@ -192,7 +192,7 @@ $(document).ready(function() {
 					right:   'month,agendaWeek,agendaDay'
 				},
 
-				events: data ,
+				events: '?controleur=reservation&action=ajaxGetReserv' ,
 					
 				selectable: true,
 				selectHelper: true,
