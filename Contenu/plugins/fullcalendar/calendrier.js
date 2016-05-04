@@ -240,12 +240,10 @@ $(document).ready(function() {
 
 		"?controleur=reservation&action=ajaxGetReserv",
 		function(data) {
-		
-			for(var i = 0 ; i < data.length ; i++ ) {
-				console.log(data[i].title)
-				console.log(data[i].start)
-				console.log(data[i].end)
-				console.log(data[i].allDay)
+			console.log(data)
+			//for(var i = 0 ; i < data.length ; i++ ) {
+				console.log(data[0])
+				
 
 				/*calendrier.fullCalendar(
 					'renderEvent',
@@ -257,7 +255,7 @@ $(document).ready(function() {
 					},
 					true 
 				);*/
-			}
+			//}
 			
 		}
 	);
