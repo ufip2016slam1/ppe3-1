@@ -131,14 +131,16 @@ class Reservation extends Modele {
     **/
     public static function ajaxGetAll(){
         
-        $sql = 'SELECT * FROM '.strtolower(get_called_class()).' WHERE date_annule IS NULL ';
+        $sql = 'SELECT * FROM '.strtolower(get_called_class()).' WHERE date_annule = "0000-00-00 00:00:00"';
         $retour = self::executerRequete($sql);
 
-        while ($sortie [] = $retour->fetchObject(strtolower(get_called_class())));
+        $sortie = array();
+
+        while ($sortie[] = $retour->fetchObject(strtolower(get_called_class())));
+
         //$sortie = array_slice($sortie, 0, -1); // on enleve la derniere case du tableau false pour utiliser des boucles foreach
 
         return $sortie;
-    
     }
 
 

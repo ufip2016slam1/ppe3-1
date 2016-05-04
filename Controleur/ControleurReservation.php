@@ -124,6 +124,7 @@ class ControleurReservation extends Controleur
             );
         }
         echo json_encode($json);
+		die();
     }
 
 	/**
