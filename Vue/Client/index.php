@@ -173,22 +173,6 @@ $this->addJS =
                                         </div>
                                         <!-- /.form group -->
 
-                                        <!-- Email -->
-                                        <div class="form-group">
-                                            <label>Email:</label>
-
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-building"></i>
-                                                </div>
-                                                <input class="champ_ajout form-control " data-type="isFormatMail"
-                                                       type="text" data-inputmask="'alias': 'ip'" data-mask
-                                                       name="mail"/>
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-                                        <!-- /.form group -->
-
                                         <!-- TELEPHONE -->
                                         <div class="form-group">
                                             <label>Telephone:</label>
@@ -260,7 +244,6 @@ $this->addJS =
                                                 <th>Code postal</th>
                                                 <th>Ville</th>
                                                 <th>Telephone</th>
-                                                <th>E-mail</th>
                                                 <th>Select</th>
                                             </tr>
                                             </thead>
@@ -283,7 +266,6 @@ $this->addJS =
                                                     <!--Code postal-->
                                                     <td><?= $client['tel'] ?></td>
                                                     <!--Ville-->
-                                                    <td>test</td>
                                                     <!--Telephone-->
                                                     <td>
                                                         <button type="button" class="btn btn-primary">editer</button>
@@ -411,25 +393,6 @@ $this->addJS =
                                                                             <!-- /.input group -->
                                                                         </div>
                                                                         <!-- /.form group -->
-
-                                                                        <!-- Email -->
-                                                                        <div class="form-group">
-                                                                            <label>Email:</label>
-
-                                                                            <div class="input-group">
-                                                                                <div class="input-group-addon">
-                                                                                    <i class="fa fa-building"></i>
-                                                                                </div>
-                                                                                <input class="champ_modif form-control " data-type="isFormatMail"
-                                                                                       type="text"
-                                                                                       value="<?= $client['mail'] ?>"
-                                                                                       data-inputmask="'alias': 'ip'"
-                                                                                       data-mask name="mail"/>
-                                                                            </div>
-                                                                            <!-- /.input group -->
-                                                                        </div>
-                                                                        <!-- /.form group -->
-
                                                                         <!-- TELEPHONE -->
                                                                         <div class="form-group">
                                                                             <label>Telephone:</label>
@@ -499,7 +462,6 @@ $this->addJS =
                                                 <th>Code postal</th>
                                                 <th>Ville</th>
                                                 <th>Telephone</th>
-                                                <th>E-mail</th>
                                                 <th>Select</th>
                                             </tr>
                                             </tfoot>
