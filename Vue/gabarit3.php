@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
   <head>
@@ -790,5 +789,4 @@ function ajaxAjoutTab(){
 
     </script>
   </body>
->>>>>>> origin/master
 </html>
