@@ -74,12 +74,14 @@ abstract class Controleur {
     * s'adapte a chaque classe grace a la fonction get_class
     *
     **/
-    protected function supprimmer() {
+    protected function supprimer() {
         $instance = substr(get_class($this),10);
         if ($this->requete->existeParametre('id_'.strtolower($instance))) {
             $id = (int)$this->requete->getParametre('id_'.strtolower($instance));
             $instance::delete($id);
         }
+        echo('OK');
+        die();
     }
 
     /**

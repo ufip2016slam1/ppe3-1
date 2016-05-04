@@ -171,7 +171,7 @@ $this->addJS =
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <div style="display: none" id="controleurAssocier">salle</div>
                                         <!--RECHERCHERFIN-->
                                         <table id="example2" class="table table-bordered table-hover">
                                             <thead>
@@ -196,7 +196,7 @@ $this->addJS =
                                                     <td><?= $salle['t2'] ?></td>
                                                     <td><?= $salle['t3'] ?></td>
                                                     <!--Select-->
-                                                    <td><input type="checkbox" class="index"/></td>
+                                                    <td><input type="checkbox" class="index" value="<?= $salle['id'] ?>"/></td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="6">
@@ -304,7 +304,7 @@ $this->addJS =
                         <div class="col-md-9">
                         </div>
                         <div class="col-md-2">
-                            <button type="submit" class="btn btn-primary">suprimer les salles selectionnées</button>
+                            <button type="submit" class="btn btn-primary supprimer">suprimer les salles selectionnées</button>
                         </div>
                     </div>
                 </div>
