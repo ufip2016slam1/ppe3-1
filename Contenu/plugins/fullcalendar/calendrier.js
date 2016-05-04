@@ -13,7 +13,7 @@ $(document).ready(function() {
 	// m+1 <=> janvier = 0 ;
 	var date_jour = y+'-'+(m+1)+'-'+d ; 
 	//date de la reservation 
-	var date_reserv ='2015-06-18';
+	var date_reserv;
 
 	function remplirDialog(start){
 
@@ -210,7 +210,8 @@ $(document).ready(function() {
 				//Au click on ouvre la journée 
 				//sinon rien 
 
-				//dialog.dialog('open');
+					dialogReservation.dialog('open');
+					$('.date_reserv').html(calEvent.format()) ; 
 				} , 
 				eventClick: function(calEvent, jsEvent, view) { 
 					console.log(calEvent) ;
@@ -218,6 +219,7 @@ $(document).ready(function() {
 					console.log('reservation du :'+calEvent._start._i)
 
 					dialogReservation.dialog('open');
+					$('.date_reserv').html(calEvent.format()) ;
 					//console.log('reservation du :'+calEvent._end._i)
 								
 				
@@ -241,7 +243,8 @@ $(document).ready(function() {
 					}
 				
 					remplirDialog(start) ;
-					dialog.dialog('open') ; 
+					dialog.dialog('open') ;
+					$('.date_reserv').html(calEvent.format()) ;
 
 			
 				}
