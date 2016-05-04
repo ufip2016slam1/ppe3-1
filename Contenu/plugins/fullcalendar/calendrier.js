@@ -180,12 +180,9 @@ $(document).ready(function() {
 	//on transforme notre simple div en calendrier
 
 
-	$.ajax({ 
-		'url': "?controleur=reservation&action=ajaxGetReserv",
-		'data' : data ,  //page ou controler appellé
-			//'date_reserv' : date_reserv
-		} , 
-		success : function() {
+	$.get("?controleur=reservation&action=ajaxGetReserv",
+		
+		function(data) {
 
 			var calendrier = $('#calendrier').fullCalendar({
 				header: {
