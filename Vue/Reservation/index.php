@@ -45,7 +45,7 @@
 		       	<?php
 					if($clients)
 						foreach ($clients as $client) { ?>
-							<option value="<?= $client['nom'] ?>"><?= $client['nom'] ?></option>
+							<option value="<?= $client['id'] ?>"><?= $client['nom'] ?></option>
 							<?php
 						 }
                 ?>
