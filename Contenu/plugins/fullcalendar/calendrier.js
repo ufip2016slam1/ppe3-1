@@ -137,7 +137,9 @@ $(document).ready(function() {
 					'data': { //les données
 						'date_dbt': start, 
 						'date_fin': end,
-						'nom_salle':title
+						'nom_salle':title , 
+						'id_client' : ligue 
+
 						//'date_reserv' : date_reserv
 					} , 
 					success : function() {

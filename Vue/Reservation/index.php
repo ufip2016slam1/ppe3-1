@@ -39,9 +39,9 @@
                 ?>
       
 		       </select>
-
-		       <label for="title">Pour quelle ligue souhaitez vous reverver : </label><br />
-		       <select name="title" id="title">
+		       <br>
+		       <label for="ligue">Pour quelle ligue souhaitez vous reverver : </label><br />
+		       <select name="ligue" id="ligue">
 		       	<?php
 					if($clients)
 						foreach ($clients as $client) { ?>
