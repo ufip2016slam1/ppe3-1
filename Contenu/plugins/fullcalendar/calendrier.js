@@ -179,60 +179,7 @@ $(document).ready(function() {
 	var test ;
 	//on transforme notre simple div en calendrier
 
-	var calendrier = 
-		$('#calendrier').fullCalendar({
-			header: {
-				left:   'today prev,next',
-				center: 'title',
-				right:   'month,agendaWeek,agendaDay'
-			},
-			selectable: true,
-			selectHelper: true,
-			allDayDefault: false ,
-			//evenement au click sur une date
-			dayClick : function(calEvent, jsEvent, date,view) {
-				//console.log(calEvent);
-
-			//On verifie si on est sur le l'affichage mois 
-			//Au click on ouvre la journée 
-			//sinon rien 
-
-			//dialog.dialog('open');
-			} , 
-			eventClick: function(calEvent, jsEvent, view) { 
-				console.log(calEvent) ;
-				console.log('code de la reservation :'+calEvent.id)
-				console.log('reservation du :'+calEvent._start._i)
-
-				dialogReservation.dialog('open');
-				//console.log('reservation du :'+calEvent._end._i)
-							
-			
-			},
-
-			//selectionner l'heure du renctangle bleu 
-			select: function(start){ 
-				
-
-				/*
-				*	jour = start._i[2] ; 
-				*	mois = start._i[1]+1 ; 
-				*	année = start._i[0] ; 
-				*
-				*	On concatene 
-				*	date_reserv = AAAA-MM-JJ
-				**/
-				if(start._i){
-					date_reserv = start._i[0]+'-'+(start._i[1]+1)+'-'+start._i[2] ;
-					
-				}
-			
-				remplirDialog(start) ;
-				dialog.dialog('open') ; 
-
-		
-			}
-		}); 
+	
 
 
 
@@ -242,19 +189,62 @@ $(document).ready(function() {
 		function(data) {
 			console.log(JSON.parse(data)) 
 			var events = JSON.parse(data) ;
-			for(var i = 0 ; i < events.length ; i++ ) {
+
+			var calendrier = 
+			$('#calendrier').fullCalendar({
+				header: {
+					left:   'today prev,next',
+					center: 'title',
+					right:   'month,agendaWeek,agendaDay'
+				},
+				events : events , 
+				selectable: true,
+				selectHelper: true,
+				allDayDefault: false ,
+				//evenement au click sur une date
+				dayClick : function(calEvent, jsEvent, date,view) {
+					//console.log(calEvent);
+
+				//On verifie si on est sur le l'affichage mois 
+				//Au click on ouvre la journée 
+				//sinon rien 
+
+				//dialog.dialog('open');
+				} , 
+				eventClick: function(calEvent, jsEvent, view) { 
+					console.log(calEvent) ;
+					console.log('code de la reservation :'+calEvent.id)
+					console.log('reservation du :'+calEvent._start._i)
+
+					dialogReservation.dialog('open');
+					//console.log('reservation du :'+calEvent._end._i)
+								
+				
+				},
+
+				//selectionner l'heure du renctangle bleu 
+				select: function(start){ 
+					
+
+					/*
+					*	jour = start._i[2] ; 
+					*	mois = start._i[1]+1 ; 
+					*	année = start._i[0] ; 
+					*
+					*	On concatene 
+					*	date_reserv = AAAA-MM-JJ
+					**/
+					if(start._i){
+						date_reserv = start._i[0]+'-'+(start._i[1]+1)+'-'+start._i[2] ;
+						
+					}
+				
+					remplirDialog(start) ;
+					dialog.dialog('open') ; 
+
 			
-				calendrier.fullCalendar(
-					'renderEvent',
-					{
-						title: events[i].title,
-						start: events[i].start,
-						end: events[i].end,
-						allDay: events[i].allDay  
-					},
-					true 
-				);
-			}
+				}
+			}); 
 			
 		}
 	);
