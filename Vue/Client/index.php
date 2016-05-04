@@ -292,7 +292,7 @@ $this->addJS =
                                                     </td>
                                                     <!--Select-->
                                                     <td><input type="checkbox" class="index"
-                                                               name="<?= $client['id'] ?>"/></td>
+                                                               value="<?= $client['id'] ?>"/></td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="11">
