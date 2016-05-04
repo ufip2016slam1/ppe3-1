@@ -62,10 +62,11 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <span class="hidden-xs">USERNAME</span>
                 </a>
+                <br>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="Contenu/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                    
                     <p>
                       USERNAME
                       
