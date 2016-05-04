@@ -210,7 +210,7 @@ $(document).ready(function() {
 				//Au click on ouvre la journée 
 				//sinon rien 
 
-					dialogReservation.dialog('open');
+					//dialogReservation.dialog('open');
 					$('.date_reserv').html(calEvent.format()) ; 
 				} , 
 				eventClick: function(calEvent, jsEvent, view) { 
@@ -244,8 +244,8 @@ $(document).ready(function() {
 					}
 					console.log("select ligne 245")
 					remplirDialog(start) ;
-					dialog.dialog('open') ;
-					$('.date_reserv').html(calEvent.format()) ;
+					//dialog.dialog('open') ;
+					//$('.date_reserv').html(calEvent.format()) ;
 
 			
 				}
