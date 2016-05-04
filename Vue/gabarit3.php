@@ -223,17 +223,11 @@ if (isset($addJS))
     // on recupere le controleur qui sera destinataire des requetes
     var controleur = $('#controleurAssocier').html();
 
-    // on recupere les id des objets a supprimer
-    var ids = [];
+    // on recupere les objets a supprimer
     var chckBxSeclected = $(".index:checked");
     chckBxSeclected.each(function(){
-      ids.push($(this).val())
-    });
-
-    // pour chaque id on fait une requete AJAX pour supprimer l'item
-    ids.forEach(function(id){
       var data = {};
-      data['id_' + controleur] = id;
+      data['id_'+controleur] = $(this).val();
       $.get('?controleur='+ controleur +'&action=supprimer',
           data,
           function (data, status, xhr) {
@@ -242,31 +236,6 @@ if (isset($addJS))
             }
           });
     });
-    var bouton = $(this);
-    /*var Ids;
-    $('.index:checked').each(function () {
-      Ids + {id: ($(this).attr('name'))};
-    });
-    Ids = JSON.stringify(Ids);
-    if (Ids != '' || Ids != 'undefinided') {
-      $.post(
-          bouton.attr('formaction'),
-          Ids,
-          function (data) {
-            alert(data);
-            if (Ids != '' || Ids != 'undefinided') {
-              $.post(
-                  bouton.attr('formaction'),
-                  {id: Ids},
-                  function () {
-                    $.get('?controleur=client&action=rafraichirListe', function (retour) {
-                      alert(retour)
-                    });
-                  }
-              );
-            }
-          });
-    }*/
   });
 
   function ajaxAjoutTab(){
