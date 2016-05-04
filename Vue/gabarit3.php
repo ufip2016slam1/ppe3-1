@@ -227,12 +227,13 @@ if (isset($addJS))
     var chckBxSeclected = $(".index:checked");
     chckBxSeclected.each(function(){
       var data = {};
-      data['id_'+controleur] = $(this).val();
+      var input = $(this);
+      data['id_'+controleur] = input.val();
       $.get('?controleur='+ controleur +'&action=supprimer',
           data,
           function (data, status, xhr) {
             if(status == 'success'){
-
+              input.closest('tr').remove();
             }
           });
     });
