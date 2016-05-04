@@ -125,7 +125,6 @@ $(document).ready(function() {
 				//On recupere la salle de la reservation
 				var title = $('#title').val() ;
 				var ligue = $('#ligue').val() ;
-				console.log(ligue);
 				//On recupere la date et l'heure en fonction des valeurs des inputs
 				var start = date_reserv+' '+$('#heureDebut').val()+':'+$('#minuteDebut').val()+':00' ; 
 				var end = date_reserv+' '+$('#heureFin').val()+':'+$('#minuteFin').val()+':00' ;
@@ -140,7 +139,7 @@ $(document).ready(function() {
 						'date_dbt': start, 
 						'date_fin': end,
 						'nom_salle':title , 
-						'id_client' : ligue 
+						//'id_client' : ligue 
 
 						//'date_reserv' : date_reserv
 					} , 
