@@ -221,6 +221,7 @@ $(document).ready(function() {
 					dialogReservation.dialog('open');
 					$('.date_reserv').html(calEvent.format()) ;
 					//console.log('reservation du :'+calEvent._end._i)
+					console.log("event click")
 								
 				
 				},
@@ -241,7 +242,7 @@ $(document).ready(function() {
 						date_reserv = start._i[0]+'-'+(start._i[1]+1)+'-'+start._i[2] ;
 						
 					}
-				
+					console.log("select ligne 245")
 					remplirDialog(start) ;
 					dialog.dialog('open') ;
 					$('.date_reserv').html(calEvent.format()) ;
