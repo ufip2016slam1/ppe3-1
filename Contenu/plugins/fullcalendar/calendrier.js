@@ -240,7 +240,7 @@ $(document).ready(function() {
 
 		"?controleur=reservation&action=ajaxGetReserv",
 		function(datas) {
-			console.log(data)
+			console.log(datas)
 			$.each(datas , function(data){
 				console.log(data) ; 
 				calendrier.fullCalendar(
