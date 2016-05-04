@@ -49,6 +49,7 @@ $this->addJS =
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+    <div style="display: none" id="controleurAssocier">client</div>
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>Client</h1>

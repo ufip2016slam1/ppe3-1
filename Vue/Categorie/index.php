@@ -38,6 +38,7 @@ $this->addJS =
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+    <div style="display: none" id="controleurAssocier">categorie</div>
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>Categorie</h1>
