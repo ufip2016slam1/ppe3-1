@@ -240,22 +240,21 @@ $(document).ready(function() {
 
 		"?controleur=reservation&action=ajaxGetReserv",
 		function(data) {
-			console.log(data)
-			//for(var i = 0 ; i < data.length ; i++ ) {
-				console.log(data[0])
-				
-
-				/*calendrier.fullCalendar(
+			console.log(JSON.parse(data)) 
+			var events = JSON.parse(data) ;
+			for(var i = 0 ; i < events.length ; i++ ) {
+			
+				calendrier.fullCalendar(
 					'renderEvent',
 					{
-						title: data[i].title,
-						start: data[i].start,
-						end: data[i].end,
-						allDay: data[i].allDay  
+						title: events[i].title,
+						start: events[i].start,
+						end: events[i].end,
+						allDay: events[i].allDay  
 					},
 					true 
-				);*/
-			//}
+				);
+			}
 			
 		}
 	);
