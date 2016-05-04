@@ -20,11 +20,11 @@
        <section class="content-header">
 
 		<div id="nouvelle_reservation" title="Faire une reservation ">
-		  <p class="validation">Tous les champs </p>
+		  <p class="validation"></p>
 		 
 		  <form>
 		    <p>
-		   		reservation faite par <span class="nom"></span>
+		   		reservation faite par <span class="nom"><?= User::getById($_SESSION["id_user"]) ?></span>
 		   		<br>
 		   		Le <span class="now"><span>
 		   	</p>

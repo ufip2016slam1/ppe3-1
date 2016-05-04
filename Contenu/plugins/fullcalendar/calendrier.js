@@ -204,6 +204,7 @@ $(document).ready(function() {
 				//evenement au click sur une date
 				dayClick : function(calEvent, jsEvent, date,view) {
 					//console.log(calEvent);
+					console.log(date);
 
 				//On verifie si on est sur le l'affichage mois 
 				//Au click on ouvre la journée 
