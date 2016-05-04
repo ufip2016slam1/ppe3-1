@@ -183,6 +183,7 @@ $(document).ready(function() {
 	$.get("?controleur=reservation&action=ajaxGetReserv",
 		
 		function(data) {
+			console.log(data)
 
 			var calendrier = $('#calendrier').fullCalendar({
 				header: {
