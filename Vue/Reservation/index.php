@@ -24,7 +24,7 @@
 		 
 		  <form>
 		    <p>
-		   		reservation faite par <span class="nom"><?= User::getById($_SESSION["id_user"]) ?></span>
+		   		reservation faite par <span class="nom"><?= User::getById($_SESSION["id_user"])->getIdentifiant() ?></span>
 		   		<br>
 		   		Le <span class="now"><span>
 		   	</p>
