@@ -42,7 +42,7 @@ class ControleurReservation extends Controleur
             }
         }
 
-		$clients = Client::getAll();
+		$clients = $_SESSION['user']->getClient();
 		$pClients = array();
 
 		foreach ($clients as $client) {
@@ -65,7 +65,7 @@ class ControleurReservation extends Controleur
 	**/	
 	public function add() {	
 
-		if ($this->requete->existeParametre(array('date_dbt', 'date_fin', 'nom_salle','date_reserv'))) {
+		if ($this->requete->existeParametre(array('date_dbt', 'date_fin', 'nom_salle'))) {
 
 			$reserv = new Reservation ();
 
@@ -74,12 +74,12 @@ class ControleurReservation extends Controleur
 			var_dump((Salle::getBy('nom_salle',$this->requete->getParametre('nom_salle'))));
 			
 			$reserv->setId_salle(Salle::getBy('nom_salle',$this->requete->getParametre('nom_salle')));
-			$reserv->setDate_reserv($this->requete->getParametre('date_reserv'));
+			$reserv->setDate_reserv(date('o-m-d G:i:s'));
 			
 
 
 			$client = Client::getById(54) ; 
-			//var_dump($client) ;
+			var_dump($_SESSION) ;
 			$reserv->setId_client($client);
 			
 			
