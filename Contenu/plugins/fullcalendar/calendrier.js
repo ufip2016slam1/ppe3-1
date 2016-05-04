@@ -239,22 +239,21 @@ $(document).ready(function() {
 	$.get(
 
 		"?controleur=reservation&action=ajaxGetReserv",
-		function(datas) {
-			console.log(datas)
-			$.each(datas , function(key , data){
-				console.log(data) ; 
+		function(data) {
+		
+			for(var i = 0 ; i < data.length < i++ ) {
 				calendrier.fullCalendar(
 					'renderEvent',
 					{
-						title: data.title,
-						start: data.start,
-						end: data.end,
-						allDay: data.allDay  
+						title: data[i].title,
+						start: data[i].start,
+						end: data[i].end,
+						allDay: data[i].allDay  
 					},
 					true 
 				);
-
-			});
+			}
+			
 		}
 	);
 });
