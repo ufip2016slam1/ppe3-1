@@ -242,7 +242,12 @@ $(document).ready(function() {
 		function(data) {
 		
 			for(var i = 0 ; i < data.length ; i++ ) {
-				calendrier.fullCalendar(
+				console.log(data[i].title)
+				console.log(data[i].start)
+				console.log(data[i].end)
+				console.log(data[i].allDay)
+
+				/*calendrier.fullCalendar(
 					'renderEvent',
 					{
 						title: data[i].title,
@@ -251,7 +256,7 @@ $(document).ready(function() {
 						allDay: data[i].allDay  
 					},
 					true 
-				);
+				);*/
 			}
 			
 		}
