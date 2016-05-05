@@ -89,8 +89,9 @@ $this->addJS =
                               <table id="example2" class="table table-bordered table-hover detail">
                                   <thead>
                                       <tr>
-                                           <th>Identifiant</th>
+                                          <th>Identifiant</th>
                                           <th>Select</th>
+                                          <th>Administrateur</th>
                                       </tr>
                                   </thead>
                                   <tbody id="accordion">
@@ -102,24 +103,25 @@ $this->addJS =
                                               <td id="identifiant" name="identifiant"><?= $user['identifiant'] ?></td>
                                               <!--Select-->
                                               <td><input type="checkbox" class="index" name="<?= $user['id_user'] ?>"/></td>
+                                              <td><input type="checkbox" class="index" <!--name="--><?/*= $user['admin'] */?>"/></td>
                                           </tr>
                                           <tr>
-                                              <td colspan="2">
+                                              <td colspan="3">
                                                   <form action="<?php $this->lien('user', 'update') ?>" method="post"
                                                         class="miseAJour">
-                                                      <fieldset>
+                                                     <!-- <fieldset>
                                                           <legend>Liste des clients</legend>
                                                           <?php
-                                                          foreach ($user['clients'] as $cli) {
-                                                              ?>
+/*                                                          foreach ($user['clients'] as $cli) {
+                                                              */?>
                                                               <p>
-                                                                  <?= $cli ?>
+                                                                  <?/*= $cli */?>
                                                               </p>
 
                                                           <?php
-                                                          }
-                                                          ?>
-                                                      </fieldset>
+/*                                                          }
+                                                          */?>
+                                                      </fieldset>-->
                                                       <input type="hidden" class="id" name="id"
                                                              value="<?= $user['id_user'] ?>">
 
