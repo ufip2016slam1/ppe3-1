@@ -123,38 +123,49 @@
           </a>
         </li>
 
-        <!--NAVIClient-->
-        <li>
-          <a href=<?php $this->lien('client') ?>>
-            <i class="fa fa-users"></i> <span>Client</span>
-            <small class="label pull-right bg-yellow"></small>
-          </a>
-        </li>
+        <?php 
+        /**
+        * si admin 
+        *
+        **/
+        if( ($user['admin'] ) {
+          ?>
+       
+          <!--NAVIClient-->
+          <li>
+            <a href=<?php $this->lien('client') ?>>
+              <i class="fa fa-users"></i> <span>Client</span>
+              <small class="label pull-right bg-yellow"></small>
+            </a>
+          </li>
 
-        <!--NAVISalle-->
-        <li>
-          <a href=<?php $this->lien('salle') ?>>
-            <i class="fa fa-square-o "></i> <span>Salle</span>
-            <small class="label pull-right bg-yellow"></small>
-          </a>
-        </li>
+          <!--NAVISalle-->
+          <li>
+            <a href=<?php $this->lien('salle') ?>>
+              <i class="fa fa-square-o "></i> <span>Salle</span>
+              <small class="label pull-right bg-yellow"></small>
+            </a>
+          </li>
 
-        <!--NAVICatégorie-->
-        <li>
-          <a href=<?php $this->lien('categorie') ?>>
-            <i class="fa fa-square-o "></i> <span>Catégorie</span>
-            <small class="label pull-right bg-yellow"></small>
-          </a>
-        </li>
+          <!--NAVICatégorie-->
+          <li>
+            <a href=<?php $this->lien('categorie') ?>>
+              <i class="fa fa-square-o "></i> <span>Catégorie</span>
+              <small class="label pull-right bg-yellow"></small>
+            </a>
+          </li>
 
-        <!--NAVIUser-->
-        <li>
-          <a href=<?php $this->lien('user', 'affichage') ?> id="lien_utilisateurs" name="lien_utilisateurs">
-            <i class="fa fa-user "></i> <span>Utilisateurs</span>
-            <small class="label pull-right bg-yellow"></small>
-          </a>
-        </li>
-        <ul>
+          <!--NAVIUser-->
+          <li>
+            <a href=<?php $this->lien('user', 'affichage') ?> id="lien_utilisateurs" name="lien_utilisateurs">
+              <i class="fa fa-user "></i> <span>Utilisateurs</span>
+              <small class="label pull-right bg-yellow"></small>
+            </a>
+          </li>
+        <?php 
+        }
+        ?>
+      <ul>
     </section>
     <!-- /.sidebar -->
   </aside>
