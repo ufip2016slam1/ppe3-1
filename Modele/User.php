@@ -27,6 +27,7 @@ class User extends Modele {
 	private $identifiant;
 	private $password;
 	private $mail;
+	private $admin;
 	/**
 	 * @AssociationType client
 	 * @AssociationMultiplicity 1..*
@@ -63,6 +64,7 @@ class User extends Modele {
 			'identifiant' => $this->getIdentifiant(),
 			'password' => $this->getPassword(),
 			'mail' => $this->getMail(),
+			'admin' => '0'
 		);
 		$retour = parent::add($tab);
 
@@ -245,9 +247,13 @@ class User extends Modele {
         $this->mail = $mail;
     }
 
+	public function getAdmin()
+	{
+		return $this->admin;
+	}
 
-    // public function getDroit(){
-    //     return Appartient::getBy('id_user', $this->getId_user());
-    // }
+	public function setAdmin ($etat){
+		$this->admin = (boolean)$etat;
+	}
 }
 ?>

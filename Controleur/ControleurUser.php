@@ -178,4 +178,13 @@ class ControleurUser extends Controleur
         $this->envoiMail($info);
         echo 'OK';
     }
+
+    public function ajaxAdmin () {
+
+        if ($this->requete->existeParametre(array('id_user', 'etat'))){
+            $retour = User::update('admin', (boolean)$this->requete->getParametre('etat'), $this->requete->getParametre('id_user'));
+            echo $retour;
+            die();
+        }
+    }
 }
