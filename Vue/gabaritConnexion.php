@@ -22,6 +22,19 @@
     <![endif]-->
 </head>
 <body class="login-page">
+    
+    <div class="btn-group">
+        <button class="btn">Action</button>
+        <button class="btn dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><strong>EMAIL : </strong>admin@mail.com</li>
+            <li><strong>MOT DE PASSE : </strong>admin</li>
+        </ul>
+
+    </div>
+
     <?= $contenu ?>
     <!-- jQuery 2.1.4 -->
     <script src="Contenu/plugins/jQuery/jQuery-2.1.4.min.js"></script>
