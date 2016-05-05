@@ -62,14 +62,14 @@ $(document).ready(function() {
 		var finMinute = fin.substr(3,2) ;
 
 		//On attribut les valeurs aux champs correspondant 
-		$('.date_reserv').html(date_reserv);
+		$('.date_reserv').text(date_reserv);
 		$('#heureDebut').val(debutHeure) ;
 		$('#minuteDebut').val(debutMinute) ;
 		$('#heureFin').val(finHeure) ;
 		$('#minuteFin').val(finMinute) ;
 		//En attente de recuperer la date de la bdd
 		//Puisque c'est celle ci qui sera ajouter lors d'ajout de reservation 
-		$('.now').html(date_jour);
+		$('.now').text(date_jour);
 	}
 
 	function annulerReservation (id) {
@@ -239,6 +239,7 @@ $(document).ready(function() {
 					dialogReservation.dialog('open');
 					console.log(calEvent.id) ; 
 					$('.id_reservation').val(calEvent.id)
+					
 				},
 
 				//selectionner l'heure du renctangle bleu 
@@ -259,7 +260,7 @@ $(document).ready(function() {
 						
 					}
 					console.log("select ligne 245")
-					remplirDialog(start) ;
+					
 					dialog.dialog('open') ;
 					$('.date_reserv').text(start.format()) ;
 					$('#date_reserv').text(start.format()) ;

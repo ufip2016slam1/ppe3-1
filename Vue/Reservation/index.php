@@ -101,7 +101,7 @@
 		 
 		  reservation faite par <span class="nom"></span>
 		  <br>
-		  Le <span class="now"><span>
+		  Le <span class="now"></span>
 		    
 		  <br>
 		     
@@ -112,7 +112,7 @@
 		  heure du fin de la reservation <span id="fin_reservation"></span>
 		  <br>
 		    
-		  <input type="hidden" class="id_reservation">
+		  <input type="hidden" name="id_reservation" class="id_reservation">
 
 		 
 		</div>
