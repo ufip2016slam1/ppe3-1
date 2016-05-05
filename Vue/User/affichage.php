@@ -252,15 +252,15 @@ $this->addJS =
             if( $(this).is(":checked") ){
 
               var datas = { 
-                  id: $('.index')[$this.index()].name  ,
-                  etat: true 
+                  id_user: $('.index')[$this.index()].name  ,
+                  admin: 1 
                 }
 
              } else {
 
                 var datas = { 
-                    id: $('.index')[$this.index()].name  ,
-                    etat: false  
+                    id_user: $('.index')[$this.index()].name  ,
+                    admin: 0 
                   }
               }
 
@@ -273,8 +273,6 @@ $this->addJS =
               .done(function(){
                 console.log("ok")
               });
-
-           
 
           });
         });
