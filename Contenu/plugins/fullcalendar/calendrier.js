@@ -79,7 +79,8 @@ $(document).ready(function() {
 			data: { id_reservation : id }
 		})
 		.success(function( msg ) {
-			console.log(msg)
+			$('#calendrier').fullCalendar('removeEvents',id);
+			dialogReservation.dialog( "close" );
 		});
 
 	}
