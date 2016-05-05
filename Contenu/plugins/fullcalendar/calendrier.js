@@ -136,7 +136,8 @@ $(document).ready(function() {
 				$(this).dialog( "close" );
 			},
 			"reserver" : function(){
-				date_reserv = $('.date_reserv:first').text();
+				date_reserv = $('#date_reserv').text();
+				console.log(date_reserv) ;
 				//console.log("date_reserv"+date_reserv) ;
 
 				//On recupere la salle de la reservation
@@ -160,7 +161,8 @@ $(document).ready(function() {
 
 						//'date_reserv' : date_reserv
 					} , 
-					success : function() {
+					success : function(data) {
+						console.log(data)
 
 						//console.log('ajax ok ');
 						/**
@@ -229,6 +231,7 @@ $(document).ready(function() {
 
 					//dialogReservation.dialog('open');
 					$('.date_reserv').text(calEvent.format()) ; 
+					$('#date_reserv').text(calEvent.format()) ; 
 				} , 
 				eventClick: function(calEvent, jsEvent, view) { 
 					dialogReservation.dialog('open');
@@ -257,6 +260,7 @@ $(document).ready(function() {
 					remplirDialog(start) ;
 					dialog.dialog('open') ;
 					$('.date_reserv').text(start.format()) ;
+					$('#date_reserv').text(start.format()) ;
 					$("span.ui-dialog-title").text('Reservation pour le '+ start.format());
 
 

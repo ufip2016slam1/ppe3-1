@@ -92,6 +92,7 @@
 							
 						</div>
 					</div>
+					<span class="hidden" id="date_reserv"></span>
 				</fieldset>
 			</form>
 		</div>
