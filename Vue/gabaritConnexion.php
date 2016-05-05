@@ -24,13 +24,25 @@
 <body class="login-page">
     
     <div class="btn-group">
-        <button class="btn">Action</button>
-        <button class="btn dropdown-toggle" data-toggle="dropdown">
+        <button class="btn btn-success">Compte Administrateur </button>
+        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
             <li><strong>EMAIL : </strong>admin@mail.com</li>
             <li><strong>MOT DE PASSE : </strong>admin</li>
+        </ul>
+
+    </div>
+
+      <div class="btn-group">
+        <button class="btn btn-info">Compte Utilisateur</button>
+        <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><strong>EMAIL : </strong>user@mail.com</li>
+            <li><strong>MOT DE PASSE : </strong>user</li>
         </ul>
 
     </div>
