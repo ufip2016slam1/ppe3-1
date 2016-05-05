@@ -51,7 +51,7 @@ class Vue {
             'titre' => $this->titre,
             'contenu' => $contenu,
             'racineWeb' => $racineWeb,
-            'userAdmin' => User::getById($_SESSION['id_user'])
+            'userAdmin' => User::getById($_SESSION['id_user'])->getAdmin()
         );
         if (!is_null($this->addCSS))
             $fichierInclus['addCSS'] = $this->addCSS;
