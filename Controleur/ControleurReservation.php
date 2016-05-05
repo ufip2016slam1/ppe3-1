@@ -83,7 +83,15 @@ class ControleurReservation extends Controleur
 			$reserv->setId_client(Client::getById($this->requete->getParametre('id_client')));
 			$reserv->setId_user(User::getById($_SESSION['id_user']));
 			
-			return $reserv->add();
+			if ($reserv->add()){
+				echo $reserv->getId_reservation();
+				die();
+			}
+			else {
+				echo 'error';
+				die();
+			}
+
 		}
 		else {
 			throw new Exception("Paramètres reservation incomplets");

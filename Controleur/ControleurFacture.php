@@ -32,7 +32,9 @@ class ControleurFacture extends Controleur
         $dateDbt = new DateTime('01/'.$mois.'/'.$annee);
         $dateDbt = date_format($dateDbt, 'Y-m-d H:i:s');
         $dateFin = $annee.'-'.date('m-d',(strtotime('last day of '.$calcMois.' month'))).' 23:59:59';
-        $reserv = Reservation::getPeriodeBy($dateDbt, $dateFin, 'id_client', $PClient)
+
+        $reserv = Reservation::getPeriodeByClient('2016-05-01 00:00:00', '2016-05-31 23:59:59', 1);
+        var_dump($reserv);die();
 
         // Si récup pas l'objet, pour test, a la place de la ligne de au-dessus utilisé :
         //$reserv[] = Reservation::getById($client->getId_client());

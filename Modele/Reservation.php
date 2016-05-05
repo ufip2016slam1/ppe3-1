@@ -118,6 +118,19 @@ class Reservation extends Modele {
         $retour = self::executerRequete($sql, array(
             'dbt' => $dbt, 'fin' => $fin, 'colonne' => $col, 'valeur' => $val,
         ));
+        $sortie = array();
+        while ($sortie [] = $retour->fetchObject(strtolower(get_called_class())));
+        return $sortie;
+    }
+
+
+    public static function getPeriodeByClient($dbt, $fin, $val) {
+        $sql = 'SELECT * FROM reservation WHERE date_dbt BETWEEN :dbt AND :fin '
+            .'AND id_client = :valeur';
+        $retour = self::executerRequete($sql, array(
+            'dbt' => $dbt, 'fin' => $fin, 'valeur' => $val,
+        ));
+        $sortie = array();
         while ($sortie [] = $retour->fetchObject(strtolower(get_called_class())));
         return $sortie;
     }
