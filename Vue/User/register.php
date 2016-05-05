@@ -1,7 +1,7 @@
 <?php $this->titre = "enregistrement"?>
 <div class="register-box">
   <div class="register-logo">
-    <a href="../../index2.html"><b>SLAM</b>/PPE3</a>
+    <a href="#"><b>SLAM</b>/PPE3</a>
   </div>
 
   <div class="register-box-body">

@@ -1,7 +1,7 @@
 <?php $this->titre = 'nouveau mpd'?>
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>SLAM</b>/PPE3</a>
+    <a href="#"><b>SLAM</b>/PPE3</a>
   </div><!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">pour un nouveau mot de passe</p>
