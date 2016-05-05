@@ -182,8 +182,8 @@ class ControleurUser extends Controleur
 
     public function ajaxAdmin () {
 
-        if ($this->requete->existeParametre(array('id_user', 'etat'))){
-            $retour = User::update('admin', (boolean)$this->requete->getParametre('etat'), $this->requete->getParametre('id_user'));
+        if ($this->requete->existeParametre(array('id_user', 'admin'))){
+            $retour = User::update('admin', (boolean)$this->requete->getParametre('admin'), $this->requete->getParametre('id_user'));
             echo $retour;
             die();
         }

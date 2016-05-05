@@ -45,10 +45,18 @@ class PDFFacture extends FPDF {
         $this->ln(20);
         // ----- fin adresse du client
 
-        $i = 0;
+        $largeurCol = array(50, 30, 50, 30, 30);
+        // entete tableau
+        foreach($header as $k => $col)
+            $this->Cell($largeurCol[$k],8,$col,1,0,'C');
+        $this->Ln();
+        // ----- fin entete tableau
+
         foreach ($data as $row) {
-            $i ++;
-            $this->Cell(0,10,'Impression de la ligne numéro '.$i,0,1);
+            foreach ($row as $k => $col) {
+                $this->Cell($largeurCol[$k],8,$col,1);
+            }
+            $this->Ln();
         }
         /*$this->ln(28);
         $this->Cell($largeurTab, $hauteurTab, '', 1);
