@@ -71,6 +71,10 @@ $(document).ready(function() {
 		//Puisque c'est celle ci qui sera ajouter lors d'ajout de reservation 
 		$('.now').html(date_jour);
 	}
+
+	function annulerReservation (id) {
+
+	}
    		
 
 	/**
@@ -84,9 +88,11 @@ $(document).ready(function() {
 		modal: false,
 
 		buttons: {
-
 			'fermer': function() {
 				$(this).dialog( "close" );
+			},
+			'Annuler la reservation': function () {
+				console.log('annuler la reservartion')
 			}
 		}
 
@@ -214,16 +220,7 @@ $(document).ready(function() {
 					$('.date_reserv').text(calEvent.format()) ; 
 				} , 
 				eventClick: function(calEvent, jsEvent, view) { 
-					console.log(calEvent) ;
-					console.log('code de la reservation :'+calEvent.id)
-					console.log('reservation du :'+calEvent._start._i)
-
 					dialogReservation.dialog('open');
-					$('.date_reserv').text(calEvent.format()) ;
-					//console.log('reservation du :'+calEvent._end._i)
-					console.log("event click")
-								
-				
 				},
 
 				//selectionner l'heure du renctangle bleu 
