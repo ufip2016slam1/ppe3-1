@@ -73,7 +73,7 @@ $this->addJS =
                                     <h3 class="box-title">Creer une Facture</h3>
                                 </div>
                                 <div class="box-body">
-                                    <form action="<?php $this->lien('facture', 'genereFacture') ?>" method="post"><!--GAUTIER-->
+                                    <form action="<?php $this->lien('facture', 'genereFacture') ?>" target="_blank" method="post"><!--GAUTIER-->
 
                                         <!-- NOM -->
                                         <div class="form-group">

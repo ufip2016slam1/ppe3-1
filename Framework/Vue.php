@@ -50,8 +50,7 @@ class Vue {
         $fichierInclus = array(
             'titre' => $this->titre,
             'contenu' => $contenu,
-            'racineWeb' => $racineWeb,
-            'userAdmin' => User::getById($_SESSION['id_user'])->getAdmin()
+            'racineWeb' => $racineWeb
         );
         if (!is_null($this->addCSS))
             $fichierInclus['addCSS'] = $this->addCSS;
@@ -59,6 +58,7 @@ class Vue {
             $fichierInclus['addJS'] = $this->addJS;
         // Génération du gabarit commun utilisant la partie spécifique
         if ($_SESSION['auth'] === 1) {
+            $fichierInclus['userAdmin'] = User::getById($_SESSION['id_user'])->getAdmin();
             $vue = $this->genererFichier('Vue/gabarit3.php',$fichierInclus);
         }
         else {
