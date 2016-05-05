@@ -176,7 +176,9 @@ $(document).ready(function() {
 							title: title,
 							start: start,
 							end: end,
-							allDay: false
+							allDay: false,
+							id : data 
+
 							},
 							true // permet de "fixer" l'element sans rechargement du calendrier 
 						);
