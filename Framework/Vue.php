@@ -59,6 +59,7 @@ class Vue {
         // Génération du gabarit commun utilisant la partie spécifique
         if ($_SESSION['auth'] === 1) {
             $fichierInclus['userAdmin'] = User::getById($_SESSION['id_user'])->getAdmin();
+            $fichierInclus['username'] = User::getById($_SESSION['id_user'])->getIdentifiant();
             $vue = $this->genererFichier('Vue/gabarit3.php',$fichierInclus);
         }
         else {

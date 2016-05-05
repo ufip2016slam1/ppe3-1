@@ -39,7 +39,7 @@ $this->addJS =
 ?>
 <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
-          <div style="display: none" id="controleurAssocier">client</div>
+          <div style="display: none" id="controleurAssocier">user</div>
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
@@ -57,6 +57,77 @@ $this->addJS =
             
             <div class="box-body">
                 <div class="content">
+                    <div class="col-md-6">
+
+                        <div class="box box-danger">
+                            <div class="box-header">
+                                <h3 class="box-title">Ajouter un utilisateur</h3>
+                            </div>
+                            <div class="box-body">
+                                <form action="<?php $this->lien('user', 'register') ?>" method="post"
+                                      class="insertion"><!--GAUTIER-->
+
+                                    <!-- NOM SALLE -->
+                                    <div class="form-group">
+                                        <label>Identifiant:</label>
+
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-user"></i>
+                                            </div>
+                                            <input type="text" class="form-control champ_ajout"
+                                                   data-type="isFormatText"
+                                                   name="identifiant"/>
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                    <!-- /.form group -->
+
+                                    <!-- Dbt réservation -->
+                                    <div class="form-group">
+                                        <label>Email:</label>
+
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-clock-o"></i>
+                                            </div>
+                                            <input type="mail" class="form-control"
+                                                   data-type="isFormatText"
+                                                   name="mail"/>
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                    <!-- /.form group -->
+
+                                    <!-- Fin reservation -->
+                                    <div class="form-group">
+                                        <label>Mot de passe:</label>
+
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-clock-o"></i>
+                                            </div>
+                                            <input type="password" class="form-control"
+                                                   data-type="isFormatText"
+                                                   name="password"/>
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+                                    <!-- /.form group -->
+
+                                    <button type="submit" submit=""
+                                            class="btn btn-primary btn-block btn-flat ajouter">Ajouter
+                                    </button>
+                                </form>
+
+                                <!--FIN FORM-->
+
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+
+                    </div>
                     <div class="row"> <!--ROW PRINCIPALCONTENT-->
                     <!-- Main content -->
                         <div class="col-xs-12">
@@ -105,7 +176,7 @@ $this->addJS =
                                               <!--identifiant-->
                                               <td id="identifiant" name="identifiant"><?= $user['identifiant'] ?></td>
                                               <!--Select-->
-                                              <td><input type="checkbox" class="index" name="<?= $user['id_user'] ?>"/></td>
+                                              <td><input type="checkbox" class="index" name="<?= $user['id_user'] ?>" value="<?= $user['id_user'] ?>"/></td>
                                               <td><input class="admin" type="checkbox" class="index" <?php if($user['admin']) echo "checked" ?> <!--name="--><?/*= $user['admin'] */?>"/></td>
                                           </tr>
                                           <tr>
