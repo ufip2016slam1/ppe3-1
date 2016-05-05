@@ -110,7 +110,9 @@
 		  <br>
 		  heure du fin de la reservation <span id="fin_reservation"></span>
 		  <br>
-		      
+		    
+		  <input type="hidden" class="id_reservation">
+
 		 
 		</div>
 

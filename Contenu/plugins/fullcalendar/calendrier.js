@@ -73,6 +73,14 @@ $(document).ready(function() {
 	}
 
 	function annulerReservation (id) {
+		$.ajax({
+			method: "POST",
+			url: "?controleur=reservation&action=delete",
+			data: id
+		})
+		.done(function( msg ) {
+			alert( "Data Saved: " + msg );
+		});
 
 	}
    		
@@ -93,6 +101,8 @@ $(document).ready(function() {
 			},
 			'Annuler la reservation': function () {
 				console.log('annuler la reservartion')
+				console.log($('.id_reservation').val() ) ; 
+				annulerReservation($('.id_reservation').val()) ; 
 			}
 		}
 
@@ -221,6 +231,8 @@ $(document).ready(function() {
 				} , 
 				eventClick: function(calEvent, jsEvent, view) { 
 					dialogReservation.dialog('open');
+					console.log(calEvent.id) ; 
+					$('.id_reservation').val(calEvent.id)
 				},
 
 				//selectionner l'heure du renctangle bleu 
@@ -244,7 +256,8 @@ $(document).ready(function() {
 					remplirDialog(start) ;
 					dialog.dialog('open') ;
 					$('.date_reserv').text(start.format()) ;
-					$("span.ui-dialog-title").text('Reservation pour le '+ start.format()); 
+					$("span.ui-dialog-title").text('Reservation pour le '+ start.format());
+
 
 					
 
