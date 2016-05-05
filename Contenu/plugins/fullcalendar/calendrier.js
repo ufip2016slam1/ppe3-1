@@ -211,7 +211,7 @@ $(document).ready(function() {
 				//sinon rien 
 
 					//dialogReservation.dialog('open');
-					$('.date_reserv').html(calEvent.format()) ; 
+					$('.date_reserv').text(calEvent.format()) ; 
 				} , 
 				eventClick: function(calEvent, jsEvent, view) { 
 					console.log(calEvent) ;
@@ -219,7 +219,6 @@ $(document).ready(function() {
 					console.log('reservation du :'+calEvent._start._i)
 
 					dialogReservation.dialog('open');
-					$('.date_reserv').html(calEvent.format()) ;
 					//console.log('reservation du :'+calEvent._end._i)
 					console.log("event click")
 								
@@ -229,6 +228,7 @@ $(document).ready(function() {
 				//selectionner l'heure du renctangle bleu 
 				select: function(start){ 
 					console.log(start.format()) ;
+					
 
 					/*
 					*	jour = start._i[2] ; 
@@ -245,9 +245,10 @@ $(document).ready(function() {
 					console.log("select ligne 245")
 					remplirDialog(start) ;
 					dialog.dialog('open') ;
-					//$('.date_reserv').html(calEvent.format()) ;
+					$('.date_reserv').text(start.format()) ;
 
-			
+					
+
 				}
 			}); 
 			
