@@ -247,6 +247,7 @@ $(document).ready(function() {
 					remplirDialog(start) ;
 					dialog.dialog('open') ;
 					$('.date_reserv').text(start.format()) ;
+					$("span.ui-dialog-title").text('Reservation pour le '+ start.format()); 
 
 					
 
