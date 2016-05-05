@@ -19,6 +19,7 @@ class PDFFacture extends FPDF {
         $this->SetFont('Arial','',12);
         // adresse MLL
         $this->MultiCell(80,8,$adresseMLL,0, 'C');
+        $this->ln(20);
     }
 
     // Pied de page
@@ -37,26 +38,25 @@ class PDFFacture extends FPDF {
     // @param array $data Les données
     function Body($header, $data, $objetClient)
     {
+        // adresse du client
         $adresseCLient = utf8_decode($objetClient->getNom()."\n".$objetClient->getAdresse()."\n ".$objetClient->getCodePostal()." ".$objetClient->getVille());
-        $nbData = count($data);
-        $nbHeader = count($header);
-        $hauteurTab = 120; // maximum 180
-        $largeurTab = 190;
-        $largeur = $largeurTab/$nbHeader;
-        $hauteur = 6;
-        $nb = 0;
-        $total = 0;
 
-        $this->ln(20);
         $this->MultiCell(0, 8, $adresseCLient,0,'C');
+        $this->ln(20);
+        // ----- fin adresse du client
 
-        $this->ln(28);
+        $i = 0;
+        foreach ($data as $row) {
+            $i ++;
+            $this->Cell(0,10,'Impression de la ligne numéro '.$i,0,1);
+        }
+        /*$this->ln(28);
         $this->Cell($largeurTab, $hauteurTab, '', 1);
         $this->ln(-8);
 
         $this->SetFont('helvetica','',12);
-        $this->SetTextColor(216, 31, 42);
-        // En-tête du tableau
+        $this->SetTextColor(216, 31, 42);*/
+        /*// En-tête du tableau
         foreach($header as $col)
             $this->Cell($largeur,8,$col,1,0,'C');
         $this->Ln();
@@ -107,7 +107,7 @@ class PDFFacture extends FPDF {
         $total = mb_convert_encoding($total.'€', 'cp1252');
         $this->SetXY($this->GetX()+(count($header)-2)*$largeur, $this->GetY()+$hauteurTab-($hauteur*$nb));
         $this->Cell((count($header)-4)*$largeur,$hauteur,'Total du mois',1,0,'C');
-        $this->Cell($largeur,$hauteur,$total,1);
+        $this->Cell($largeur,$hauteur,$total,1);*/
     }
 }
 

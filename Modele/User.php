@@ -64,7 +64,7 @@ class User extends Modele {
 			'identifiant' => $this->getIdentifiant(),
 			'password' => $this->getPassword(),
 			'mail' => $this->getMail(),
-			'admin' => '0'
+			'admin' => False
 		);
 		$retour = parent::add($tab);
 

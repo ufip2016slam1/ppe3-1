@@ -153,6 +153,7 @@ class ControleurUser extends Controleur
                 }
 
                 $tabUser[] = array(
+                    'admin' => $user->getAdmin(),
                     'identifiant' => $user->getIdentifiant(),
                     'id_user' => $user->getId_user(),
                     'clients' => $tabClient
