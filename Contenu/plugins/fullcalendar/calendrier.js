@@ -75,8 +75,8 @@ $(document).ready(function() {
 	function annulerReservation (id) {
 		$.ajax({
 			method: "POST",
-			url: "?controleur=reservation&action=delete",
-			data: { "id" : id } 
+			url: "?controleur=reservation&action=annulerResevation",
+			data: { id_reservation : id }
 		})
 		.success(function( msg ) {
 			console.log(msg)

@@ -16,15 +16,24 @@ class ControleurFacture extends Controleur
     public static $champsModifiable = array();
 
     public function index() {
-        echo ('appel de la fonction index du ControleurCategorie');
+        echo ('appel de la fonction index du ControleurFacture');
     }
 
-    public function genereFacture($mois, $annee, $PClient) {
-        $client = Client::getBy('nom', $PClient);
+    public function genereFacture(/*$mois, $annee, $PClient*/) {
+        /* init des variables pour test */
+        $mois = 5;
+        $annee = 2016;
+        $PClient = 1;
+        /* ----------- fin init variables */
+
+        $client = Client::getById($PClient);
         $calcMois = $mois - date('m');
-        $dateDbt = $annee.'-'.$mois.'-01 00:00:00';
+        /*$dateDbt = $annee.'-'.$mois.'-01 00:00:00';*/
+        $dateDbt = new DateTime('01/'.$mois.'/'.$annee);
+        $dateDbt = date_format($dateDbt, 'Y-m-d H:i:s');
         $dateFin = $annee.'-'.date('m-d',(strtotime('last day of '.$calcMois.' month'))).' 23:59:59';
-        $reserv = Reservation::getPeriodeBy($dateDbt, $dateFin, 'id_client', $client->getId_client());
+        $reserv = Reservation::getPeriodeBy($dateDbt, $dateFin, 'id_client', $PClient)
+
         // Si récup pas l'objet, pour test, a la place de la ligne de au-dessus utilisé :
         //$reserv[] = Reservation::getById($client->getId_client());
         foreach($reserv as $value) {
