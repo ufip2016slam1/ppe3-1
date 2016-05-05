@@ -83,8 +83,8 @@ class ControleurReservation extends Controleur
 			$reserv->setId_client(Client::getById($this->requete->getParametre('id_client')));
 			$reserv->setId_user(User::getById($_SESSION['id_user']));
 			
-			if ($reserv->add()){
-				echo $reserv->getId_reservation();
+			if ($retour = $reserv->add()){
+				echo $retour->getId_reservation();
 				die();
 			}
 			else {

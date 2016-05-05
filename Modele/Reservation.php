@@ -89,8 +89,9 @@ class Reservation extends Modele {
             'id_client' => $this->getId_client(),
 		);
 		$retour = parent::add($tab);
-        
-		return $retour;
+        if ($retour)
+            return self::getBy('date_reserv', $this->getDate_reserv());
+        return false;
 	}
     
 
