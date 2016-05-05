@@ -19,55 +19,81 @@
        <!-- Content Header (Page header) -->
        <section class="content-header">
 
-		<div id="nouvelle_reservation" title="Faire une reservation ">
+		<div id="nouvelle_reservation" title="Reservation pour le <span class='date_reserv'>">
 		  <p class="validation"></p>
-		 
-		  <form>
-		    <p>
-		   		reservation faite par <span class="nom"><?= User::getById($_SESSION["id_user"])->getIdentifiant() ?></span>
-		   		<br>
-		   		Le <span class="now"><span>
-		   	</p>
-		      <br>
-		      <label for="title">Quelle Salle Souhaitez vous reserver : </label><br />
-		       <select name="title" id="title">
-		       	<?php
-                    foreach ($salles as $salle) { ?>
-						<option value="<?= $salle['nom_salle'] ?>"><?= $salle['nom_salle'] ?></option>
-						<?php
-                     }
-                ?>
-      
-		       </select>
-		       <br>
-		       <label for="ligue">Pour quelle ligue souhaitez vous reverver : </label><br />
-		       <select name="ligue" id="ligue">
-		       	<?php
-					if($clients)
-						foreach ($clients as $client) { ?>
-							<option value="<?= $client['id'] ?>"><?= $client['nom'] ?></option>
-							<?php
-						 }
-                ?>
-      
-		       </select>
-		      <br>
-		      
-		      date de la reservation : <span class="date_reserv" style="text-decoration:underline"></span>
-		      <br>
-		      heure du debut de la reservation 
-		      <br>
-		      <input type="numeric" name="heureDebut" id="heureDebut" width="10px" size="2">:
-		      <input type="numeric" name="minuteDebut" id="minuteDebut" width="10px" size="2">
-		      <br>
-		      heure du fin de la reservation 
-		      <br>
-		      <input type="numeric" name="heureFin" id="heureFin" width="10px" size="2">:
-		      <input type="numeric" name="minuteFin" id="minuteFin" width="10px" size="2">
 
-		      
-		    </fieldset>
-		  </form>
+
+			<form class="form-horizontal" class="">
+				<fieldset>
+
+				<!-- Form Name -->
+					<legend><span>
+						reservation faite par <span class='nom'><?= User::getById($_SESSION['id_user'])->getIdentifiant() ?></span>
+					</legend>
+					<div class="text-center"> 
+						<!-- Select Basic -->
+						<div class="form-group">
+							<label class="control-label" for="selectbasic">Salle a réserver  : </label>
+							<div class="">
+								<select id="title" name="title" class="form-control">
+									<?php
+			                    foreach ($salles as $salle) { ?>
+									<option value="<?= $salle['nom_salle'] ?>"><?= $salle['nom_salle'] ?></option>
+									<?php
+			                     }
+			                ?>
+								</select>
+							</div>
+						</div>
+
+						<!-- Select Basic -->
+						<div class="form-group">
+							<label class="control-label" for="selectbasic">Ligue concernée :</label>
+							<div class="">
+								<select id="ligue" name="ligue" class="form-control">
+										<?php
+								if($clients)
+									foreach ($clients as $client) { ?>
+										<option value="<?= $client['id'] ?>"><?= $client['nom'] ?></option>
+										<?php
+									 }
+			                ?>
+								</select>
+							</div>
+						</div>
+
+						<!-- Text input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="textinput">De </label>  
+							<div class="col-md-2">
+								<input type="numeric" id="heureDebut" name="heureDebut" placeholder="HH" class="form-control input-md">
+								<span class="help-block">HH</span>
+							</div>
+							<label class="col-md-1 control-label" for="textinput">:</label>  
+							<div class="col-md-2">
+								<input type="numeric"  id="minuteDebut" name="minuteDebut" placeholder="" class="form-control input-md">
+								<span class="help-block">mm</span>  
+							</div>
+							
+						</div>
+
+						<!-- Text input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="textinput">A </label>  
+							<div class="col-md-2">
+								<input type="numeric" id="heureFin" name="heureFin" placeholder="HH" class="form-control input-md">
+								<span class="help-block">HH</span>
+							</div>
+							<label class="col-md-1 control-label" for="textinput">:</label>  
+							<div class="col-md-2">
+								<input type="numeric"  id="minuteFin" name="minuteFin" placeholder="" class="form-control input-md">
+								<span class="help-block">mm</span>  
+							</div>
+							
+						</div>
+					</div>
+				</fieldset>
+			</form>
 		</div>
 
 		<div id="reservation" title="Votre reservation ">

@@ -219,6 +219,7 @@ $(document).ready(function() {
 					console.log('reservation du :'+calEvent._start._i)
 
 					dialogReservation.dialog('open');
+					$('.date_reserv').text(calEvent.format()) ;
 					//console.log('reservation du :'+calEvent._end._i)
 					console.log("event click")
 								
