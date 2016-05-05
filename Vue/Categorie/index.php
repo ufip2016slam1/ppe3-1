@@ -186,7 +186,7 @@ $this->addJS =
 
                                                     <!--Select-->
                                                     <td><input type="checkbox" class="index"
-                                                               name="<?= $categorie['id'] ?>"/></td>
+                                                               name="<?= $categorie['id'] ?>" value="<?= $categorie['id'] ?>"/></td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="5">

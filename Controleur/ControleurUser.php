@@ -31,9 +31,10 @@ class ControleurUser extends Controleur
 	* sinon exception
 	**/	
 	public function register() {
-		if ($this->requete->existeParametre(array('identifiant', 'mail'))) {
+		if ($this->requete->existeParametre(array('identifiant', 'mail', 'password'))) {
             $identifiant = $this->requete->getParametre('identifiant');
             $mail = $this->requete->getParametre('mail');
+            $password = sha1($this->requete->getParametre('password'));
 
             if ($this->verifierExisteUser($identifiant, $mail)) {
                 var_dump('identifiant ou mail deja existant');
@@ -43,15 +44,12 @@ class ControleurUser extends Controleur
                 $user = new User ();
                 $user->setIdentifiant($identifiant);
                 $user->setMail($mail);
-                $user->setPassword(sha1($pass = $this->genererMdp(10)));
+                $user->setPassword($password);
                 $user->add();
 
                 /*mail($this->requete->getParametre('mail'),'inscription MLL', "identifiant : ".
                     $this->requete->getParametre('identifiant')."<br />".
                     "mot de passe : ".$pass);*/
-
-                header('location:index.php');
-                exit;
             }
 		}
 		else {
