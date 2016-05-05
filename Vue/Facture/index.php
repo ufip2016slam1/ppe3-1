@@ -70,11 +70,10 @@ $this->addJS =
 
                             <div class="box box-danger">
                                 <div class="box-header">
-                                    <h3 class="box-title">Creer une Facturation</h3>
+                                    <h3 class="box-title">Creer une Facture</h3>
                                 </div>
                                 <div class="box-body">
-                                    <form action="<?php $this->lien('facturation', 'genereFacture') ?>" method="post"
-                                          class="insertion"><!--GAUTIER-->
+                                    <form action="<?php $this->lien('facture', 'genereFacture') ?>" method="post"><!--GAUTIER-->
 
                                         <!-- NOM -->
                                         <div class="form-group">
@@ -83,14 +82,14 @@ $this->addJS =
                                                         <div class="input-group-addon">
                                                             <i class="fa fa-navicon"></i>
                                                         </div><!--MENU DEROULANT-->
-                                                        <select class="form-control champ_ajout" name="client">
+                                                        <select class="form-control" data-type="isFormatText" name="client">
                                                             <?php
                                                             $i = 0 ;
-                                                            foreach ($lients as $client){
+                                                            foreach ($clients as $client){
 
                                                                 $i++ ; 
                                                                 ?>
-                                                                <option value="<?= $client ?>"<?php if($i==1) echo 'selected'?> ><?= $client ?></option>
+                                                                <option value="<?= $client['id'] ?>"<?php if($i==1) echo 'selected'?> ><?= $client['nom'] ?></option>
                                                             <?php
                                                             }
                                                             ?>
@@ -111,19 +110,18 @@ $this->addJS =
                                                 
                                                 <div class="row">
                                                 	<div class="col-md-2">
-                                                        	<input class="champ_ajout form-control " 
+                                                        	<input class= form-control "
                                                         	data-type="isFormat2Nb"
                                                         	placeholder="mm"
                                                            	type="text" 
-                                                           	name="date_fact_mois"/>
-                                                               
+                                                           	name="mois"/>
                                                        </div>
                                                       
                                                        <div class="col-md-3">
-                                                             <input class="champ_ajout form-control " 
+                                                             <input class= form-control " data-type="isFormatText"
                                                            	type="text" 
                                                            	placeholder="aaaa"
-                                                           	name="date_fact_annee"/>
+                                                           	name="annee"/>
                                                        </div>
                                                   </div>             	
                                             </div>
@@ -131,7 +129,7 @@ $this->addJS =
                                         </div>
                                         <!-- /.form group -->
                                         <button type="submit" submit="return false;"
-                                                class="btn btn-primary btn-block btn-flat ajouter">Recevoir
+                                                class="btn btn-primary btn-block btn-flat">Imprimer
                                         </button>
                                     </form>
                                     <!--FIN FORM-->

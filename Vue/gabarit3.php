@@ -115,6 +115,14 @@
           </a>
         </li>
 
+        <!--NAVIFacture-->
+        <li>
+          <a href=<?php $this->lien('facture') ?>>
+            <i class="fa fa-user "></i> <span>Facturation</span>
+            <small class="label pull-right bg-yellow"></small>
+          </a>
+        </li>
+
         <!--NAVIClient-->
         <li>
           <a href=<?php $this->lien('client') ?>>

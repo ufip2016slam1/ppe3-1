@@ -16,14 +16,36 @@ class ControleurFacture extends Controleur
     public static $champsModifiable = array();
 
     public function index() {
-        echo ('appel de la fonction index du ControleurFacture');
+
+        $userConnecte = User::getById($_SESSION['id_user']);
+        $clients = $userConnecte->getClient();
+
+        $pClients = array();
+
+        if(is_array($clients))
+            foreach ($clients as $client) {
+                if ($client != false){
+                    $pClients[] = array(
+                        'id' => $client->getId_client(),
+                        'nom' => $client->getNom()
+                    );
+                }
+            }
+        elseif (!empty($clients))
+            $pClients[] = array(
+                'id' => $clients->getId_client(),
+                'nom' => $clients->getNom());
+
+        $this->genererVue(array('clients' => $pClients));
     }
 
-    public function genereFacture(/*$mois, $annee, $PClient*/) {
-        /* init des variables pour test */
-        $mois = 5;
-        $annee = 2016;
-        $PClient = 1;
+    public function genereFacture() {
+        if(!$this->requete->existeParametre(array('mois', 'annee', 'client')))
+            return false;
+        /* init des variables */
+        $mois = $this->requete->getParametre('mois');
+        $annee = $this->requete->getParametre('annee');
+        $PClient = $this->requete->getParametre('client');
         /* ----------- fin init variables */
 
         $client = Client::getById($PClient);
