@@ -76,10 +76,10 @@ $(document).ready(function() {
 		$.ajax({
 			method: "POST",
 			url: "?controleur=reservation&action=delete",
-			data: id
+			data: { "id" : id } 
 		})
-		.done(function( msg ) {
-			alert( "Data Saved: " + msg );
+		.success(function( msg ) {
+			console.log(msg)
 		});
 
 	}
