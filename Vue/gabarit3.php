@@ -128,7 +128,7 @@
         * si admin 
         *
         **/
-        if( ($user['admin'] ) {
+        if( $user['admin'] ) {
           ?>
        
           <!--NAVIClient-->
