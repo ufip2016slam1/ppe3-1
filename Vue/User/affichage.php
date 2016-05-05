@@ -30,6 +30,8 @@ $this->addJS =
                 data: formulaire.serialize(),
                 success: function(data){alert(data);}
             });
+           
+
           });
 
         </script>
@@ -104,7 +106,7 @@ $this->addJS =
                                               <td id="identifiant" name="identifiant"><?= $user['identifiant'] ?></td>
                                               <!--Select-->
                                               <td><input type="checkbox" class="index" name="<?= $user['id_user'] ?>"/></td>
-                                              <td><input class="admin" type="checkbox" class="index" <!--name="--><?/*= $user['admin'] */?>"/></td>
+                                              <td><input class="admin" type="checkbox" class="index" <?php if($user['admin']) echo "checked" ?> <!--name="--><?/*= $user['admin'] */?>"/></td>
                                           </tr>
                                           <tr>
                                               <td colspan="3">
@@ -242,13 +244,37 @@ $this->addJS =
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
       <script>
-        $( document ).ready(function() { 
-          $('.admin').on("click" , function(){
+        $( document ).ready(function() {
+          $('.admin').on('click', function(){
+           $this = $(this) ; 
+            if( $(this).is(":checked") ){
 
-            if($(this).checked){
-              var id = $('index')[$(this).index()].attr('name') ; 
-            }
+              var datas = { 
+                  id: $('.index')[$this.index()].name  ,
+                  etat: true 
+                }
+
+             } else {
+
+                var datas = { 
+                    id: $('.index')[$this.index()].name  ,
+                    etat: false  
+                  }
+              }
+
+              $.ajax({
+
+                method: "POST",
+                url: "?controleur=user&action=ajaxAdmin",
+                data: datas
+              })
+              .done(function(){
+                console.log("ok")
+              });
+
+           
 
           });
         });
