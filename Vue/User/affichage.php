@@ -31,6 +31,7 @@ $this->addJS =
                 success: function(data){alert(data);}
             });
           });
+
         </script>
         "
 ?>
@@ -103,7 +104,7 @@ $this->addJS =
                                               <td id="identifiant" name="identifiant"><?= $user['identifiant'] ?></td>
                                               <!--Select-->
                                               <td><input type="checkbox" class="index" name="<?= $user['id_user'] ?>"/></td>
-                                              <td><input type="checkbox" class="index" <!--name="--><?/*= $user['admin'] */?>"/></td>
+                                              <td><input class="admin" type="checkbox" class="index" <!--name="--><?/*= $user['admin'] */?>"/></td>
                                           </tr>
                                           <tr>
                                               <td colspan="3">
@@ -240,3 +241,15 @@ $this->addJS =
 
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
+
+      <script>
+        $( document ).ready(function() { 
+          $('.admin').on("click" , function(){
+
+            if($(this).checked){
+              var id = $('index')[$(this).index()].attr('name') ; 
+            }
+
+          });
+        });
+      </script>
