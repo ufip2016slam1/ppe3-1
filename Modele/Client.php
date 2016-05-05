@@ -216,12 +216,16 @@ class Client extends Modele {
      * @param string $val Valeur de recherche
      * @param int $droit Le droit avec le user
      */
-    public function addUser($col, $val, $droit) {
-        $user = User::getBy($col, $val);
+    public function addUser($val) {
+        $user = User::getById($val);
+
+		$existe = Appartient::getDroitBy($val, $this->id_client);
+		if($existe)
+			return;
         $appart = new Appartient();
         $appart->setId_client($this->getId_client());
         $appart->setId_user($user->getId_user());
-        $appart->setDroit($droit);
+        $appart->setDroit(1);
         $appart->add();
         $this->user[] = $user;
     }

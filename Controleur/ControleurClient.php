@@ -163,9 +163,10 @@ class ControleurClient extends Controleur
         }
 
         $params = $this->requete->getAllParametre();
+
         foreach ($params as $k => $param){
-            if (preg_match('/user/', $k))
-                $client->addUser('identifiant', $param, 1);
+            if (preg_match('/^user/', $k))
+                $client->addUser((int)substr($k, 4));
         }
         echo 'OK';
     }

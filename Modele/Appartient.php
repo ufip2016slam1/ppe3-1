@@ -70,9 +70,9 @@ class Appartient extends Modele {
 	**/
 
 	public static function getDroitBy($PUser, $PClient) {
-		$sql = 'SELECT droit FROM '.strtolower(get_called_class()).' WHERE id_user = :user AND id_client = :client';
+		$sql = 'SELECT droit FROM '.strtolower(get_called_class()).' WHERE id_user = :utilisateur AND id_client = :client';
         $retour = self::executerRequete($sql, array(
-            'user' => $PUser, 'client' => $PClient,
+            'utilisateur' => $PUser, 'client' => $PClient,
         ));
         $result = $retour->fetch(PDO::FETCH_ASSOC);
         return $result;
