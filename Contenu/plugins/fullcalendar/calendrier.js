@@ -115,7 +115,7 @@ $(document).ready(function() {
 		modal: false,
 		open : function(){
 			//fonction a l'ouverture de la boite dialog
-			open: remplirDialog() ; 
+			open: remplirDialog() ;
 		},
 	
 
@@ -138,6 +138,12 @@ $(document).ready(function() {
 			"reserver" : function(){
 				date_reserv = $('#date_reserv').text();
 				console.log(date_reserv) ;
+				//si la reservation est faite depuis la vue semaine ou la vu jour on coupe la chaine
+				if(date_reserv.length > 10)
+					date_reserv = date_reserv.substring(0,10)
+
+				console.log(date_reserv.length) ;
+
 				//console.log("date_reserv"+date_reserv) ;
 
 				//On recupere la salle de la reservation
@@ -200,10 +206,6 @@ $(document).ready(function() {
 	var test ;
 	//on transforme notre simple div en calendrier
 
-	
-
-
-
 	$.get(
 
 		"?controleur=reservation&action=ajaxGetReserv",
@@ -245,6 +247,8 @@ $(document).ready(function() {
 				//selectionner l'heure du renctangle bleu 
 				select: function(start){ 
 					console.log(start.format()) ;
+					console.log(start._i)
+
 					
 
 					/*
@@ -255,8 +259,9 @@ $(document).ready(function() {
 					*	On concatene 
 					*	date_reserv = AAAA-MM-JJ
 					**/
-					if(start._i){
-						date_reserv = start._i[0]+'-'+(start._i[1]+1)+'-'+start._i[2] ;
+					if(start.format() ){
+						
+						console.log(date_reserv)
 						
 					}
 					console.log("select ligne 245")
